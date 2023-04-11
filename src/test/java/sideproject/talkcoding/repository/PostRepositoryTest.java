@@ -27,9 +27,6 @@ public class PostRepositoryTest {
     // }
 
     // 게시글 저장
-
-    // 깃허브 세팅 주석
-    // 하나더 깃허브 오류 때문에
     @Test
     @Transactional
     void savePost() {

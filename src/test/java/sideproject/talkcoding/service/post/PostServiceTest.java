@@ -81,6 +81,7 @@ public class PostServiceTest {
         postService.save(post1);
         postService.save(post2);   
 
+        //List<PostEntity> list = postService.readAll();
         List<PostEntity> list = postRepository.findAll();
 
         //then

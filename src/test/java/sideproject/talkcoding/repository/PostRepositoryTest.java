@@ -1,21 +1,18 @@
 package sideproject.talkcoding.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.isNull;
 
 import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import sideproject.talkcoding.model.dto.post.PostDto;
 import sideproject.talkcoding.model.entity.post.PostEntity;
-import sideproject.talkcoding.service.post.PostService;
 
 @SpringBootTest
 public class PostRepositoryTest {
@@ -23,8 +20,6 @@ public class PostRepositoryTest {
     @Autowired
     private PostRepository postRepository;
 
-    @Autowired
-    private PostService postService;
     
     // @Test
     // void 레파지토리isNotNull(){
@@ -93,9 +88,6 @@ public class PostRepositoryTest {
 
         //then
         assertThat(list.size()).isEqualTo(2);
-
-
-
     }
 
     // 게시글 상세보기 읽기
@@ -160,7 +152,8 @@ public class PostRepositoryTest {
         dtoPost.setPostDong(post1.getPostDong());
         dtoPost.setPostLanguage(post1.getPostLanguage());
 
-        PostEntity postEntity =dtoPost.toEntity();
+        // PostEntity postEntity =dtoPost.toEntity();
+        
         //then
     }
 

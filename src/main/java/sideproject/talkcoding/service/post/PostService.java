@@ -1,5 +1,6 @@
 package sideproject.talkcoding.service.post;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,13 @@ public class PostService {
 
         return post;
 	}
+
+    // 게시글 리스트 가져오기
+    public List<PostEntity> readAll(){
+        List<PostEntity> list = postRepository.findAll();
+
+        return list;
+    }
 
 	public void delete(Long postId) {
         postRepository.deleteById(postId);

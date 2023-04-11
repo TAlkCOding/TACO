@@ -24,6 +24,6 @@ public class PageController {
 
         //게시글 최신순으로 정렬
 
-        return null;
+        return "main";
     }
 }

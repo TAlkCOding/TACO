@@ -1,25 +1,22 @@
-package sideproject.talkcoding.repository;
+package sideproject.talkcoding.service.post;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.isNull;
 
 import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import sideproject.talkcoding.model.dto.post.PostDto;
 import sideproject.talkcoding.model.entity.post.PostEntity;
-import sideproject.talkcoding.service.post.PostService;
+import sideproject.talkcoding.repository.PostRepository;
 
 @SpringBootTest
-public class PostRepositoryTest {
-
+public class PostServiceTest {
     @Autowired
     private PostRepository postRepository;
 
@@ -36,26 +33,26 @@ public class PostRepositoryTest {
     @Transactional
     void savePost() {
         //when
-        PostEntity post = PostEntity.builder()
+        PostDto post = PostDto.builder()
                 .title("first title")
                 .description("first description")
                 .postDong("상현동")
                 .postSido("용인시")
                 .postGugun("수지구")
-                .postLanguage("java")
                 .build();
               
         //given
-        PostEntity result = postRepository.save(post);
+        PostEntity result = postService.save(post);
+
+        Optional<PostEntity> expect = postRepository.findById(1L);
         
         //then
-        assertThat(post.getId()).isEqualTo(result.getId());
+        assertThat(expect.get().getId()).isEqualTo(result.getId());
         assertThat(post.getTitle()).isEqualTo(result.getTitle());
         assertThat(post.getDescription()).isEqualTo(result.getDescription());
         assertThat(post.getPostSido()).isEqualTo(result.getPostSido());
         assertThat(post.getPostGugun()).isEqualTo(result.getPostGugun());
         assertThat(post.getPostDong()).isEqualTo(result.getPostDong());
-        assertThat(post.getPostLanguage()).isEqualTo(result.getPostLanguage());
 
     }
 
@@ -64,27 +61,25 @@ public class PostRepositoryTest {
     @Transactional
     void postList(){
         //when
-        PostEntity post1= PostEntity.builder()
+        PostDto post1= PostDto.builder()
         .title("first title")
         .description("first description")
         .postSido("용인시")
         .postGugun("수지구")
         .postDong("상현동")
-        .postLanguage("java")
         .build();
 
-        PostEntity post2 = PostEntity.builder()
+        PostDto post2 = PostDto.builder()
         .title("second title")
         .description("second description")
         .postSido("서울특별시")
         .postGugun("강남구")
         .postDong("서초동")
-        .postLanguage("java")
         .build();
 
         //given
-        postRepository.save(post1);
-        postRepository.save(post2);
+        postService.save(post1);
+        postService.save(post2);   
 
         List<PostEntity> list = postRepository.findAll();
 
@@ -100,18 +95,17 @@ public class PostRepositoryTest {
     @Transactional
     void findPost() {
         //when
-        PostEntity post = PostEntity.builder()
+        PostDto post = PostDto.builder()
         .title("first title")
         .description("first description")
         .postSido("용인시")
         .postGugun("수지구")
         .postDong("상현동")
-        .postLanguage("java")
         .build();
 
         //given
-        postRepository.save(post);
-        Optional<PostEntity> result = postRepository.findById(1L);
+        postService.save(post);
+        Optional<PostEntity> result = postService.read(1L);
 
         //then
         assertThat(post.getTitle()).isEqualTo(result.get().getTitle());
@@ -119,47 +113,9 @@ public class PostRepositoryTest {
         assertThat(post.getPostSido()).isEqualTo(result.get().getPostSido());
         assertThat(post.getPostGugun()).isEqualTo(result.get().getPostGugun());
         assertThat(post.getPostDong()).isEqualTo(result.get().getPostDong());
-        assertThat(post.getPostLanguage()).isEqualTo(result.get().getPostLanguage());
     }
 
     // 게시글 수정
-    @Test
-    @Transactional
-    void updatePost() {
-        //when
-        PostEntity post = PostEntity.builder()
-        .title("first title")
-        .description("first description")
-        .postSido("용인시")
-        .postGugun("수지구")
-        .postDong("상현동")
-        .postLanguage("java")
-        .build();
-
-        PostEntity entityPost = postRepository.save(post);
-        //given
-
-        PostEntity post1 = PostEntity.builder()
-        .title("edit title")
-        .description("first description")
-        .postSido("용인시")
-        .postGugun("수지구")
-        .postDong("상현동")
-        .postLanguage("java")
-        .build();
-
-        PostDto dtoPost = entityPost.toDto();
-
-        dtoPost.setTitle(post1.getTitle());
-        dtoPost.setDescription(post1.getDescription());
-        dtoPost.setPostSido(post1.getPostSido());
-        dtoPost.setPostGugun(post1.getPostGugun());
-        dtoPost.setPostDong(post1.getPostDong());
-        dtoPost.setPostLanguage(post1.getPostLanguage());
-
-        PostEntity postEntity =dtoPost.toEntity();
-        //then
-    }
 
 
     // 게시글 삭제
@@ -167,17 +123,16 @@ public class PostRepositoryTest {
     @Transactional
     void deletePost() {
         //when
-        PostEntity post = PostEntity.builder()
+        PostDto post = PostDto.builder()
         .title("first title")
         .description("first description")
         .postSido("용인시")
         .postGugun("수지구")
         .postDong("상현동")
-        .postLanguage("java")
         .build();
 
         //given
-        postRepository.save(post);
+        postService.save(post);
         postRepository.deleteById(1L);
 
         //then

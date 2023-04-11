@@ -13,13 +13,18 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import sideproject.talkcoding.model.dto.post.PostDto;
 import sideproject.talkcoding.model.entity.post.PostEntity;
+import sideproject.talkcoding.service.post.PostService;
 
 @SpringBootTest
 public class PostRepositoryTest {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private PostService postService;
     
     // @Test
     // void 레파지토리isNotNull(){
@@ -31,7 +36,7 @@ public class PostRepositoryTest {
     @Transactional
     void savePost() {
         //when
-        PostEntity post = PostEntity.builder()
+        PostDto post = PostDto.builder()
                 .title("first title")
                 .description("first description")
                 .postDong("상현동")
@@ -40,10 +45,12 @@ public class PostRepositoryTest {
                 .build();
               
         //given
-        PostEntity result = postRepository.save(post);
+        PostEntity result = postService.save(post);
 
+        Optional<PostEntity> expect = postRepository.findById(1L);
+        
         //then
-        assertThat(post.getId()).isEqualTo(result.getId());
+        assertThat(expect.get().getId()).isEqualTo(result.getId());
         assertThat(post.getTitle()).isEqualTo(result.getTitle());
         assertThat(post.getDescription()).isEqualTo(result.getDescription());
         assertThat(post.getPostSido()).isEqualTo(result.getPostSido());
@@ -57,7 +64,7 @@ public class PostRepositoryTest {
     @Transactional
     void postList(){
         //when
-        PostEntity post1= PostEntity.builder()
+        PostDto post1= PostDto.builder()
         .title("first title")
         .description("first description")
         .postSido("용인시")
@@ -65,7 +72,7 @@ public class PostRepositoryTest {
         .postDong("상현동")
         .build();
 
-        PostEntity post2 = PostEntity.builder()
+        PostDto post2 = PostDto.builder()
         .title("second title")
         .description("second description")
         .postSido("서울특별시")
@@ -74,8 +81,8 @@ public class PostRepositoryTest {
         .build();
 
         //given
-        postRepository.save(post1);
-        postRepository.save(post2);        
+        postService.save(post1);
+        postService.save(post2);   
 
         List<PostEntity> list = postRepository.findAll();
 
@@ -91,7 +98,7 @@ public class PostRepositoryTest {
     @Transactional
     void findPost() {
         //when
-        PostEntity post = PostEntity.builder()
+        PostDto post = PostDto.builder()
         .title("first title")
         .description("first description")
         .postSido("용인시")
@@ -100,7 +107,7 @@ public class PostRepositoryTest {
         .build();
 
         //given
-        postRepository.save(post);
+        postService.save(post);
         Optional<PostEntity> result = postRepository.findById(1L);
 
         //then
@@ -124,7 +131,7 @@ public class PostRepositoryTest {
     @Transactional
     void deletePost() {
         //when
-        PostEntity post = PostEntity.builder()
+        PostDto post = PostDto.builder()
         .title("first title")
         .description("first description")
         .postSido("용인시")
@@ -133,7 +140,7 @@ public class PostRepositoryTest {
         .build();
 
         //given
-        postRepository.save(post);
+        postService.save(post);
         postRepository.deleteById(1L);
 
         //then

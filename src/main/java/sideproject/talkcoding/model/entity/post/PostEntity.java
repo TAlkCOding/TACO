@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import sideproject.talkcoding.model.dto.post.PostDto;
 
 @Entity(name = "post")
 @Getter
@@ -47,5 +48,20 @@ public class PostEntity {
     @Column
     private String postDong;
 
+    @Column
+    private String postLanguage; 
     
+    public PostDto toDto() {
+        PostDto postDto = PostDto.builder()
+        .title(title)
+        .description(description)
+        .postRegDate(postRegDate)
+        .postSido(postSido)
+        .postGugun(postGugun)
+        .postDong(postDong)
+        .postLanguage(postLanguage)
+        .build();
+
+        return postDto;
+    }
 }

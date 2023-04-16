@@ -3,6 +3,8 @@ package sideproject.talkcoding.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,29 +27,49 @@ public class PostController {
 
     // 게시글 작성
     @PostMapping("/save")
-    public String save(@ModelAttribute("post") PostDto postDto){
-        postService.save(postDto);
-        return "redirect:/post_detail";
+    public ResponseEntity<PostEntity> save(@ModelAttribute("post") PostDto postDto){
+        PostEntity post = postService.save(postDto);    // 변경해야함( 테스트위해서 변경 )
+        // postService.save(postDto);
+        
+        return new ResponseEntity<>(post, HttpStatus.OK);
+        // return "redirect:/post_detail.html";
     }
-
+ 
     // 게시글 상세
     @GetMapping("/post/{postId}")
-    public String read(@PathVariable("postId") Long postId, Model model) {
+    public ResponseEntity<Optional<PostEntity>> read(@PathVariable(name = "postId") Long postId, Model model) {
         Optional<PostEntity> post = postService.read(postId);
         model.addAttribute("post", post);
+        
+        return new ResponseEntity<>(post, HttpStatus.OK);
+        // return "post_detail";
+    }
 
-        return "post_detail";
+    // 게시글 수정 페이지 -> 게시글 수정 페이지에 수정하려는 게시글 들어가게 하는 페이지
+    @GetMapping("/post/edit/{postId}")
+    public ResponseEntity<Optional<PostEntity>> editPage(@PathVariable("postId") Long postId, Model model){
+        Optional<PostEntity> post = postService.read(postId);
+        model.addAttribute("post", post);
+        
+        return new ResponseEntity<>(post, HttpStatus.OK);
     }
 
     // 게시글 수정
+    @PostMapping("/post/edit/{postId}")
+    public ResponseEntity<Optional<PostEntity>> edit(@PathVariable(name = "postId") Long postId, @ModelAttribute PostDto postDto){
+        Optional<PostEntity> post = postService.edit(postId, postDto);
+        
+        return new ResponseEntity<>(post, HttpStatus.OK);
+    }
     
 
     // 게시글 삭제
     @DeleteMapping("/post/delete/{postId}")
-    public String delete(@PathVariable("postId") Long postId){
+    public ResponseEntity<String> delete(@PathVariable(name = "postId") Long postId){
         postService.delete(postId);
 
-        return "/";
+        return new ResponseEntity<>("delete success", HttpStatus.OK);
+        //return "/";
     }
 
 }

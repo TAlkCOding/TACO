@@ -10,7 +10,7 @@ import sideproject.talkcoding.service.post.PostService;
 
 @Controller
 public class PageController {
-    
+
     @Autowired
     private PostService postService;
 
@@ -20,7 +20,7 @@ public class PageController {
     // 메인페이지 게시글 리스트
     @GetMapping("/")
     public String postList(Model model){
-        model.addAttribute("posts", postRepository.findAll());
+        model.addAttribute("posts", postService.readAll());
 
         //게시글 최신순으로 정렬
 

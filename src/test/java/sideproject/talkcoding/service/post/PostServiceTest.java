@@ -31,7 +31,7 @@ public class PostServiceTest {
     // 게시글 저장
     @Test
     @Transactional
-    void savePost() {
+    void savePostService() {
         //when
         PostDto post = PostDto.builder()
                 .title("first title")
@@ -59,7 +59,7 @@ public class PostServiceTest {
     // 게시글 리스트
     @Test
     @Transactional
-    void postList(){
+    void postListService(){
         //when
         PostDto post1= PostDto.builder()
         .title("first title")
@@ -81,8 +81,8 @@ public class PostServiceTest {
         postService.save(post1);
         postService.save(post2);   
 
-        //List<PostEntity> list = postService.readAll();
-        List<PostEntity> list = postRepository.findAll();
+        List<PostEntity> list = postService.readAll();
+        // List<PostEntity> list = postRepository.findAll();
 
         //then
         assertThat(list.size()).isEqualTo(2);
@@ -94,7 +94,7 @@ public class PostServiceTest {
     // 게시글 상세보기 읽기
     @Test
     @Transactional
-    void findPost() {
+    void findPostService() {
         //when
         PostDto post = PostDto.builder()
         .title("first title")
@@ -117,12 +117,49 @@ public class PostServiceTest {
     }
 
     // 게시글 수정
+    @Test
+    @Transactional
+    void updatePostService() {
+        //when
+        PostDto post = PostDto.builder()
+        .title("first title")
+        .description("first description")
+        .postSido("용인시")
+        .postGugun("수지구")
+        .postDong("상현동")
+        .postLanguage("java")
+        .build();
 
+        postService.save(post);
+        Optional<PostEntity> entityPost = postService.read(1L);
+        //given
+
+        PostDto postDto = PostDto.builder()
+        .title("edit title")
+        .description("edit description")
+        .postSido("용인시")
+        .postGugun("수지구")
+        .postDong("상현동")
+        .postLanguage("C++")
+        .build();
+
+        Optional<PostEntity> result = postService.edit(1L, postDto);
+        
+        //then
+
+        assertThat(entityPost.get().getId()).isEqualTo(1L);
+        assertThat(entityPost.get().getTitle()).isEqualTo(result.get().getTitle());
+        assertThat(entityPost.get().getDescription()).isEqualTo(result.get().getDescription());
+        assertThat(entityPost.get().getPostSido()).isEqualTo(result.get().getPostSido());
+        assertThat(entityPost.get().getPostGugun()).isEqualTo(result.get().getPostGugun());
+        assertThat(entityPost.get().getPostDong()).isEqualTo(result.get().getPostDong());
+        assertThat(entityPost.get().getPostLanguage()).isEqualTo(result.get().getPostLanguage());
+    }
 
     // 게시글 삭제
     @Test
     @Transactional
-    void deletePost() {
+    void deletePostService() {
         //when
         PostDto post = PostDto.builder()
         .title("first title")

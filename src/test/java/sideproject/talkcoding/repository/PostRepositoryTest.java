@@ -128,30 +128,41 @@ public class PostRepositoryTest {
         .postLanguage("java")
         .build();
 
-        PostEntity entityPost = postRepository.save(post);
+        postRepository.save(post);
+        Optional<PostEntity> entityPost = postRepository.findById(1L);
         //given
 
-        PostEntity post1 = PostEntity.builder()
+        PostDto postDto = PostDto.builder()
         .title("edit title")
-        .description("first description")
+        .description("edit description")
         .postSido("용인시")
         .postGugun("수지구")
         .postDong("상현동")
-        .postLanguage("java")
+        .postLanguage("C++")
         .build();
 
-        PostDto dtoPost = entityPost.toDto();
+        entityPost.map(p ->{
+            entityPost.get().setTitle(postDto.getTitle());
+            entityPost.get().setDescription(postDto.getDescription());
+            entityPost.get().setPostSido(postDto.getPostSido());
+            entityPost.get().setPostGugun(postDto.getPostGugun());
+            entityPost.get().setPostDong(postDto.getPostDong());
+            entityPost.get().setPostLanguage(postDto.getPostLanguage());
+            
+            return p;
+        })
 
-        dtoPost.setTitle(post1.getTitle());
-        dtoPost.setDescription(post1.getDescription());
-        dtoPost.setPostSido(post1.getPostSido());
-        dtoPost.setPostGugun(post1.getPostGugun());
-        dtoPost.setPostDong(post1.getPostDong());
-        dtoPost.setPostLanguage(post1.getPostLanguage());
-
-        // PostEntity postEntity =dtoPost.toEntity();
+            .map(p -> postRepository.save(p));
         
         //then
+
+        assertThat(entityPost.get().getId()).isEqualTo(1L);
+        assertThat(entityPost.get().getTitle()).isEqualTo(postDto.getTitle());
+        assertThat(entityPost.get().getDescription()).isEqualTo(postDto.getDescription());
+        assertThat(entityPost.get().getPostSido()).isEqualTo(postDto.getPostSido());
+        assertThat(entityPost.get().getPostGugun()).isEqualTo(postDto.getPostGugun());
+        assertThat(entityPost.get().getPostDong()).isEqualTo(postDto.getPostDong());
+        assertThat(entityPost.get().getPostLanguage()).isEqualTo(postDto.getPostLanguage());
     }
 
 

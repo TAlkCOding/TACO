@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -15,10 +16,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import sideproject.talkcoding.model.dto.post.PostDto;
 
 @Entity(name = "post")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -30,9 +33,11 @@ public class PostEntity {
     private Long id;
 
     @Column
+    @NotNull
     private String title;
 
     @Column
+    @NotNull
     private String description;
 
     @CreationTimestamp //INSERT 쿼리가 발생할 때, 현재 시간을 값으로 채워서 쿼리를 생성한다.
@@ -40,12 +45,15 @@ public class PostEntity {
     private LocalDateTime postRegDate;
 
     @Column
+    @NotNull
     private String postSido;
 
     @Column
+    @NotNull
     private String postGugun;
 
     @Column
+    @NotNull
     private String postDong;
 
     @Column

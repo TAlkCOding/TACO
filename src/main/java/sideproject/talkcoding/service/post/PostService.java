@@ -38,8 +38,28 @@ public class PostService {
         return list;
     }
 
+    // 게시글 수정
+    public Optional<PostEntity> edit(Long postId, PostDto postDto) {
+        Optional<PostEntity> post = postRepository.findById(postId);
+
+       
+        return post.map(p -> {
+            post.get().setTitle(postDto.getTitle());
+            post.get().setDescription(postDto.getDescription());
+            post.get().setPostSido(postDto.getPostSido());
+            post.get().setPostGugun(postDto.getPostGugun());
+            post.get().setPostDong(postDto.getPostDong());
+            post.get().setPostLanguage(postDto.getPostLanguage());
+            
+            return p;
+        })
+
+            .map(p -> postRepository.save(p));
+
+    }
+    
 	public void delete(Long postId) {
         postRepository.deleteById(postId);
 	}
-    
+
 }

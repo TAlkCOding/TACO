@@ -44,7 +44,7 @@ public class PostRepositoryTest {
         PostEntity result = postRepository.save(post);
         
         //then
-        assertThat(post.getId()).isEqualTo(result.getId());
+        assertThat(post.getPostIndex()).isEqualTo(result.getPostIndex());
         assertThat(post.getTitle()).isEqualTo(result.getTitle());
         assertThat(post.getDescription()).isEqualTo(result.getDescription());
         assertThat(post.getPostSido()).isEqualTo(result.getPostSido());
@@ -156,7 +156,7 @@ public class PostRepositoryTest {
         
         //then
 
-        assertThat(entityPost.get().getId()).isEqualTo(1L);
+        assertThat(entityPost.get().getPostIndex()).isEqualTo(1L);
         assertThat(entityPost.get().getTitle()).isEqualTo(postDto.getTitle());
         assertThat(entityPost.get().getDescription()).isEqualTo(postDto.getDescription());
         assertThat(entityPost.get().getPostSido()).isEqualTo(postDto.getPostSido());

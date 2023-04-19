@@ -15,7 +15,7 @@ import sideproject.talkcoding.model.entity.post.PostEntity;
 @AllArgsConstructor
 @Builder
 public class PostDto {
-    private Long id;
+    private Long postIndex;
 
     private String title;
 

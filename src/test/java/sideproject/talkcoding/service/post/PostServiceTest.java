@@ -47,7 +47,7 @@ public class PostServiceTest {
         Optional<PostEntity> expect = postRepository.findById(1L);
         
         //then
-        assertThat(expect.get().getId()).isEqualTo(result.getId());
+        assertThat(expect.get().getPostIndex()).isEqualTo(result.getPostIndex());
         assertThat(post.getTitle()).isEqualTo(result.getTitle());
         assertThat(post.getDescription()).isEqualTo(result.getDescription());
         assertThat(post.getPostSido()).isEqualTo(result.getPostSido());
@@ -147,7 +147,7 @@ public class PostServiceTest {
         
         //then
 
-        assertThat(entityPost.get().getId()).isEqualTo(1L);
+        assertThat(entityPost.get().getPostIndex()).isEqualTo(1L);
         assertThat(entityPost.get().getTitle()).isEqualTo(result.get().getTitle());
         assertThat(entityPost.get().getDescription()).isEqualTo(result.get().getDescription());
         assertThat(entityPost.get().getPostSido()).isEqualTo(result.get().getPostSido());

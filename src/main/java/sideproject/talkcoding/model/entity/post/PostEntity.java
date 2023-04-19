@@ -30,7 +30,7 @@ public class PostEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long postIndex;
 
     @Column
     @NotNull

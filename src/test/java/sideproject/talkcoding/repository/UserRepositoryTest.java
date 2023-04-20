@@ -67,7 +67,7 @@ public class UserRepositoryTest {
     // 회원가입 - 닉네임 중복
     @Test
     @Transactional
-    void singUp_duplicateNickName(){
+    void signUp_duplicateNickName(){
         //when
         UserEntity user1 = UserEntity.builder()
         .userId("yhw0104")

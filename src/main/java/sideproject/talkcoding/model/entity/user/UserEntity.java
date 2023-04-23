@@ -42,9 +42,11 @@ public class UserEntity {
     private String userName;
 
     @Column
+    @NotNull
     private String userNickName;
 
     @Column
+    @NotNull
     private String userPhoneNumber;
 
     public UserDto toDto(){

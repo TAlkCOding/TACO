@@ -58,8 +58,30 @@ public class PostService {
 
     }
     
+    // 게시글 삭제
 	public void delete(Long postId) {
         postRepository.deleteById(postId);
 	}
+
+    // 시도 select box 찾기
+    public List<PostEntity> findSido(String postSido) {
+        List<PostEntity> sidoList = postRepository.findByPostSido(postSido);
+
+        return sidoList;
+    }
+
+    // 시/도, 구/군 select box 찾기
+    public List<PostEntity> findGugun(String postSido, String postGugun) {
+        List<PostEntity> gugunList = postRepository.findByPostSidoAndPostGugun(postSido, postGugun);
+        
+        return gugunList;
+    }
+
+    // 시/도, 구/군, 동 select box 찾기
+    public List<PostEntity> findDong(String postSido, String postGugun, String postDong) {
+        List<PostEntity> dongList = postRepository.findByPostSidoAndPostGugunAndPostDong(postSido, postGugun, postDong);
+        
+        return dongList;
+    }
 
 }

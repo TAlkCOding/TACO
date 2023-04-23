@@ -32,11 +32,11 @@ public class PostEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postIndex;
 
-    @Column
+    @Column(length = 1000)
     @NotNull
     private String title;
 
-    @Column
+    @Column(length = 1000)
     @NotNull
     private String description;
 
@@ -44,19 +44,19 @@ public class PostEntity {
     @Column
     private LocalDateTime postRegDate;
 
-    @Column
+    @Column(length = 1000)
     @NotNull
     private String postSido;
 
-    @Column
+    @Column(length = 1000)
     @NotNull
     private String postGugun;
 
-    @Column
+    @Column(length = 1000)
     @NotNull
     private String postDong;
 
-    @Column
+    @Column(length = 1000)
     private String postLanguage; 
     
     public PostDto toDto() {

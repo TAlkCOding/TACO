@@ -107,12 +107,16 @@ public class UserService {
     }
 
     // 회원 탈퇴
+    // 회원 탈퇴시 회원이 쓴 게시글, 댓글도 다 삭제
 	public void deleteUserInfo(Long userIndex) {
 
         userRepository.deleteById(userIndex);
 	}
-
-
     
-    
+    // 로그인 기능
+    public Long login(String userId, String userPassword) {
+        Optional<UserEntity> user = userRepository.findByUserIdAndUserPassword(userId, userPassword);
+        Long userIndex = user.get().getUserIndex();
+        return userIndex;
+    }
 }

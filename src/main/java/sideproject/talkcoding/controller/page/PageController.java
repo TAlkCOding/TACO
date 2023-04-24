@@ -22,6 +22,8 @@ public class PageController {
     // 메인페이지 게시글 리스트
     @GetMapping("/")
     public String postList(Model model){
+        // 로그인 세션 환경 설정
+
         model.addAttribute("posts", postService.readAll());
 
         //게시글 최신순으로 정렬

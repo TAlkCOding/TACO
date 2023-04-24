@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import sideproject.talkcoding.model.dto.user.UserDto;
@@ -28,16 +29,17 @@ public class UserController {
     @GetMapping("/login")
     public String loginPage(HttpSession session){
         Long userIndex = (Long) session.getAttribute("userIndex");
-        if(userIndex == null){
+        if(userIndex != null){
             return "redirect:/";
         }
         return "login";
     }
 
     // 로그인 페이지에서 로그인 버튼 클릭시 실행
+    // html form - post
     // return "redirect:/login";
     @PostMapping("/login")
-    public ResponseEntity<Long> login(String userId, String userPassword, HttpSession session){
+    public ResponseEntity<Long> login(@RequestParam("userId") String userId,@RequestParam("userPassword") String userPassword, HttpSession session){
         Long userIndex = userService.login(userId, userPassword);
         if(userIndex == null){
             return new ResponseEntity<>(userIndex, HttpStatus.BAD_REQUEST);
@@ -63,6 +65,7 @@ public class UserController {
     }
 
     // 회원가입 기능
+    // html form - post (여기서는 @ModdelAttribute 생략함 -> model.addattribute 됨)
     // return 로그인 페이지
     // return "login.html";
     @PostMapping("/signup")
@@ -76,7 +79,7 @@ public class UserController {
     // id 창에 들어간 데이터를 ajax로 가져옴
     // return 1 or 0
     @PostMapping("/check/id")
-    public ResponseEntity<Integer> checkId(String userId){
+    public ResponseEntity<Integer> checkId(@RequestBody String userId){
         int trueOrFalse = userService.checkDuplicateId(userId);
 
         return new ResponseEntity<>(trueOrFalse, HttpStatus.OK);
@@ -86,7 +89,7 @@ public class UserController {
     // nickname 창에 들어간 데이터를 ajax로 가져옴
     // return 1 or 0
     @PostMapping("/check/nick")
-    public ResponseEntity<Integer> checkNick(String userNickName){
+    public ResponseEntity<Integer> checkNick(@RequestBody String userNickName){
         int trueOrFalse = userService.checkDuplicateNickName(userNickName);
 
         return new ResponseEntity<>(trueOrFalse, HttpStatus.OK);
@@ -103,7 +106,7 @@ public class UserController {
     // 후 ajax로 success 후 페이지 이동
     // return "login.html";
     @PostMapping("/find/id")
-    public ResponseEntity<String> findId(String userName, String userPhoneNumber){
+    public ResponseEntity<String> findId(@RequestBody String userName, @RequestBody String userPhoneNumber){
         String userId = userService.findId(userName, userPhoneNumber);
 
         return new ResponseEntity<>(userId, HttpStatus.OK);
@@ -116,7 +119,7 @@ public class UserController {
     }
 
     // 이름과 아이디 파라미터를 받아 비밀번호 변경 페이지로 넘어가기
-    // form 태그로 이름과 아이디 받아옴
+    // html form - post
     // return "changePw.html";
     @PostMapping("/find/pw")
     public ResponseEntity<Optional<UserEntity>> findPw(@RequestParam("userId") String userId,@RequestParam("userName") String userName, Model model){

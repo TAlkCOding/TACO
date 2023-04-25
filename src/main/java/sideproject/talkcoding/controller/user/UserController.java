@@ -174,6 +174,7 @@ public class UserController {
     public ResponseEntity<String> deleteUserInfo(HttpSession session){
         Long userIndex = (Long) session.getAttribute("userIndex");
         userService.deleteUserInfo(userIndex);
+        session.invalidate();
         return new ResponseEntity<String>("delete success", HttpStatus.OK);
     }
 }

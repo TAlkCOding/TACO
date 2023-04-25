@@ -67,6 +67,9 @@ public class UserService {
 	public Optional<UserEntity> findPassword(String userId, String userName) {
 		Optional<UserEntity> findPassword = userRepository.findByUserIdAndUserName(userId, userName);
 
+        if(findPassword == null) {
+            return null;
+        }
         return findPassword;
 	}
 
@@ -92,17 +95,17 @@ public class UserService {
     }
 
     // 회원정보 수정
-	public Optional<UserEntity> changeUserInfo(Optional<UserEntity> user) {
-        user.map(p -> {
-            user.get().setUserName("윤하연");
-            user.get().setUserNickName("윤공주");
-            user.get().setUserPhoneNumber("01093195367");
+	public Optional<UserEntity> changeUserInfo(Long userIndex, UserEntity userInfo) {
+        Optional<UserEntity> user = userRepository.findById(userIndex);
+        
+        return user.map(p -> {
+            user.get().setUserName(userInfo.getUserName());
+            user.get().setUserNickName(userInfo.getUserNickName());
+            user.get().setUserPhoneNumber(userInfo.getUserPhoneNumber());
         
             return p;
         })
         .map(p -> userRepository.save(p));
-
-        return user;
 
     }
 
@@ -116,6 +119,10 @@ public class UserService {
     // 로그인 기능
     public Long login(String userId, String userPassword) {
         Optional<UserEntity> user = userRepository.findByUserIdAndUserPassword(userId, userPassword);
+        if(user.isEmpty()) {
+            return null;
+        }
+        
         Long userIndex = user.get().getUserIndex();
         return userIndex;
     }

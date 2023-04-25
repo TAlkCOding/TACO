@@ -278,6 +278,7 @@ public class UserServiceTest {
         .userPassword("1234")
         .userName("윤현우")
         .userNickName("닉네임1")
+        .userPhoneNumber("01062635367")
         .build();
 
         // 아이디 닉네임 중복 검사
@@ -291,9 +292,15 @@ public class UserServiceTest {
         }
 
         Optional<UserEntity> user = userRepository.findById(1L);
-
+        Long userIndex = user.get().getUserIndex();
         //given
-        userService.changeUserInfo(user);
+        UserEntity changeUser = UserEntity.builder()
+        .userId("yhw0104")
+        .userName("윤하연")
+        .userNickName("윤공주")
+        .userPhoneNumber("01093195367")
+        .build();
+        userService.changeUserInfo(userIndex, changeUser);
         
         //then
         assertThat(user.get().getUserName()).isEqualTo("윤하연");

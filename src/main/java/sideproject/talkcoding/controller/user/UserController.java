@@ -11,20 +11,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lombok.extern.slf4j.Slf4j;
 import sideproject.talkcoding.model.dto.user.UserDto;
 import sideproject.talkcoding.model.entity.user.UserEntity;
 import sideproject.talkcoding.service.user.UserService;
 
+@Slf4j
 @Controller
 public class UserController {
 
     @Autowired
     private UserService userService;
-    
+
     // 로그인 페이지 넘어가기
     @GetMapping("/login")
     public String loginPage(HttpSession session){
@@ -39,23 +42,26 @@ public class UserController {
     // html form - post
     // return "redirect:/login";
     @PostMapping("/login")
-    public ResponseEntity<Long> login(@RequestParam("userId") String userId,@RequestParam("userPassword") String userPassword, HttpSession session){
+    public ResponseEntity<String> login(@RequestParam("userId") String userId,@RequestParam("userPassword") String userPassword, HttpSession session){
         Long userIndex = userService.login(userId, userPassword);
         if(userIndex == null){
-            return new ResponseEntity<>(userIndex, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("no userData", HttpStatus.BAD_REQUEST);
             // return "redirect:/login";
         }
         session.setAttribute("userIndex", userIndex);
+        log.info(session.getAttribute("userIndex").toString());
         
-        return new ResponseEntity<>(userIndex, HttpStatus.OK);
+        return new ResponseEntity<>(userIndex.toString(), HttpStatus.OK);
         // return "redirect:/";
     }
 
     // 로그아웃 기능
     @PostMapping("/logout")
-    public String logout(HttpSession session){
+    public ResponseEntity<String> logout(HttpSession session){
         session.invalidate();
-        return "redirect:/";
+
+        return new ResponseEntity<>("logout successfully", HttpStatus.OK);
+        // return "redirect:/";
     }
 
     // 회원가입 페이지 넘어가기
@@ -87,7 +93,7 @@ public class UserController {
 
     // 닉네임 중복 체크 버튼
     // nickname 창에 들어간 데이터를 ajax로 가져옴
-    // return 1 or 0
+    // return 1(중복) or 0(가능)
     @PostMapping("/check/nick")
     public ResponseEntity<Integer> checkNick(@RequestBody String userNickName){
         int trueOrFalse = userService.checkDuplicateNickName(userNickName);
@@ -122,19 +128,23 @@ public class UserController {
     // html form - post
     // return "changePw.html";
     @PostMapping("/find/pw")
-    public ResponseEntity<Optional<UserEntity>> findPw(@RequestParam("userId") String userId,@RequestParam("userName") String userName, Model model){
+    public ResponseEntity<Optional<UserEntity>> findPw(@RequestParam("userId") String userId,@RequestParam("userName") String userName, HttpSession session ){
         
         Optional<UserEntity> user = userService.findPassword(userId, userName);
-        //model에 비밀번호 변경할 정보 담아서 보내고 
-        model.addAttribute("user", user);
+        Long userIndex = user.get().getUserIndex();
+        session.setAttribute("userIndex", userIndex);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     // 비밀번호 변경 기능
     // 수정해야됨
     @PostMapping("/change/pw")
-    public ResponseEntity<UserEntity> changePw(@RequestParam("userPassword") String userPassword){
-        return null;
+    public ResponseEntity<Optional<UserEntity>> changePw(HttpSession session, @RequestParam("userPassword") String userPassword){
+        Long userIndex = (Long) session.getAttribute("userIndex");
+        Optional<UserEntity> userInfo = userService.findUserInfo(userIndex);
+        userService.changePassword(userInfo, userPassword);
+        session.invalidate();
+        return new ResponseEntity<>(userInfo, HttpStatus.OK);
     }
 
     // 회원정보 수정 페이지 넘어가기
@@ -149,6 +159,15 @@ public class UserController {
     }
 
     // 회원정보 수정 버튼 기능
+    @PostMapping("/user/edit")
+    public ResponseEntity<Optional<UserEntity>> userEdit(HttpSession session, @ModelAttribute UserDto userDto){
+        Long userIndex = (Long) session.getAttribute("userIndex");
+
+        UserEntity user = userDto.toEntity();
+        Optional<UserEntity> userInfo = userService.changeUserInfo(userIndex, user);
+
+        return new ResponseEntity<>(userInfo, HttpStatus.OK);
+    }
 
     // 회원 탈퇴 버튼 기능
     @DeleteMapping("/user/delete")

@@ -16,6 +16,8 @@ import sideproject.talkcoding.service.post.PostService;
 @Controller
 public class PageController {
 
+    // 깃허브 문제 때문에 만든 주석 2023-05-09
+
     @Autowired
     private PostService postService;
     

@@ -63,12 +63,25 @@ a {
 }
 .intro {
   width: 400px;
-  margin-bottom: 85px;
+  margin-bottom: 185px;
   font-size: 40px;
   font-family: "Pretendard-Regular";
   font-weight: normal;
   text-align: left;
   line-height: 68px;
+}
+.marker {
+  margin-bottom: -68px;
+  right: 15px;
+  position: relative;
+}
+.blinder {
+  top: 95.3px;
+  left: 69.4px;
+  position: absolute;
+  background-color: #ffe455;
+  width: 12px;
+  height: 2px;
 }
 .intro span {
   font-family: "Pretendard-Regular";
@@ -145,6 +158,9 @@ a {
   border-left-width: 0px;
   border-right-width: 0px;
 }
+input {
+  color: #383838;
+}
 input:focus {
   outline: none;
 }
@@ -160,6 +176,10 @@ input::placeholder {
   font-size: 14px;
   font-weight: 700;
   color: white;
+}
+.loginDown button:hover {
+  transition: 0.2s;
+  background-color: #4747d6;
 }
 .loginDown img {
   width: 28px;

@@ -1,0 +1,198 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-style: normal;
+}
+body {
+  background-color: #ffe455;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.root {
+  display: block;
+}
+.header {
+  display: flex;
+  width: 100%;
+  height: 85px;
+  align-items: center;
+  justify-content: center;
+}
+.nav {
+  width: 1200px;
+}
+.logo {
+  width: 120px;
+  height: 30px;
+}
+.main {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 85px);
+  justify-content: center;
+}
+
+.leftContainer {
+  display: flex;
+  width: 600px;
+  height: calc(100vh - 85px);
+  align-items: center;
+  justify-content: right;
+}
+.intro {
+  width: 400px;
+  margin-bottom: 185px;
+  font-size: 40px;
+  font-family: "Pretendard-Regular";
+  font-weight: normal;
+  text-align: left;
+  line-height: 68px;
+}
+.marker {
+  margin-bottom: -68px;
+  right: 15px;
+  position: relative;
+}
+.blinder {
+  top: 95.3px;
+  left: 69.4px;
+  position: absolute;
+  background-color: #ffe455;
+  width: 12px;
+  height: 2px;
+}
+.intro span {
+  font-family: "Pretendard-Regular";
+  font-size: 48px;
+  font-weight: bold;
+}
+.rightContainer {
+  display: flex;
+  width: 600px;
+  height: calc(100vh - 85px);
+  align-items: center;
+  justify-content: right;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-bottom: 85px;
+  width: 470px;
+  height: 512.73px;
+  border-radius: 32px;
+  padding: 53px 53px 53px 53px;
+  box-sizing: border-box;
+}
+
+.loginUp {
+  width: 364px;
+}
+.loginUp h1 {
+  font-weight: 900;
+}
+.loginUp p {
+  font-size: 14px;
+  margin-top: 11px;
+  font-weight: 500;
+  color: #848484;
+}
+.loginUp a {
+  color: #5555ff;
+}
+
+.loginDown {
+  display: flex;
+  margin-top: 59px;
+  flex-direction: column;
+  width: 364px;
+}
+
+.id {
+  display: flex;
+  width: 364px;
+  height: 28px;
+  margin-bottom: 54px;
+  align-items: center;
+}
+.password {
+  display: flex;
+  width: 364px;
+  height: 28px;
+  margin-bottom: 74px;
+  align-items: center;
+}
+.loginDown input {
+  font-weight: 500;
+  width: 100%;
+  margin-left: 6px;
+  height: 28px;
+  border-color: #b1b1b1;
+  background-color: #ffffff;
+  border-style: dashed;
+  border-top-width: 0px;
+  border-bottom-width: 2.5px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+}
+input {
+  color: #383838;
+}
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  color: #cdcdcd;
+}
+
+.loginDown button {
+  background-color: #5555ff;
+  border: none;
+  border-radius: 16px;
+  height: 46px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+.loginDown button:hover {
+  transition: 0.2s;
+  background-color: #4747d6;
+}
+.loginUp a:hover {
+  transition: 0.2s;
+  color: #4747d6;
+}
+.loginDown img {
+  width: 28px;
+  height: 28px;
+}
+.loginDown a {
+  font-size: 12px;
+  text-align: right;
+  margin-top: 18px;
+  font-weight: 500;
+  color: #848484;
+}

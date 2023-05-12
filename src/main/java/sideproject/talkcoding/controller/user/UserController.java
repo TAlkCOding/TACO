@@ -1,5 +1,6 @@
 package sideproject.talkcoding.controller.user;
 
+import java.io.IOException;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.extern.slf4j.Slf4j;
+import sideproject.talkcoding.file.FileStore;
+import sideproject.talkcoding.file.UploadFile;
 import sideproject.talkcoding.model.dto.user.UserDto;
 import sideproject.talkcoding.model.entity.user.UserEntity;
 import sideproject.talkcoding.service.user.UserService;
@@ -27,6 +30,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private FileStore fileStore;
 
     // 로그인 페이지 넘어가기
     @GetMapping("/login")
@@ -108,8 +114,8 @@ public class UserController {
     }
 
     // 아이디 찾기 버튼 클릭시 기능
-    // ajax로 이름 전화번호 받아와서 해당 아이디 alert로 보여주기
-    // 후 ajax로 success 후 페이지 이동
+    // 이름 전화번호 받아와서 해당 아이디 보여주기
+    // ajax로 데이터 받아와서 뿌리기
     // return "login.html";
     @PostMapping("/find/id")
     public ResponseEntity<String> findId(@RequestBody String userName, @RequestBody String userPhoneNumber){
@@ -124,27 +130,15 @@ public class UserController {
         return "findpw";
     }
 
-    // 이름과 아이디 파라미터를 받아 비밀번호 변경 페이지로 넘어가기
-    // html form - post
-    // return "changePw.html";
+    // 비밀번호 찾기 버튼 클릭 시 기능
+    // 이름과 아이디 파라미터를 받아 비밀번호 보여주기
+    // ajax로 데이터 받아서 뿌리기
+    // return "login.html";
     @PostMapping("/find/pw")
-    public ResponseEntity<Optional<UserEntity>> findPw(@RequestParam("userId") String userId,@RequestParam("userName") String userName, HttpSession session ){
+    public ResponseEntity<Optional<UserEntity>> findPw(@RequestParam("userId") String userId,@RequestParam("userName") String userName){
+        Optional<UserEntity> userPassword = userService.findPassword(userId, userName);
         
-        Optional<UserEntity> user = userService.findPassword(userId, userName);
-        Long userIndex = user.get().getUserIndex();
-        session.setAttribute("userIndex", userIndex);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }
-
-    // 비밀번호 변경 기능
-    // 수정해야됨
-    @PostMapping("/change/pw")
-    public ResponseEntity<Optional<UserEntity>> changePw(HttpSession session, @RequestParam("userPassword") String userPassword){
-        Long userIndex = (Long) session.getAttribute("userIndex");
-        Optional<UserEntity> userInfo = userService.findUserInfo(userIndex);
-        userService.changePassword(userInfo, userPassword);
-        session.invalidate();
-        return new ResponseEntity<>(userInfo, HttpStatus.OK);
+        return new ResponseEntity<>(userPassword, HttpStatus.OK);
     }
 
     // 회원정보 수정 페이지 넘어가기
@@ -160,12 +154,22 @@ public class UserController {
 
     // 회원정보 수정 버튼 기능
     @PostMapping("/user/edit")
-    public ResponseEntity<Optional<UserEntity>> userEdit(HttpSession session, @ModelAttribute UserDto userDto){
+    public ResponseEntity<Optional<UserEntity>> userEdit(HttpSession session, @ModelAttribute UserDto userDto) throws IOException{
         Long userIndex = (Long) session.getAttribute("userIndex");
-
+        
         UserEntity user = userDto.toEntity();
         Optional<UserEntity> userInfo = userService.changeUserInfo(userIndex, user);
 
+        return new ResponseEntity<>(userInfo, HttpStatus.OK);
+    }
+
+    // 비밀번호 변경 기능
+    @PostMapping("/change/pw")
+    public ResponseEntity<Optional<UserEntity>> changePw(HttpSession session, @RequestParam("userPassword") String userPassword){
+        Long userIndex = (Long) session.getAttribute("userIndex");
+        Optional<UserEntity> userInfo = userService.findUserInfo(userIndex);
+        userService.changePassword(userInfo, userPassword);
+        
         return new ResponseEntity<>(userInfo, HttpStatus.OK);
     }
 

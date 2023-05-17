@@ -13,6 +13,7 @@ import sideproject.talkcoding.model.entity.user.UserEntity;
 @AllArgsConstructor
 @Builder
 public class UserDto {
+    
     private Long userIndex;
 
     private String userId;

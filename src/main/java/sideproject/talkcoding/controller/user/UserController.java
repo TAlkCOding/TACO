@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
-import sideproject.talkcoding.file.FileStore;
-import sideproject.talkcoding.file.UploadFile;
 import sideproject.talkcoding.model.dto.user.UserDto;
 import sideproject.talkcoding.model.entity.user.UserEntity;
+import sideproject.talkcoding.service.image.ProfileService;
 import sideproject.talkcoding.service.user.UserService;
 
 @Slf4j
@@ -32,7 +32,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private FileStore fileStore;
+    private ProfileService profileService;
 
     // 로그인 페이지 넘어가기
     @GetMapping("/login")
@@ -83,7 +83,7 @@ public class UserController {
     @PostMapping("/signup")
     public ResponseEntity<UserEntity> signup(UserDto userDto){
         UserEntity user = userService.save(userDto);
-
+    
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
@@ -153,14 +153,20 @@ public class UserController {
     }
 
     // 회원정보 수정 버튼 기능
+    // 테스트위해 반환값 변경
     @PostMapping("/user/edit")
-    public ResponseEntity<Optional<UserEntity>> userEdit(HttpSession session, @ModelAttribute UserDto userDto) throws IOException{
+    public ResponseEntity<String> userEdit(HttpSession session,@RequestParam("originFileName") MultipartFile originFileName, @ModelAttribute UserDto userDto) throws IOException{
         Long userIndex = (Long) session.getAttribute("userIndex");
         
         UserEntity user = userDto.toEntity();
+
+        // 회원 정보 수정
         Optional<UserEntity> userInfo = userService.changeUserInfo(userIndex, user);
 
-        return new ResponseEntity<>(userInfo, HttpStatus.OK);
+        // 프로필 수정
+        profileService.saveProfile(originFileName, userIndex);
+
+        return new ResponseEntity<>("프로필 및 개인정보 수정 완료!", HttpStatus.OK);
     }
 
     // 비밀번호 변경 기능

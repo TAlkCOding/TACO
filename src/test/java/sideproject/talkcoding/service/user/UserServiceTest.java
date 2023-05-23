@@ -167,6 +167,7 @@ public class UserServiceTest {
         .userPassword("1234")
         .userName("윤현우")
         .userNickName("닉네임1")
+        .userPhoneNumber("01062635367")
         .build();
 
         // 아이디 닉네임 중복 검사
@@ -183,15 +184,10 @@ public class UserServiceTest {
         String user1Id = user1.getUserId();
         String user1Name = user1.getUserName();
 
-        Optional<UserEntity> expected = userService.findPassword(user1Id, user1Name);
+        String expected = userService.findPassword(user1Id, user1Name);
 
         //then
-        assertThat(expected.get().getUserIndex()).isEqualTo(1L);
-        assertThat(user1.getUserId()).isEqualTo(expected.get().getUserId());
-        assertThat(user1.getUserName()).isEqualTo(expected.get().getUserName());
-        assertThat(user1.getUserNickName()).isEqualTo(expected.get().getUserNickName());
-        assertThat(user1.getUserPassword()).isEqualTo(expected.get().getUserPassword());
-        assertThat(user1.getUserPhoneNumber()).isEqualTo(expected.get().getUserPhoneNumber());
+        assertThat(expected).isEqualTo(user1.getUserPassword());
     }
 
     // 비밀번호 변경
@@ -220,7 +216,7 @@ public class UserServiceTest {
         String user1Id = user1.getUserId();
         String user1Name = user1.getUserName();
 
-        Optional<UserEntity> findInfo = userService.findPassword(user1Id, user1Name);
+        Optional<UserEntity> findInfo = userService.findUserInfo(1L);
 
         String changePassword = "5678";
 

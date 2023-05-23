@@ -57,6 +57,10 @@ public class UserService {
     // 아이디 찾기 (이름과 전화번호)
 	public String findId(String userName, String userPhoneNumber) {
 		Optional<UserEntity> findId = userRepository.findByUserNameAndUserPhoneNumber(userName, userPhoneNumber);
+        if(findId.isEmpty()){
+            return null;
+        }
+
         String id = findId.get().getUserId();
 
         return id;
@@ -64,13 +68,15 @@ public class UserService {
 
     // 비밀번호 찾기(아이디와 이름)
     // 비밀번호 찾기 페이지에서 필요한 데이터 입력 후
-	public Optional<UserEntity> findPassword(String userId, String userName) {
+	public String findPassword(String userId, String userName) {
 		Optional<UserEntity> findPassword = userRepository.findByUserIdAndUserName(userId, userName);
-
-        if(findPassword == null) {
+        if(findPassword.isEmpty()) {
             return null;
         }
-        return findPassword;
+        
+        String password = findPassword.get().getUserPassword();
+
+        return password;
 	}
 
     // 비밀번호 변경

@@ -29,9 +29,17 @@ public class PostDto {
 
     private String postDong;
 
-    private String postLanguage;
+    private String postLanguage1;
 
-    public PostEntity toEntity() {
+    private String postLanguage2;
+
+    private String postLanguage3;
+
+    // 유저 인텍스
+    private Long userIndex;
+
+
+    public PostEntity toEntity(Long userIndex) {
         PostEntity postEntity = PostEntity.builder()
         .title(title)
         .description(description)
@@ -39,7 +47,10 @@ public class PostDto {
         .postSido(postSido)
         .postGugun(postGugun)
         .postDong(postDong)
-        .postLanguage(postLanguage)
+        .postLanguage1(postLanguage1)
+        .postLanguage2(postLanguage2)
+        .postLanguage3(postLanguage3)
+        .userIndex(userIndex)
         .build();
 
         return postEntity;

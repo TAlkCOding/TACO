@@ -118,9 +118,9 @@ public class UserController {
     // ajax로 데이터 받아와서 뿌리기
     // return "login.html";
     @PostMapping("/find/id")
-    public ResponseEntity<String> findId(@RequestBody String userName, @RequestBody String userPhoneNumber){
+    public ResponseEntity<String> findId(@RequestParam("userName") String userName, @RequestParam("userPhoneNumber") String userPhoneNumber, Model model){
         String userId = userService.findId(userName, userPhoneNumber);
-
+        model.addAttribute("userId", userId);
         return new ResponseEntity<>(userId, HttpStatus.OK);
     }
 
@@ -135,8 +135,8 @@ public class UserController {
     // ajax로 데이터 받아서 뿌리기
     // return "login.html";
     @PostMapping("/find/pw")
-    public ResponseEntity<Optional<UserEntity>> findPw(@RequestParam("userId") String userId,@RequestParam("userName") String userName){
-        Optional<UserEntity> userPassword = userService.findPassword(userId, userName);
+    public ResponseEntity<String> findPw(@RequestParam("userId") String userId,@RequestParam("userName") String userName){
+        String userPassword = userService.findPassword(userId, userName);
         
         return new ResponseEntity<>(userPassword, HttpStatus.OK);
     }

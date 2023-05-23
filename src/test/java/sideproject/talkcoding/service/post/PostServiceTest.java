@@ -41,8 +41,9 @@ public class PostServiceTest {
                 .postGugun("수지구")
                 .build();
               
+        Long userIndex = 1L;
         //given
-        PostEntity result = postService.save(post);
+        PostEntity result = postService.save(post, userIndex);
 
         Optional<PostEntity> expect = postRepository.findById(1L);
         
@@ -77,9 +78,11 @@ public class PostServiceTest {
         .postDong("서초동")
         .build();
 
+        Long userIndex1 = 1L;
+        Long userIndex2 = 2L;
         //given
-        postService.save(post1);
-        postService.save(post2);   
+        postService.save(post1, userIndex1);
+        postService.save(post2, userIndex2);   
 
         List<PostEntity> list = postService.readAll();
         // List<PostEntity> list = postRepository.findAll();
@@ -104,8 +107,9 @@ public class PostServiceTest {
         .postDong("상현동")
         .build();
 
+        Long userIndex = 1L;
         //given
-        postService.save(post);
+        postService.save(post, userIndex);
         Optional<PostEntity> result = postService.read(1L);
 
         //then
@@ -127,10 +131,11 @@ public class PostServiceTest {
         .postSido("용인시")
         .postGugun("수지구")
         .postDong("상현동")
-        .postLanguage("java")
+        .postLanguage1("java")
         .build();
 
-        postService.save(post);
+        Long userIndex = 1L;
+        postService.save(post, userIndex);
         Optional<PostEntity> entityPost = postService.read(1L);
         //given
 
@@ -140,7 +145,7 @@ public class PostServiceTest {
         .postSido("용인시")
         .postGugun("수지구")
         .postDong("상현동")
-        .postLanguage("C++")
+        .postLanguage1("C++")
         .build();
 
         Optional<PostEntity> result = postService.edit(1L, postDto);
@@ -153,7 +158,7 @@ public class PostServiceTest {
         assertThat(entityPost.get().getPostSido()).isEqualTo(result.get().getPostSido());
         assertThat(entityPost.get().getPostGugun()).isEqualTo(result.get().getPostGugun());
         assertThat(entityPost.get().getPostDong()).isEqualTo(result.get().getPostDong());
-        assertThat(entityPost.get().getPostLanguage()).isEqualTo(result.get().getPostLanguage());
+        assertThat(entityPost.get().getPostLanguage1()).isEqualTo(result.get().getPostLanguage1());
     }
 
     // 게시글 삭제
@@ -169,8 +174,9 @@ public class PostServiceTest {
         .postDong("상현동")
         .build();
 
+        Long userIndex = 1L;
         //given
-        postService.save(post);
+        postService.save(post, userIndex);
         postRepository.deleteById(1L);
 
         //then

@@ -37,7 +37,7 @@ public class PostRepositoryTest {
                 .postDong("상현동")
                 .postSido("용인시")
                 .postGugun("수지구")
-                .postLanguage("java")
+                .postLanguage1("java")
                 .build();
               
         //given
@@ -50,7 +50,7 @@ public class PostRepositoryTest {
         assertThat(post.getPostSido()).isEqualTo(result.getPostSido());
         assertThat(post.getPostGugun()).isEqualTo(result.getPostGugun());
         assertThat(post.getPostDong()).isEqualTo(result.getPostDong());
-        assertThat(post.getPostLanguage()).isEqualTo(result.getPostLanguage());
+        assertThat(post.getPostLanguage1()).isEqualTo(result.getPostLanguage1());
 
     }
 
@@ -65,7 +65,7 @@ public class PostRepositoryTest {
         .postSido("용인시")
         .postGugun("수지구")
         .postDong("상현동")
-        .postLanguage("java")
+        .postLanguage1("java")
         .build();
 
         PostEntity post2 = PostEntity.builder()
@@ -74,7 +74,7 @@ public class PostRepositoryTest {
         .postSido("서울특별시")
         .postGugun("강남구")
         .postDong("서초동")
-        .postLanguage("java")
+        .postLanguage1("java")
         .build();
 
         //given
@@ -98,7 +98,7 @@ public class PostRepositoryTest {
         .postSido("용인시")
         .postGugun("수지구")
         .postDong("상현동")
-        .postLanguage("java")
+        .postLanguage1("java")
         .build();
 
         //given
@@ -111,7 +111,7 @@ public class PostRepositoryTest {
         assertThat(post.getPostSido()).isEqualTo(result.get().getPostSido());
         assertThat(post.getPostGugun()).isEqualTo(result.get().getPostGugun());
         assertThat(post.getPostDong()).isEqualTo(result.get().getPostDong());
-        assertThat(post.getPostLanguage()).isEqualTo(result.get().getPostLanguage());
+        assertThat(post.getPostLanguage1()).isEqualTo(result.get().getPostLanguage1());
     }
 
     // 게시글 수정
@@ -125,7 +125,7 @@ public class PostRepositoryTest {
         .postSido("용인시")
         .postGugun("수지구")
         .postDong("상현동")
-        .postLanguage("java")
+        .postLanguage1("java")
         .build();
 
         postRepository.save(post);
@@ -138,7 +138,7 @@ public class PostRepositoryTest {
         .postSido("용인시")
         .postGugun("수지구")
         .postDong("상현동")
-        .postLanguage("C++")
+        .postLanguage1("C++")
         .build();
 
         entityPost.map(p ->{
@@ -147,7 +147,7 @@ public class PostRepositoryTest {
             entityPost.get().setPostSido(postDto.getPostSido());
             entityPost.get().setPostGugun(postDto.getPostGugun());
             entityPost.get().setPostDong(postDto.getPostDong());
-            entityPost.get().setPostLanguage(postDto.getPostLanguage());
+            entityPost.get().setPostLanguage1(postDto.getPostLanguage1());
             
             return p;
         })
@@ -162,7 +162,7 @@ public class PostRepositoryTest {
         assertThat(entityPost.get().getPostSido()).isEqualTo(postDto.getPostSido());
         assertThat(entityPost.get().getPostGugun()).isEqualTo(postDto.getPostGugun());
         assertThat(entityPost.get().getPostDong()).isEqualTo(postDto.getPostDong());
-        assertThat(entityPost.get().getPostLanguage()).isEqualTo(postDto.getPostLanguage());
+        assertThat(entityPost.get().getPostLanguage1()).isEqualTo(postDto.getPostLanguage1());
     }
 
 
@@ -177,7 +177,7 @@ public class PostRepositoryTest {
         .postSido("용인시")
         .postGugun("수지구")
         .postDong("상현동")
-        .postLanguage("java")
+        .postLanguage1("java")
         .build();
 
         //given

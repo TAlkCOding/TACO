@@ -57,8 +57,19 @@ public class PostEntity {
     private String postDong;
 
     @Column(length = 1000)
-    private String postLanguage; 
+    private String postLanguage1;
+
+    @Column
+    private String postLanguage2;
     
+    @Column
+    private String postLanguage3;
+
+    // 유저 인덱스
+    @Column
+    @NotNull
+    private Long userIndex;
+
     public PostDto toDto() {
         PostDto postDto = PostDto.builder()
         .title(title)
@@ -67,7 +78,10 @@ public class PostEntity {
         .postSido(postSido)
         .postGugun(postGugun)
         .postDong(postDong)
-        .postLanguage(postLanguage)
+        .postLanguage1(postLanguage1)
+        .postLanguage2(postLanguage2)
+        .postLanguage3(postLanguage3)
+        .userIndex(userIndex)
         .build();
 
         return postDto;

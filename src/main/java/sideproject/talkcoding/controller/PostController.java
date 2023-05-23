@@ -2,6 +2,8 @@ package sideproject.talkcoding.controller;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,12 +27,20 @@ public class PostController {
     private PostService postService;
 
     // 글쓰기 페이지 들어가기
+    @GetMapping("/post")
+    public String post(HttpSession session){
+        Long userIndex = (Long) session.getAttribute("userIndex");
+
+        return "post";
+    }
 
     // 게시글 작성 / return 저장한 게시글 상세 페이지
+    // 로그인이 되어있지 않으면 애초에 해당 url 설정을 해두지 않을 것이기 때문에 로그인 체크 안해도 됨
     @PostMapping("/post/save")
-    public ResponseEntity<PostEntity> save(@ModelAttribute("post") PostDto postDto){
-        PostEntity post = postService.save(postDto);    // 변경해야함( 테스트위해서 변경 )
-        // postService.save(postDto);
+    public ResponseEntity<PostEntity> save(HttpSession session, @ModelAttribute("post") PostDto postDto){
+        Long userIndex = (Long) session.getAttribute("userIndex");
+        PostEntity post = postService.save(postDto, userIndex);    // 변경해야함( 테스트위해서 변경 )
+        // postService.save(postDto, userIndex);
         
         return new ResponseEntity<>(post, HttpStatus.OK);
         // return "redirect:/post_detail.html";

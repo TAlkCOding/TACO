@@ -17,8 +17,8 @@ public class PostService {
     private PostRepository postRepository;
 
     // 게시글 저장
-    public PostEntity save(PostDto postDto) {
-        PostEntity postEntity = postDto.toEntity();
+    public PostEntity save(PostDto postDto, Long userIndex) {
+        PostEntity postEntity = postDto.toEntity(userIndex);
         PostEntity saved = postRepository.save(postEntity);
 
         return saved;
@@ -49,7 +49,7 @@ public class PostService {
             post.get().setPostSido(postDto.getPostSido());
             post.get().setPostGugun(postDto.getPostGugun());
             post.get().setPostDong(postDto.getPostDong());
-            post.get().setPostLanguage(postDto.getPostLanguage());
+            post.get().setPostLanguage1(postDto.getPostLanguage1());
             
             return p;
         })

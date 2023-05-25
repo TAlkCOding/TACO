@@ -48,11 +48,26 @@ public class PostController {
  
     // 게시글 상세보기
     @GetMapping("/post/{postId}")
-    public ResponseEntity<Optional<PostEntity>> read(@PathVariable(name = "postId") Long postId, Model model) {
+    public ResponseEntity<Integer> read(HttpSession session, @PathVariable(name = "postId") Long postId, Model model) {
+        Long userIndex = (Long) session.getAttribute("userIndex");
+        
         Optional<PostEntity> post = postService.read(postId);
         model.addAttribute("post", post);
         
-        return new ResponseEntity<>(post, HttpStatus.OK);
+        
+        // 세션을 가져와서 만약 게시글 userIndex와 같다면, 1을 출력해 수정 및 삭제 버튼 활성화
+        Integer checkedUserIndex = 0;
+        if(userIndex != null){
+            if(userIndex == post.get().getUserIndex()){
+                model.addAttribute("correct", "1");
+                checkedUserIndex = 1;
+            } else if(userIndex != post.get().getUserIndex()){
+                model.addAttribute("incorrect", "0");
+                checkedUserIndex = 2;
+            }
+        }
+        
+        return new ResponseEntity<>(checkedUserIndex, HttpStatus.OK);
         // return "post_detail";
     }
 

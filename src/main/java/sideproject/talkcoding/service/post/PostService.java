@@ -50,6 +50,8 @@ public class PostService {
             post.get().setPostGugun(postDto.getPostGugun());
             post.get().setPostDong(postDto.getPostDong());
             post.get().setPostLanguage1(postDto.getPostLanguage1());
+            post.get().setPostLanguage2(postDto.getPostLanguage2());
+            post.get().setPostLanguage3(postDto.getPostLanguage3());
             
             return p;
         })

@@ -96,120 +96,89 @@ a {
   justify-content: right;
 }
 
-.signupForm {
+.loginForm {
   display: flex;
   flex-direction: column;
   background-color: white;
   margin-bottom: 85px;
   width: 470px;
-  height: 742px;
+  height: 512.73px;
   border-radius: 32px;
-  padding: 53px 53px 53px 53px;
+  padding: 0px 53px 53px 53px;
   box-sizing: border-box;
+  align-items: center;
 }
-
-.signupUp {
-  width: 364px;
+.back {
+  display: flex;
+  width: 410px;
+  height: 112px;
 }
-.signupUp h1 {
-  font-weight: 900;
+.back svg {
+  margin-top: 34px;
+  margin-right: 4px;
 }
-.signupUp p {
+.back p {
+  margin-top: 38px;
+  color: #b1b1b1;
   font-size: 14px;
-  margin-top: 11px;
-  font-weight: 500;
-  color: #848484;
+  font-weight: 200;
+  width: auto;
+  height: 14px;
 }
-.signupUp a {
+.loginUp {
+  display: flex;
+  justify-content: space-between;
+  width: 286px;
+  align-items: center;
+}
+.loginUp h1:nth-child(1) {
   color: #5555ff;
 }
-
-.signupDown {
+.loginUp h1 {
+  font-size: 20px;
+  font-weight: 900;
+}
+.updown {
+  border: 1px solid #cdcdcd;
+  width: 0.1px;
+  height: 38px;
+}
+.loginDown {
   display: flex;
-  margin-top: 59px;
+  margin-top: 64px;
   flex-direction: column;
   width: 364px;
 }
-.nameNick {
-  display: flex;
-  width: 364px;
-  height: 28px;
-  margin-bottom: 62px;
-  margin-left: 22px;
-}
+
 .name {
   display: flex;
-  width: 121px;
+  width: 342px;
   height: 28px;
+  margin-bottom: 54px;
   align-items: center;
+  margin-left: 22px;
 }
-
-.nickName {
-  display: flex;
-  width: 205px;
-  height: 28px;
-  align-items: center;
-  margin-left: 16px;
-}
-
-.condition {
-  display: flex;
-  position: absolute;
-  width: 156px;
-  height: 20px;
-  margin-left: 170.8px;
-  margin-top: 33px;
-  align-items: center;
-}
-.condition p {
-  font-size: 11px;
-  color: #ff5353;
-  font-weight: 600;
-}
-.id {
+.phoneNumber {
   display: flex;
   width: 364px;
   height: 28px;
-  margin-bottom: 62px;
+  margin-bottom: 74px;
   align-items: center;
 }
-.password {
-  display: flex;
-  width: 364px;
-  height: 28px;
-  margin-bottom: 62px;
-  align-items: center;
-}
-
 .eye {
   display: flex;
   position: absolute;
   margin-left: 335px;
-  margin-top: 180px;
+  margin-bottom: 3px;
 }
 
 .eyeClose {
   display: flex;
   position: absolute;
   margin-left: 335px;
-  margin-top: 180px;
+  margin-bottom: 3px;
 }
-
-.passwordCheck {
-  display: flex;
-  width: 364px;
-  height: 28px;
-  margin-bottom: 62px;
-  align-items: center;
-}
-.phoneNumber {
-  display: flex;
-  width: 364px;
-  height: 28px;
-  margin-bottom: 46px;
-  align-items: center;
-}
-.signupDown input {
+.loginDown input {
   font-weight: 500;
   width: 100%;
   margin-left: 6px;
@@ -221,10 +190,10 @@ a {
   border-bottom-width: 2.5px;
   border-left-width: 0px;
   border-right-width: 0px;
-  padding-left: 3px;
 }
 input {
   color: #383838;
+  padding-left: 3px;
 }
 input:focus {
   outline: none;
@@ -233,7 +202,7 @@ input::placeholder {
   color: #cdcdcd;
 }
 
-.signupDown button {
+.loginDown button {
   background-color: #5555ff;
   border: none;
   border-radius: 16px;
@@ -242,23 +211,22 @@ input::placeholder {
   font-weight: 700;
   color: white;
 }
-.signupDown button:hover {
+.loginDown button:hover {
   transition: 0.2s;
   background-color: #4747d6;
 }
-.signupUp a:hover {
+.loginUp a:hover {
   transition: 0.2s;
   color: #4747d6;
 }
-.signupDown img {
+.loginDown img {
   width: 28px;
   height: 28px;
 }
-.signupDown a {
+.loginDown a {
   font-size: 12px;
-  text-align: left;
+  text-align: right;
   margin-top: 18px;
   font-weight: 500;
-  color: #848484;
-  line-height: 18px;
+  color: #4747d6;
 }

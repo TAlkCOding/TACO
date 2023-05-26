@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/css/mypage.css" />
+    <link rel="stylesheet" href="../assets/css/myaccount.css" />
     <title>TACO - Settings</title>
   </head>
   <body>
@@ -23,32 +23,19 @@
       <div class="main">
         <div class="container">
           <div class="menu">
-            <button class="menuList"><p>내 정보</p></button>
-            <button class="menuList" onclick="location.href='./myaccount.html'"><p>내 계정</p></button>
+            <button class="menuList" onclick="location.href='./mypage.html'"><p>내 정보</p></button>
+            <button class="menuList"><p>내 계정</p></button>
           </div>
           <div class="myInfo">
-            <h1>내 정보</h1>
-            <div class="profileImg">
+            <h1>내 계정</h1>
+            <div class="password">
               <p>프로필 사진</p>
-              <div class="imgUpload">
-                <img src="../assets/img/profile.jpeg" alt="" />
-                <button>이미지 업로드</button>
-              </div>
+              <div class="changePassword"><p>비밀번호 변경하기</p></div>
             </div>
             <hr />
-            <div class="name">
-              <p>이름</p>
-              <input type="text" />
-            </div>
-            <hr />
-            <div class="nickName">
-              <p>닉네임</p>
-              <input type="text" />
-            </div>
-            <hr />
-            <div class="phoneNumber">
-              <p>휴대폰 번호</p>
-              <input type="text" />
+            <div class="deletePassword">
+              <p>회원탈퇴</p>
+              <button>회원탈퇴</button>
             </div>
             <hr />
             <div class="saveButton"><button>저장하기</button></div>

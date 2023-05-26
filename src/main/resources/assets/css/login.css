@@ -10,7 +10,7 @@ body {
 }
 
 * {
-  font-family: "Inter", sans-serif;
+  font-family: "Pretendard-Regular";
   margin: 0px;
   padding: 0px;
 }
@@ -145,6 +145,19 @@ a {
   margin-bottom: 74px;
   align-items: center;
 }
+.eye {
+  display: flex;
+  position: absolute;
+  margin-left: 335px;
+  margin-bottom: 3px;
+}
+
+.eyeClose {
+  display: flex;
+  position: absolute;
+  margin-left: 335px;
+  margin-bottom: 3px;
+}
 .loginDown input {
   font-weight: 500;
   width: 100%;
@@ -160,6 +173,7 @@ a {
 }
 input {
   color: #383838;
+  padding-left: 3px;
 }
 input:focus {
   outline: none;
@@ -194,5 +208,5 @@ input::placeholder {
   text-align: right;
   margin-top: 18px;
   font-weight: 500;
-  color: #848484;
+  color: #4747d6;
 }

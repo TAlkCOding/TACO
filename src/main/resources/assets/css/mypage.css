@@ -1,0 +1,240 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-style: normal;
+}
+body {
+  background-color: #f4f4f6;
+}
+
+* {
+  font-family: "Pretendard-Regular";
+  margin: 0px;
+  padding: 0px;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+.root {
+  display: block;
+}
+
+/*헤더 css는 여기부터*/
+.header {
+  display: flex;
+  width: 100%;
+  height: 85px;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 50px #ececec;
+}
+
+.nav {
+  display: flex;
+  width: 1200px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 120px;
+  height: 30px;
+}
+.navContainer {
+  margin-left: 100px;
+  display: flex;
+  width: 161px;
+  height: 40px;
+  align-items: center;
+}
+
+.navButton {
+  display: flex;
+  width: 78px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.navButton p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5555ff;
+}
+
+.profile {
+  display: flex;
+  width: 78px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+/*여기까지*/
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 202px;
+}
+.container {
+  display: flex;
+  width: 792px;
+  justify-content: space-between;
+}
+
+.menu {
+  display: block;
+  width: 180px;
+  height: 108px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px inset #dadada;
+  border-style: solid;
+  padding-top: 22px;
+  box-sizing: border-box;
+}
+
+.menuList {
+  display: flex;
+  width: 178px;
+  height: 32px;
+  align-items: center;
+  border: none;
+  background-color: #ffffff;
+}
+.menuList:nth-child(1) {
+  width: 179px;
+  background-color: rgb(85, 85, 255, 0.1);
+}
+.menuList p {
+  margin-left: 30px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.myInfo {
+  display: block;
+  width: 588px;
+  height: 493px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px inset #dadada;
+  border-style: solid;
+}
+.myInfo h1 {
+  display: flex;
+  width: 100%;
+  height: 68px;
+  font-size: 20px;
+  font-weight: 600;
+  align-items: center;
+  margin-left: 21px;
+  margin-bottom: 32px;
+}
+.myInfo p {
+  font-size: 14px;
+  font-weight: 400;
+  width: 159px;
+}
+hr {
+  border: 1px solid #dadada;
+}
+.profileImg {
+  display: flex;
+  align-items: center;
+  margin-left: 21px;
+  width: 100%;
+  height: 80px;
+}
+.imgUpload {
+  display: flex;
+  align-items: center;
+
+  width: 139px;
+  height: 40px;
+}
+.imgUpload img {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+.imgUpload button {
+  width: 90px;
+  height: 30px;
+  margin-left: 9px;
+}
+.name {
+  display: flex;
+  align-items: center;
+  margin-left: 21px;
+  width: 100%;
+  height: 80px;
+}
+.nickName {
+  display: flex;
+  align-items: center;
+  margin-left: 21px;
+  width: 100%;
+  height: 80px;
+}
+.phoneNumber {
+  display: flex;
+  align-items: center;
+  margin-left: 21px;
+  width: 100%;
+  height: 80px;
+}
+.myInfo input {
+  width: 393px;
+  height: 40px;
+  border: none;
+  background-color: #f4f4f6;
+  border-radius: 8px;
+  font-size: 14px;
+  padding-left: 14px;
+  box-sizing: border-box;
+}
+input:focus {
+  outline: none;
+}
+.saveButton {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-left: 180px;
+  width: 393px;
+  height: 68px;
+}
+.saveButton button {
+  width: 121px;
+  height: 40px;
+  color: #ffffff;
+  background-color: #5555ff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.saveButton button:hover {
+  transition: 0.2s;
+  background-color: #4747d6;
+}

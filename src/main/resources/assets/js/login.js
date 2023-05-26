@@ -15,3 +15,18 @@ $(".passwordInput").on("focus", function () {
   $(this).css("border-color", "#4747d6");
   $(".path2").css("stroke", "#4747d6");
 });
+
+$(".eye").css("display", "none");
+
+$(document).ready(() => {
+  $(".eyeClose").click(() => {
+    $(".eye").css("display", "");
+    $(".eyeClose").css("display", "none");
+    $(".passwordInput").attr("type", "text");
+  });
+  $(".eye").click(() => {
+    $(".eyeClose").css("display", "");
+    $(".eye").css("display", "none");
+    $(".passwordInput").attr("type", "password");
+  });
+});

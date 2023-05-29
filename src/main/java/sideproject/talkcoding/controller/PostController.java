@@ -1,5 +1,6 @@
 package sideproject.talkcoding.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -17,7 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import sideproject.talkcoding.model.dto.post.PostDto;
 import sideproject.talkcoding.model.entity.post.PostEntity;
+import sideproject.talkcoding.model.entity.post.ReplyEntity;
 import sideproject.talkcoding.service.post.PostService;
+import sideproject.talkcoding.service.post.ReplyService;
 
 @Controller
 public class PostController {
@@ -25,6 +28,9 @@ public class PostController {
 
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private ReplyService replyService;
 
     // 글쓰기 페이지 들어가기
     @GetMapping("/post")
@@ -51,8 +57,13 @@ public class PostController {
     public ResponseEntity<Integer> read(HttpSession session, @PathVariable(name = "postId") Long postId, Model model) {
         Long userIndex = (Long) session.getAttribute("userIndex");
         
+        // 게시글 model
         Optional<PostEntity> post = postService.read(postId);
         model.addAttribute("post", post);
+
+        // 댓글 model
+        List<ReplyEntity> replyList = replyService.read(postId);
+        model.addAttribute("reply", replyList);
         
         
         // 세션을 가져와서 만약 게시글 userIndex와 같다면, 1을 출력해 수정 및 삭제 버튼 활성화
@@ -66,6 +77,7 @@ public class PostController {
                 checkedUserIndex = 2;
             }
         }
+        
         
         return new ResponseEntity<>(checkedUserIndex, HttpStatus.OK);
         // return "post_detail";

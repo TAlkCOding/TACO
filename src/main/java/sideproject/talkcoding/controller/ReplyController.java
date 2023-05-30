@@ -33,9 +33,9 @@ public class ReplyController {
 
     // 댓글 수정
     // 댓글 수정은 ajax로 하면 좋겠음
-    @PostMapping ("/reply/edit")
-    public ResponseEntity<ReplyEntity> edit(ReplyDto replyDto){
-
+    @PostMapping ("/reply/edit/{replyId}")
+    public ResponseEntity<ReplyEntity> edit(@PathVariable("replyId") Long replyIndex, ReplyDto replyDto){
+        replyService.edit(replyIndex, replyDto);
         return null;
     }
 

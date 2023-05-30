@@ -15,4 +15,6 @@ public interface PostRepository extends JpaRepository<PostEntity, Long>{
     List<PostEntity> findByPostSidoAndPostGugun(String postSido, String postGugun);
 
     List<PostEntity> findByPostSidoAndPostGugunAndPostDong(String postSido, String postGugun, String postDong);
+
+    List<PostEntity> findByUserIndex(Long userIndex);
 }

@@ -40,6 +40,18 @@ public class PostController {
         return "post";
     }
 
+    // 내 작성글 페이지 들어가기
+    @GetMapping("/post/my")
+    public String myPost(HttpSession session, Model model){
+        Long userIndex = (Long) session.getAttribute("userIndex");
+
+        List<PostEntity> myPost = postService.readMyPost(userIndex);
+        model.addAttribute("mypost", myPost);
+
+        return "mypost";
+    }
+
+
     // 게시글 작성 / return 저장한 게시글 상세 페이지
     // 로그인이 되어있지 않으면 애초에 해당 url 설정을 해두지 않을 것이기 때문에 로그인 체크 안해도 됨
     @PostMapping("/post/save")
@@ -66,15 +78,19 @@ public class PostController {
         model.addAttribute("reply", replyList);
         
         
-        // 세션을 가져와서 만약 게시글 userIndex와 같다면, 1을 출력해 수정 및 삭제 버튼 활성화
+        // 세션을 가져와서 만약 게시글, 댓글 userIndex와 같다면, 1을 출력해 수정 및 삭제 버튼 활성화 / 다르면 0 or 2 출력
+        // 수정 필요
         Integer checkedUserIndex = 0;
         if(userIndex != null){
             if(userIndex == post.get().getUserIndex()){
-                model.addAttribute("correct", "1");
+                // 게시글, 댓글, 세션이 같으면
                 checkedUserIndex = 1;
+                model.addAttribute("checkIndex", checkedUserIndex);
             } else if(userIndex != post.get().getUserIndex()){
-                model.addAttribute("incorrect", "0");
                 checkedUserIndex = 2;
+                model.addAttribute("checkIndex", checkedUserIndex);
+            } else {
+                model.addAttribute("checkIndex", checkedUserIndex);
             }
         }
         

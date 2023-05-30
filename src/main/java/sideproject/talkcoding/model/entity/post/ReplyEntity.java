@@ -38,9 +38,11 @@ public class ReplyEntity {
     private LocalDateTime replyRegDate;
 
     @Column
+    @NotNull
     private Long replyUserIndex;
 
     @Column
+    @NotNull
     private Long replyPostIndex;
     
 

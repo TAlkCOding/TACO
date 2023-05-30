@@ -10,6 +10,6 @@ import sideproject.talkcoding.model.entity.post.ReplyEntity;
 @Repository
 public interface ReplyRepository extends JpaRepository<ReplyEntity, Long>{
 
-    List<ReplyEntity> findByPostIndex(Long postIndex);
+    List<ReplyEntity> findByReplyPostIndex(Long replyPostIndex);
     
 }

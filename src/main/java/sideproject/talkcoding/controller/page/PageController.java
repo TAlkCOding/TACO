@@ -21,14 +21,16 @@ public class PageController {
     
     // 메인페이지 게시글 리스트
     @GetMapping("/")
-    public String postList(Model model){
+    public ResponseEntity<List<PostEntity>> postList(Model model){
         // 로그인 세션 환경 설정
+
+        List<PostEntity> readAll = postService.readAll();
 
         model.addAttribute("posts", postService.readAll());
 
         //게시글 최신순으로 정렬
 
-        return "main";
+        return new ResponseEntity<>(readAll, HttpStatus.OK);
     }
 
     // 주소 설정 select box 값 가져와서 주소 별 게시글 가져오기 - ajax로 select box 데이터 가져오기
@@ -53,6 +55,7 @@ public class PageController {
         return new ResponseEntity<>(gugunList, HttpStatus.OK);
     }
 
+    // 시/도, 구/군, 동 select box 설정
     @GetMapping("/{postSido}/{postGugun}/{postDong}")
     public ResponseEntity<List<PostEntity>> searchDong(@PathVariable("postSido") String postSido,
                                                             @PathVariable("postGugun") String postGugun,

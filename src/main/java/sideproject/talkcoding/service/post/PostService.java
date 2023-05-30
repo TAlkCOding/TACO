@@ -38,6 +38,13 @@ public class PostService {
         return list;
     }
 
+    // 내 게시글들 리스트 가져오기
+    public List<PostEntity> readMyPost(Long userIndex) {
+        List<PostEntity> myPost = postRepository.findByUserIndex(userIndex);
+    
+        return myPost;
+    }
+
     // 게시글 수정
     public Optional<PostEntity> edit(Long postId, PostDto postDto) {
         Optional<PostEntity> post = postRepository.findById(postId);
@@ -85,5 +92,4 @@ public class PostService {
         
         return dongList;
     }
-
 }

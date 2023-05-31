@@ -1,5 +1,7 @@
 package sideproject.talkcoding.controller;
 
+import java.util.Optional;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +36,11 @@ public class ReplyController {
     // 댓글 수정
     // 댓글 수정은 ajax로 하면 좋겠음
     @PostMapping ("/reply/edit/{replyId}")
-    public ResponseEntity<ReplyEntity> edit(@PathVariable("replyId") Long replyIndex, ReplyDto replyDto){
-        replyService.edit(replyIndex, replyDto);
-        return null;
+    public ResponseEntity<Optional<ReplyEntity>> edit(@PathVariable("replyId") Long replyIndex, ReplyDto replyDto){
+        
+        Optional<ReplyEntity> reply = replyService.edit(replyIndex, replyDto);
+
+        return new ResponseEntity<Optional<ReplyEntity>>(reply, HttpStatus.OK);
     }
 
     // 댓글 삭제

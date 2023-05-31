@@ -161,7 +161,7 @@ public class UserController {
         UserEntity user = userDto.toEntity();
 
         // 회원 정보 수정
-        Optional<UserEntity> userInfo = userService.changeUserInfo(userIndex, user);
+        userService.changeUserInfo(userIndex, user);
 
         // 프로필 수정
         profileService.saveProfile(originFileName, userIndex);

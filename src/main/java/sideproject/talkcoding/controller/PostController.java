@@ -35,7 +35,7 @@ public class PostController {
     // 글쓰기 페이지 들어가기
     @GetMapping("/post")
     public String post(HttpSession session){
-        Long userIndex = (Long) session.getAttribute("userIndex");
+        // Long userIndex = (Long) session.getAttribute("userIndex");
 
         return "post";
     }

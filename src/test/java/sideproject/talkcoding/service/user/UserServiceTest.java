@@ -213,8 +213,8 @@ public class UserServiceTest {
         }
 
         //given
-        String user1Id = user1.getUserId();
-        String user1Name = user1.getUserName();
+        user1.getUserId();
+        user1.getUserName();
 
         Optional<UserEntity> findInfo = userService.findUserInfo(1L);
 

@@ -106,7 +106,7 @@ a {
 .subContainer {
   display: block;
   width: 100%;
-  height: calc(100vh - 85px);
+  height: calc(70vh - 85px);
   justify-content: center;
 }
 
@@ -402,7 +402,7 @@ a {
   line-height: 24px;
   align-items: center;
   justify-content: center;
-  font-family: "Pretendard";
+  font-family: "Pretendard-Regular";
 }
 
 .languageContainer {
@@ -434,6 +434,7 @@ a {
   justify-content: center;
   align-items: center;
   color: rgba(0, 0, 0, 0.3);
+  font-family: "Pretendard-Regular";
 }
 
 .languageBox {
@@ -455,7 +456,7 @@ a {
   font-size: 14px;
   color: #5555ff;
   font-weight: 600;
-  font-family: "Pretendard";
+  font-family: "Pretendard-Regular";
 }
 
 .regionContainer {
@@ -488,6 +489,7 @@ a {
   justify-content: center;
   align-items: center;
   color: rgba(0, 0, 0, 0.3);
+  font-family: "Pretendard-Regular";
 }
 
 .regionBoxes {
@@ -515,5 +517,5 @@ a {
   align-items: center;
   font-size: 14px;
   font-weight: 600;
-  font-family: "Pretendard";
+  font-family: "Pretendard-Regular";
 }

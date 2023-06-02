@@ -24,27 +24,238 @@
         </div>
       </div>
 
-      <div class="container">
+      <div class="subContainer">
         <div class="newsContainer">
           <div class="newsBoxLine"></div>
         </div>
         <div class="rotationContainer">
-          <div class="rotation">ooo</div>
+          <div class="rotation">
+            <div class="CurrentNewsCircle"></div>
+            <div class="newsCircle"></div>
+            <div class="newsCircle"></div>
+          </div>
         </div>
         <div class="selectContainer">
           <div class="selectBox">
             <div class="locationSelect">
-              <div class="administrative"><p>경기도</p></div>
-              <div class="region"><p>파주시</p></div>
-              <div class="neighborhood"><p>금촌</p></div>
+              <select id="localParent">
+                <option>선택</option>
+                <option>서울</option>
+                <option>광주</option>
+                <option>충남</option>
+              </select>
+              <select id="localChildOne">
+                <option>선택</option>
+              </select>
+              <select id="localChildTwo">
+                <option>선택</option>
+              </select>
             </div>
+
             <div class="searchingBox">
               <input class="searching" type="text" placeholder="제목, 게시글" />
-              <div class="searchIcon"></div>
+              <img class="searchIcon" src="../assets/img/search.png" />
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="mainContainer">
+      <div class="contentContainer">
+        <div class="studyBox1">
+          <div class="studyContainer">
+            <div class="topBox">
+              <div class="profile">
+                <div class="circleContainer">
+                  <div class="circle">
+                    <div class="commentsCircle">12</div>
+                  </div>
+                </div>
+                <div class="name">조혜령</div>
+              </div>
+              <div class="dateBox">작성일 2023.03.26</div>
+            </div>
+            <div class="spaceBox"></div>
+            <div class="contentBox">
+              <div class="content">
+                프론트 엔드 스터디 모집합니다. 같이 하실 분은 연락을 꼭 주세요!!
+                프로 ...
+              </div>
+            </div>
+            <div class="languageContainer">
+              <div class="languageArrow">
+                <img class="arrow" src="../assets/img/arrow.png" />
+                <div class="languageWord">언어</div>
+              </div>
+              <div class="languageBox">
+                <div class="language">#리액트 #장고</div>
+              </div>
+            </div>
+            <div class="regionContainer">
+              <div class="regionArrow">
+                <img class="arrow" src="../assets/img/arrow.png" />
+                <div class="regionWord">지역</div>
+              </div>
+              <div class="regionBoxes">
+                <div class="regionBox">
+                  <div class="region">경기도</div>
+                </div>
+                <div class="regionBox">
+                  <div class="region">파주시</div>
+                </div>
+                <div class="regionBox">
+                  <div class="region">금촌동</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="studyBox2">
+          <div class="studyContainer">
+            <div class="topBox">
+              <div class="profile">
+                <div class="circleContainer">
+                  <div class="circle">
+                    <div class="commentsCircle">112</div>
+                  </div>
+                </div>
+                <div class="name">조혜령</div>
+              </div>
+              <div class="dateBox">작성일 2023.03.26</div>
+            </div>
+            <div class="spaceBox"></div>
+            <div class="contentBox">
+              <div class="content">
+                프론트 엔드 스터디 모집합니다. 같이 하실 분은 연락을 꼭 주세요!!
+                프로 ...
+              </div>
+            </div>
+            <div class="languageContainer">
+              <div class="languageArrow">
+                <img class="arrow" src="../assets/img/arrow.png" />
+                <div class="languageWord">언어</div>
+              </div>
+              <div class="languageBox">
+                <div class="language">#리액트 #장고</div>
+              </div>
+            </div>
+            <div class="regionContainer">
+              <div class="regionArrow">
+                <img class="arrow" src="../assets/img/arrow.png" />
+                <div class="regionWord">지역</div>
+              </div>
+              <div class="regionBoxes">
+                <div class="regionBox">
+                  <div class="region">경기도</div>
+                </div>
+                <div class="regionBox">
+                  <div class="region">파주시</div>
+                </div>
+                <div class="regionBox">
+                  <div class="region">금촌동</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="studyBox3">
+          <div class="studyContainer">
+            <div class="topBox">
+              <div class="profile">
+                <div class="circleContainer">
+                  <div class="circle">
+                    <div class="commentsCircle">33</div>
+                  </div>
+                </div>
+                <div class="name">조혜령</div>
+              </div>
+              <div class="dateBox">작성일 2023.03.26</div>
+            </div>
+            <div class="spaceBox"></div>
+            <div class="contentBox">
+              <div class="content">
+                프론트 엔드 스터디 모집합니다. 같이 하실 분은 연락을 꼭 주세요!!
+                프로 ...
+              </div>
+            </div>
+            <div class="languageContainer">
+              <div class="languageArrow">
+                <img class="arrow" src="../assets/img/arrow.png" />
+                <div class="languageWord">언어</div>
+              </div>
+              <div class="languageBox">
+                <div class="language">#리액트 #장고</div>
+              </div>
+            </div>
+            <div class="regionContainer">
+              <div class="regionArrow">
+                <img class="arrow" src="../assets/img/arrow.png" />
+                <div class="regionWord">지역</div>
+              </div>
+              <div class="regionBoxes">
+                <div class="regionBox">
+                  <div class="region">경기도</div>
+                </div>
+                <div class="regionBox">
+                  <div class="region">파주시</div>
+                </div>
+                <div class="regionBox">
+                  <div class="region">금촌동</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="studyBox4">
+          <div class="studyContainer">
+            <div class="topBox">
+              <div class="profile">
+                <div class="circleContainer">
+                  <div class="circle">
+                    <div class="commentsCircle">3</div>
+                  </div>
+                </div>
+                <div class="name">조혜령</div>
+              </div>
+              <div class="dateBox">작성일 2023.03.26</div>
+            </div>
+            <div class="spaceBox"></div>
+            <div class="contentBox">
+              <div class="content">
+                프론트 엔드 스터디 모집합니다. 같이 하실 분은 연락을 꼭 주세요!!
+                프로 ...
+              </div>
+            </div>
+            <div class="languageContainer">
+              <div class="languageArrow">
+                <img class="arrow" src="../assets/img/arrow.png" />
+                <div class="languageWord">언어</div>
+              </div>
+              <div class="languageBox">
+                <div class="language">#리액트 #장고</div>
+              </div>
+            </div>
+            <div class="regionContainer">
+              <div class="regionArrow">
+                <img class="arrow" src="../assets/img/arrow.png" />
+                <div class="regionWord">지역</div>
+              </div>
+              <div class="regionBoxes">
+                <div class="regionBox">
+                  <div class="region">경기도</div>
+                </div>
+                <div class="regionBox">
+                  <div class="region">파주시</div>
+                </div>
+                <div class="regionBox">
+                  <div class="region">금촌동</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/main.js"></script>
   </body>
 </html>

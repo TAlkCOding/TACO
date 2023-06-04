@@ -1,0 +1,321 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-style: normal;
+}
+body {
+  background-color: #ffffff;
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+  justify-content: center;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+p {
+  font-family: "Pretendard-Regular";
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.root {
+  display: block;
+}
+
+.header {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 50px rgb(0, 0, 0, 0.05);
+  display: flex;
+  width: 100%;
+  height: 85px;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+}
+
+.nav {
+  width: 1200px;
+  display: flex;
+  align-items: center; /*세로축*/
+  justify-content: space-between;
+}
+
+.logo {
+  width: 120px;
+  height: 30px;
+}
+
+.topButton {
+  width: 144px;
+  height: 41px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.writingWord {
+  width: 72px;
+  height: 41px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+}
+
+.writingWord p {
+  font-size: 14px;
+  font-weight: bold;
+  color: #5555ff;
+  font-family: "Pretendard-Regular";
+}
+
+.profileBox {
+  width: 72px;
+  height: 41px;
+  display: flex;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+}
+
+.picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #000000;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 85px);
+  justify-content: center;
+}
+
+.lineContainer {
+  display: block;
+  width: 792px;
+  height: 100%;
+}
+
+.subContainer {
+  width: 792px;
+  height: 254px;
+  position: relative;
+  margin-bottom: 21px;
+}
+
+.titleBox {
+  display: flex;
+  width: 792px;
+  height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  top: 202px;
+  position: absolute;
+}
+
+.title {
+  display: flex;
+  width: 398px;
+  height: 52px;
+  font-size: 40px;
+  font-weight: 600;
+  align-items: center;
+  font-family: "Pretendard-Regular";
+}
+
+.deleteEdit {
+  display: flex;
+  width: 94px;
+  height: 20px;
+}
+
+.edit {
+  display: flex;
+  width: 47px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-family: "Pretendard-Regular";
+}
+
+.delete {
+  display: flex;
+  width: 47px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-family: "Pretendard-Regular";
+}
+
+.topBox {
+  display: flex;
+  display: flex;
+  width: 242px;
+  height: 32px;
+  margin-bottom: 103px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile {
+  display: flex;
+  font-size: 12px;
+  height: 32px;
+  width: 82px;
+  align-items: center;
+}
+
+.circleContainer {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  align-items: flex-end;
+}
+
+.circle {
+  /*프로필 사진*/
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  position: relative;
+}
+
+.name {
+  /*이름 들어가는 부분*/
+  font-size: 12px;
+  display: flex;
+  width: 50px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Pretendard-Regular";
+}
+
+.dateBox {
+  /*작성일 들어가는 부분*/
+  display: flex;
+  font-size: 12px;
+  opacity: 0.3;
+  width: 103px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Pretendard-Regular";
+}
+
+.divisionContainer {
+  display: flex;
+  width: 792px;
+  height: 42px;
+  margin-bottom: 18px;
+}
+
+.wordContainer {
+  display: flex;
+  width: 396px;
+  height: 42px;
+}
+
+.word {
+  display: flex;
+  width: 110px;
+  height: 42px;
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "Pretendard-Regular";
+  align-items: center;
+}
+
+.infoContainer {
+  display: flex;
+  width: 792px;
+  height: 30px;
+  margin-bottom: 157px;
+}
+
+.infoDivisionContainer {
+  display: flex;
+  width: 396px;
+  height: 30px;
+}
+
+.regionBoxes {
+  display: flex;
+  width: 192px;
+  height: 30px;
+  justify-content: space-between;
+}
+
+.regionBox {
+  display: flex;
+  width: 54px;
+  height: 30px;
+  border: 1px solid #ecd040;
+  border-radius: 16px;
+  background: #ffe455;
+  justify-content: center;
+}
+
+.region {
+  display: flex;
+  width: 54px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Pretendard-Regular";
+}
+
+.languageBox {
+  display: flex;
+  width: 114px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  justify-content: center;
+}
+
+.language {
+  display: flex;
+  width: 86px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #5555ff;
+  font-weight: 600;
+  font-family: "Pretendard-Regular";
+}
+
+.detailPost {
+  display: flex;
+  width: 136px;
+  height: 42px;
+  font-size: 28px;
+  font-weight: 600;
+  align-items: center;
+  margin-bottom: 19px;
+  font-family: "Pretendard-Regular";
+}

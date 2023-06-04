@@ -10,6 +10,7 @@ body {
   background-color: #ffffff;
   -ms-overflow-style: none; /* 인터넷 익스플로러 */
   scrollbar-width: none; /* 파이어폭스 */
+  justify-content: center;
 }
 
 body::-webkit-scrollbar {
@@ -67,10 +68,7 @@ a {
   display: flex;
   justify-content: space-between;
 }
-.profileButton {
-  width: 72px;
-  height: 41px;
-}
+
 .writingWord {
   width: 72px;
   height: 41px;
@@ -95,9 +93,298 @@ a {
   align-items: center; /*세로축*/
   justify-content: center; /*가로축*/
 }
-.profile {
+
+.picture {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: #000000;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 85px);
+  justify-content: center;
+}
+
+.lineContainer {
+  display: block;
+  width: 588px;
+  height: 100%;
+}
+
+.subContainer {
+  display: flex;
+  width: 588px;
+  height: 234px;
+  align-items: center;
+}
+
+.subContainer p {
+  display: flex;
+  width: 126px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: "Pretendard-Regular";
+}
+
+.postContainer {
+  width: 588px;
+  height: calc(100vh - 319px);
+}
+
+.studyBox1 {
+  display: flex;
+  width: 588px;
+  height: 321px;
+  border: 1px solid #e8e8e8;
+  border-radius: 32px;
+  box-shadow: 0px 8px 24px rgb(0, 0, 0, 0.08);
+  margin: 0px 0px 80px 0px;
+  justify-content: center;
+}
+
+.studyBox2 {
+  display: flex;
+  width: 588px;
+  height: 321px;
+  border: 1px solid #e8e8e8;
+  border-radius: 32px;
+  box-shadow: 0px 8px 24px rgb(0, 0, 0, 0.08);
+  margin: 0px 0px 80px 0px;
+  justify-content: center;
+}
+
+.studyContainer {
+  display: block;
+  width: 548px;
+  height: 281px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.topBox {
+  display: flex;
+  display: flex;
+  width: 548px;
+  height: 35px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile {
+  display: flex;
+  font-size: 12px;
+  height: 35px;
+  width: 82px;
+  align-items: center;
+}
+
+.circleContainer {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  align-items: flex-end;
+}
+
+.circle {
+  /*프로필 사진*/
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  position: relative;
+}
+
+.commentsCircle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #ff5b5b;
+  position: absolute;
+  left: 19px;
+  bottom: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  color: white;
+  font-family: "Pretendard-Regular";
+}
+
+.name {
+  /*이름 들어가는 부분*/
+  font-size: 12px;
+  display: flex;
+  width: 50px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Pretendard-Regular";
+}
+
+.dateBox {
+  /*작성일 들어가는 부분*/
+  display: flex;
+  font-size: 12px;
+  opacity: 0.3;
+  width: 103px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Pretendard-Regular";
+}
+
+.spaceBox {
+  height: 20px;
+  width: 548px;
+  border: 1px solid #000000;
+  opacity: 0.15;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-top-width: 0;
+}
+
+.contentBox {
+  display: flex;
+  width: 548px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  position: absolute;
+  top: 90px;
+  font-family: "Pretendard-Regular";
+}
+
+.content {
+  display: flex;
+  width: 518px;
+  height: 60px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #383838;
+  line-height: 24px;
+  align-items: center;
+  font-family: "Pretendard-Regular";
+}
+
+.languageContainer {
+  display: flex;
+  width: 242px;
+  height: 30px;
+  position: absolute;
+  top: 174px;
+}
+
+.languageArrow {
+  display: flex;
+  width: 37px;
+  height: 30px;
+  justify-content: space-between;
+  align-items: center; /*세로축*/
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+}
+
+.languageWord {
+  display: flex;
+  width: 23px;
+  height: 30px;
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.3);
+  font-family: "Pretendard-Regular";
+}
+
+.languageBox {
+  display: flex;
+  width: 114px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.language {
+  display: flex;
+  width: 86px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #5555ff;
+  font-weight: 600;
+  font-family: "Pretendard-Regular";
+}
+
+.regionContainer {
+  display: flex;
+  width: 242px;
+  height: 30px;
+  position: absolute;
+  top: 228px;
+  justify-content: space-between;
+}
+
+.regionArrow {
+  display: flex;
+  width: 37px;
+  height: 30px;
+  justify-content: space-between;
+  align-items: center; /*세로축*/
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+}
+
+.regionWord {
+  display: flex;
+  width: 23px;
+  height: 30px;
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.3);
+  font-family: "Pretendard-Regular";
+}
+
+.regionBoxes {
+  display: flex;
+  width: 192px;
+  height: 30px;
+  justify-content: space-between;
+}
+
+.regionBox {
+  display: flex;
+  width: 54px;
+  height: 30px;
+  border: 1px solid #ecd040;
+  border-radius: 16px;
+  background: #ffe455;
+  justify-content: center;
+}
+
+.region {
+  display: flex;
+  width: 54px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Pretendard-Regular";
 }

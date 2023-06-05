@@ -319,3 +319,45 @@ a {
   margin-bottom: 19px;
   font-family: "Pretendard-Regular";
 }
+
+.post {
+  width: 792px;
+  height: 510px;
+  margin-bottom: 280px;
+}
+
+.post p {
+  /*게시글 들어갈 부분*/
+  font-size: 16px;
+  line-height: 32px;
+  font-family: "Pretendard-Regular";
+}
+
+.commentWord {
+  display: flex;
+  width: 94px;
+  height: 42px;
+  font-size: 18px;
+  font-weight: 600;
+  align-items: center;
+  margin-bottom: 18px;
+  font-family: "Pretendard-Regular";
+}
+
+.inputComment {
+  width: 792px;
+  height: 130px;
+  border: 1px solid #dadada;
+  border-radius: 16px;
+}
+
+.writeComment {
+  display: flex;
+  width: 124px;
+  height: 42px;
+  align-items: center;
+  color: #dadada;
+  margin: 21px;
+  font-size: 14px;
+  font-family: "Pretendard-Regular";
+}

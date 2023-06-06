@@ -106,7 +106,7 @@ a {
 .subContainer {
   display: block;
   width: 100%;
-  height: calc(70vh - 85px);
+  height: 900px;
   justify-content: center;
 }
 

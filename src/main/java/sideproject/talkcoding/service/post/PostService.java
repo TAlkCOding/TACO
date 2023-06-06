@@ -1,5 +1,6 @@
 package sideproject.talkcoding.service.post;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -92,4 +93,18 @@ public class PostService {
         
         return dongList;
     }
+
+    // 게시글 검색
+    public List<PostEntity> search(String keyword) {
+
+        List<PostEntity> search = postRepository.findByTitleContaining(keyword);
+        List<PostEntity> searchList = new ArrayList<>();
+
+        if(search.isEmpty()) return search;
+
+        for(PostEntity post : search) {
+            searchList.add(post);
+        }
+        return searchList;
+    }   
 }

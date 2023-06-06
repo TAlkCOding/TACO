@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import sideproject.talkcoding.model.entity.post.PostEntity;
 import sideproject.talkcoding.service.post.PostService;
@@ -28,7 +29,7 @@ public class PageController {
 
         model.addAttribute("posts", postService.readAll());
 
-        //게시글 최신순으로 정렬
+        // 게시글 최신순으로 정렬
 
         return new ResponseEntity<>(readAll, HttpStatus.OK);
     }
@@ -68,4 +69,13 @@ public class PageController {
     }
 
     // 제목, 게시글 검색 기능
+    // GetMapping 이므로 url 뒤에 ?keyword = ... 이런 형식으로 들어가야 됨
+    // PostMapping 에서의 RequestParam과 다름
+    @GetMapping("/post/search")
+    public ResponseEntity<List<PostEntity>> search(@RequestParam("keyword") String keyword, Model model){
+        List<PostEntity> searchList = postService.search(keyword);
+        model.addAttribute("searchList", searchList);
+
+        return new ResponseEntity<>(searchList, HttpStatus.OK);
+    }
 }

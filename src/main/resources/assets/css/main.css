@@ -81,7 +81,7 @@ a {
 
 .signIn p {
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
   color: #5555ff;
   font-family: "Pretendard-Regular";
 }
@@ -98,7 +98,7 @@ a {
 
 .joinMembership p {
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
   color: #ffffff;
   font-family: "Pretendard-Regular";
 }
@@ -106,7 +106,7 @@ a {
 .subContainer {
   display: block;
   width: 100%;
-  height: calc(70vh - 85px);
+  height: 900px;
   justify-content: center;
 }
 

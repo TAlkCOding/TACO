@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/post.css" />
+    <script src="../assets/js/summernote/summernote-lite.js"></script>
+    <script src="../assets/js/summernote/summernote-ko-KR.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="../assets/css/summernote/summernote-lite.css"
+    />
+  </head>
+
+  <body>
+    <div class="root">
+      <div class="header">
+        <div class="nav">
+          <img class="logo" src="../assets/img/logo.png" />
+
+          <div class="topButton">
+            <div class="writingWord">
+              <p>글쓰기</p>
+            </div>
+            <div class="profileBox">
+              <div class="picture"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container1">
+        <div class="lineContainer">
+          <div class="subContainer">프로젝트 기본 정보</div>
+          <div class="titleBox">
+            <div class="title">프론트 엔드 모집 합니다.</div>
+          </div>
+          <div class="inputContent"></div>
+          <div class="regionLanguage">지역 및 언어</div>
+          <div class="regionWord">지역</div>
+          <div class="locationSelect">
+            <select id="localParent">
+              <option>도를 선택해주세요.</option>
+            </select>
+            <select id="localChildOne">
+              <option>시를 선택해주세요.</option>
+            </select>
+            <select id="localChildTwo">
+              <option>동을 선택해주세요.</option>
+            </select>
+          </div>
+          <div class="languageWord">언어</div>
+          <div class="languageSelect">
+            <div class="languageBox">
+              <div class="language">리액트</div>
+              <img class="additional" src="../assets/img/minus.png" />
+            </div>
+            <div class="languageBox">
+              <div class="language">HTML</div>
+              <img class="additional" src="../assets/img/minus.png" />
+            </div>
+            <div class="languageBox">
+              <div class="addLanguage">직접 입력하기.</div>
+              <img class="additional" src="../assets/img/plus.png" />
+            </div>
+          </div>
+          <div class="bottomContainer">
+            <div class="bottomButton">
+              <div class="deleteButton">취소</div>
+              <div class="storeButton">저장하기</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

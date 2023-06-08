@@ -104,14 +104,22 @@ a {
 .container {
   display: flex;
   width: 100%;
-  height: calc(100vh - 85px);
+  height: 2700px;
   justify-content: center;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  width: 1200px;
+  height: 2700px;
+  flex-wrap: wrap;
 }
 
 .lineContainer {
   display: block;
   width: 792px;
-  height: 100%;
+  height: 1924px;
 }
 
 .subContainer {
@@ -349,6 +357,7 @@ a {
   height: 130px;
   border: 1px solid #dadada;
   border-radius: 16px;
+  margin-bottom: 21px;
 }
 
 .writeComment {
@@ -359,5 +368,119 @@ a {
   color: #dadada;
   margin: 21px;
   font-size: 14px;
+  font-family: "Pretendard-Regular";
+}
+
+.writingButtonConainer {
+  display: flex;
+  width: 792px;
+  height: 60px;
+  justify-content: flex-end;
+  margin-bottom: 63px;
+}
+
+.writingButton {
+  display: flex;
+  width: 141px;
+  height: 60px;
+  color: #ffffff;
+  background-color: #5555ff;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  font-family: "Pretendard-Regular";
+}
+
+.commentsContainer {
+  display: block;
+  width: 1200px;
+  height: 700px;
+}
+
+.myCommentBox {
+  width: 792px;
+  height: 104px;
+  margin: 22px 204px 22px 204px;
+}
+
+.commentBox {
+  width: 792px;
+  height: 104px;
+  margin: 22px 204px 22px 204px;
+}
+
+.boundaries {
+  background-color: #e9e9e9;
+  width: 1200px;
+  height: 1px;
+  border: 0;
+}
+
+.commentWho {
+  display: flex;
+  width: 792px;
+  height: 32px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deleteEditC {
+  display: flex;
+  width: 77px;
+  height: 20px;
+}
+
+.editC {
+  display: flex;
+  width: 38.5px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-family: "Pretendard-Regular";
+}
+
+.deleteC {
+  display: flex;
+  width: 38.5px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-family: "Pretendard-Regular";
+}
+
+.nameC {
+  /*이름 들어가는 부분*/
+  font-size: 14px;
+  display: flex;
+  width: 50px;
+  height: 20px;
+  align-items: center;
+  margin-left: 4px;
+  justify-content: center;
+  font-family: "Pretendard-Regular";
+}
+
+.comment {
+  display: flex;
+  width: 792px;
+  height: 52px;
+  align-items: center;
+  font-size: 18px;
+  font-family: "Pretendard-Regular";
+}
+
+.dateBoxC {
+  /*작성일 들어가는 부분*/
+  display: flex;
+  font-size: 12px;
+  opacity: 0.3;
+  width: 66px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
   font-family: "Pretendard-Regular";
 }

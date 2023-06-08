@@ -104,7 +104,7 @@ a {
 .container {
   display: flex;
   width: 100%;
-  height: calc(100vh - 85px);
+  height: 1835px;
   justify-content: center;
 }
 
@@ -116,19 +116,13 @@ a {
 
 .subContainer {
   display: flex;
-  width: 588px;
-  height: 234px;
-  align-items: center;
-}
-
-.subContainer p {
-  display: flex;
   width: 126px;
   height: 52px;
   justify-content: center;
   align-items: center;
   font-size: 32px;
   font-weight: 600;
+  margin: 80px 0px 102px 0px;
   font-family: "Pretendard-Regular";
 }
 

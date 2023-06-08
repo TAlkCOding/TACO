@@ -125,4 +125,5 @@ public class PageController {
 
         return new ResponseEntity<>(searchList, HttpStatus.OK);
     }
+    // merged setting code
 }

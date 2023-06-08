@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import sideproject.talkcoding.model.dto.post.PostDto;
@@ -33,8 +35,9 @@ public class PostService {
 	}
 
     // 게시글 리스트 가져오기
-    public List<PostEntity> readAll(){
-        List<PostEntity> list = postRepository.findAll();
+    // 페이징 처리
+    public Page<PostEntity> readAll(Pageable pageable){
+        Page<PostEntity> list = postRepository.findAll(pageable);
 
         return list;
     }
@@ -74,22 +77,22 @@ public class PostService {
 	}
 
     // 시도 select box 찾기
-    public List<PostEntity> findSido(String postSido) {
-        List<PostEntity> sidoList = postRepository.findByPostSido(postSido);
+    public Page<PostEntity> findSido(String postSido, Pageable pageable) {
+        Page<PostEntity> sidoList = postRepository.findByPostSidoContaining(postSido, pageable);
 
         return sidoList;
     }
 
     // 시/도, 구/군 select box 찾기
-    public List<PostEntity> findGugun(String postSido, String postGugun) {
-        List<PostEntity> gugunList = postRepository.findByPostSidoAndPostGugun(postSido, postGugun);
+    public Page<PostEntity> findGugun(String postSido, String postGugun, Pageable pageable) {
+        Page<PostEntity> gugunList = postRepository.findByPostSidoContainingAndPostGugunContaining(postSido, postGugun, pageable);
         
         return gugunList;
     }
 
     // 시/도, 구/군, 동 select box 찾기
-    public List<PostEntity> findDong(String postSido, String postGugun, String postDong) {
-        List<PostEntity> dongList = postRepository.findByPostSidoAndPostGugunAndPostDong(postSido, postGugun, postDong);
+    public Page<PostEntity> findDong(String postSido, String postGugun, String postDong, Pageable pageable) {
+        Page<PostEntity> dongList = postRepository.findByPostSidoContainingAndPostGugunContainingAndPostDongContaining(postSido, postGugun, postDong, pageable);
         
         return dongList;
     }

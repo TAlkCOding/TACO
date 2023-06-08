@@ -84,8 +84,8 @@ public class PostServiceTest {
         postService.save(post1, userIndex1);
         postService.save(post2, userIndex2);   
 
-        List<PostEntity> list = postService.readAll();
-        // List<PostEntity> list = postRepository.findAll();
+        
+        List<PostEntity> list = postRepository.findAll();
 
         //then
         assertThat(list.size()).isEqualTo(2);

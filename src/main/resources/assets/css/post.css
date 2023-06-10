@@ -77,9 +77,6 @@ a {
   display: flex;
   align-items: center; /*세로축*/
   justify-content: center; /*가로축*/
-}
-
-.writingWord p {
   font-size: 14px;
   font-weight: bold;
   color: #5555ff;
@@ -101,7 +98,7 @@ a {
   background-color: #000000;
 }
 
-.container1 {
+.container {
   display: flex;
   width: 100%;
   height: 1830px;
@@ -146,11 +143,9 @@ a {
   font-family: "Pretendard-Regular";
 }
 
-.inputContent {
+.inputBox {
   width: 792px;
   height: 547px;
-  border: 1px solid #dadada;
-  border-radius: 16px;
   margin-bottom: 137px;
 }
 

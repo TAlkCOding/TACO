@@ -19,14 +19,14 @@ public class UserService {
     // 버튼 클릭시 ajax로 get방식으로 받아와서 중복 확인 리턴 값이 1이면 중복 0이면 사용가능 창 띄우기
 	// ajax 처리시 반환값 다시 생각해보기
     public int checkDuplicateId(String userId) {
-        boolean trueOrFalse = userRepository.existsByUserId(userId);
-        if(trueOrFalse == true){
-            System.out.println("duplicate ID!!");
-            return 1;
-        }
-        else{
+        Optional<UserEntity> find = userRepository.findByUserId(userId);
+        if(find.isEmpty()){
             System.out.println("possible ID!!");
             return 0;
+        }
+        else{
+            System.out.println("duplicate ID!!");
+            return 1;
         }
     }
 
@@ -34,14 +34,14 @@ public class UserService {
     // 버튼 클릭시 ajax로 get방식으로 받아와서 중복 확인 리턴 값이 1이면 중복 0이면 사용가능 창 띄우기
 	// ajax 처리시 반환값 다시 생각해보기
     public int checkDuplicateNickName(String userNickName) {
-        boolean trueOrFalse = userRepository.existsByUserNickName(userNickName);
-        if(trueOrFalse == true){
-            System.out.println("duplicate NickName!!");
-            return 1;
-        }
-        else{
+        Optional<UserEntity> find = userRepository.findByUserNickName(userNickName);
+        if(find.isEmpty()){
             System.out.println("possible NickName!!");
             return 0;
+        }
+        else{
+            System.out.println("duplicate NickName!!");
+            return 1;
         }
     }
 

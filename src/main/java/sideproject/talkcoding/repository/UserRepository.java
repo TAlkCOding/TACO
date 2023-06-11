@@ -11,12 +11,6 @@ import sideproject.talkcoding.model.entity.user.UserEntity;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-    // 닉네임 중복 검사
-    boolean existsByUserNickName(String userNickName);
-
-    // 아이디 중복 검사
-    boolean existsByUserId(String userId);
-
     // 아이디 찾기 (이름과 전화번호로)
     Optional<UserEntity> findByUserNameAndUserPhoneNumber(String userName, String userPhoneNumber);
 
@@ -25,4 +19,10 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     // 로그인 기능
     Optional<UserEntity> findByUserIdAndUserPassword(String userId, String userPassword);
+
+    // 아이디 중복 시 찾기
+    Optional<UserEntity> findByUserId(String userId);
+
+    // 닉네임 중복 시 찾기
+    Optional<UserEntity> findByUserNickName(String userNickName);
 }

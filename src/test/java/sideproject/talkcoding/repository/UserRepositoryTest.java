@@ -50,14 +50,14 @@ public class UserRepositoryTest {
 
         //given
         String user2Id = user2.getUserId();
-        boolean dupId = userRepository.existsByUserId(user2Id);
+        Optional<UserEntity> dupId = userRepository.findByUserId(user2Id);
 
-        if(dupId == true){
-            log.info("duplicate Id!!");
-        }
-        if(dupId == false) {
+        if(dupId.isEmpty()){
             userRepository.save(user2);
             log.info("create Id!!");
+        }
+        else{
+            log.info("duplicate ID!!");
         }
         //then
 
@@ -74,6 +74,7 @@ public class UserRepositoryTest {
         .userPassword("1234")
         .userName("윤현우")
         .userNickName("같은 닉네임")
+        .userPhoneNumber("01012345678")
         .build();
 
         UserEntity user2 = UserEntity.builder()
@@ -81,20 +82,21 @@ public class UserRepositoryTest {
         .userPassword("5678")
         .userName("윤현웅")
         .userNickName("같은 닉네임")
+        .userPhoneNumber("01012345678")
         .build();
         
         userRepository.save(user1);
 
         //given
         String user2NickName = user2.getUserNickName();
-        boolean dupNickName = userRepository.existsByUserNickName(user2NickName);
+        Optional<UserEntity> dupId = userRepository.findByUserNickName(user2NickName);
 
-        if(dupNickName == true){
-            log.info("duplicate NickName!!");
-        }
-        if(dupNickName == false) {
+        if(dupId.isEmpty()){
             userRepository.save(user2);
-            log.info("create NickName!!");
+            log.info("create Id!!");
+        }
+        else{
+            log.info("duplicate NickName!!");
         }
 
         //then
@@ -126,14 +128,12 @@ public class UserRepositoryTest {
         String user2Id = user2.getUserId();
         String user2NickName = user2.getUserNickName();
 
-        boolean dupUserId = userRepository.existsByUserId(user2Id);
-        boolean dupUserNickName = userRepository.existsByUserNickName(user2NickName);
+        Optional<UserEntity> dupUserId = userRepository.findByUserId(user2Id);
+        Optional<UserEntity> dupUserNickName = userRepository.findByUserNickName(user2NickName);
 
-        if(dupUserId == false){
-            if(dupUserNickName == false){
-                userRepository.save(user2);
-                log.info("save User!!");
-            }
+        if(dupUserId.isEmpty() && dupUserNickName.isEmpty()){
+            log.info("signup clear!");
+            userRepository.save(user2);
         }
 
 

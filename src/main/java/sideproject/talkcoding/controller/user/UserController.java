@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -91,7 +90,7 @@ public class UserController {
     // id 창에 들어간 데이터를 ajax로 가져옴
     // return 1 or 0
     @PostMapping("/check/id")
-    public ResponseEntity<Integer> checkId(@RequestBody String userId){
+    public ResponseEntity<Integer> checkId(@RequestParam String userId){
         int trueOrFalse = userService.checkDuplicateId(userId);
 
         return new ResponseEntity<>(trueOrFalse, HttpStatus.OK);
@@ -101,7 +100,7 @@ public class UserController {
     // nickname 창에 들어간 데이터를 ajax로 가져옴
     // return 1(중복) or 0(가능)
     @PostMapping("/check/nick")
-    public ResponseEntity<Integer> checkNick(@RequestBody String userNickName){
+    public ResponseEntity<Integer> checkNick(@RequestParam String userNickName){
         int trueOrFalse = userService.checkDuplicateNickName(userNickName);
 
         return new ResponseEntity<>(trueOrFalse, HttpStatus.OK);
@@ -164,7 +163,9 @@ public class UserController {
         userService.changeUserInfo(userIndex, user);
 
         // 프로필 수정
-        profileService.saveProfile(originFileName, userIndex);
+        if(originFileName != null){
+            profileService.saveProfile(originFileName, userIndex);
+        }
 
         return new ResponseEntity<>("프로필 및 개인정보 수정 완료!", HttpStatus.OK);
     }

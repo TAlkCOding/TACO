@@ -1,6 +1,5 @@
 function categoryChange1(localParent) {
   var a = [
-    "전체",
     "강남구",
     "강동구",
     "강북구",
@@ -27,9 +26,8 @@ function categoryChange1(localParent) {
     "중구",
     "중랑구",
   ];
-  var b = ["전체", "광산구", "남구", "동구", "북구", "서구"];
+  var b = ["광산구", "남구", "동구", "북구", "서구"];
   var c = [
-    "전체",
     "남구",
     "공주시",
     "보령시",
@@ -67,19 +65,24 @@ function categoryChange1(localParent) {
 
 function categoryChange2(localChildOne) {
   if (localParent.value == "b") {
-    var 남구 = ["선택", "지수", "제니", "로제", "리사"];
-    var 서구 = ["선택", "LE", "하니", "정화", "혜린", "솔지"];
+    var 광산구 = ["여기는", "저도잘", "뭐가", "있지?"];
+    var 남구 = ["진월동", "주월동", "효덕동", "등등?", "ㅋㅋ"];
+    var 서구 = ["지수", "제니", "로제", "리사"];
+    var 동구 = ["LE", "하니", "정화", "혜린", "솔지"];
+    var 북구 = ["여기도", "몰라여"];
   } else if (localParent.value == "c") {
-    var 남구 = ["선택", "빅토리아", "엠버", "루나", "크리스탈"];
-    var 공주시 = ["선택", "LE", "하니", "정화", "혜린", "솔지"];
+    var 남구 = ["빅토리아", "엠버", "루나", "크리스탈"];
+    var 공주시 = ["LE", "하니", "정화", "혜린", "솔지"];
   }
   var target = document.getElementById("localChildTwo");
 
   if (localChildOne.value == "남구") var localChildTwo = 남구;
+  else if (localChildOne.value == "북구") var localChildTwo = 북구;
+  else if (localChildOne.value == "서구") var localChildTwo = 서구;
   else if (localChildOne.value == "동구") var localChildTwo = 동구;
-  else if (localChildOne.value == "공주시") var localChildTwo = 공주시;
+  else if (localChildOne.value == "광산구") var localChildTwo = 광산구;
 
-  target.options.length = 0;
+  target.options.length = 1;
 
   for (x in localChildTwo) {
     var opt = document.createElement("option");

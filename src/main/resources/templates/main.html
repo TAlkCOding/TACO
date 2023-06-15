@@ -12,14 +12,29 @@
     <div class="root">
       <div class="header">
         <div class="nav">
-          <img class="logo" src="../assets/img/logo.png" />
+          <button type="button" class="button">
+            <img
+              class="logo"
+              alt="logo"
+              src="../assets/img/logo.png"
+              onclick="location.href='../templates/main.html'"
+            />
+          </button>
           <div class="topButton">
-            <div class="signIn">
-              <p>로그인</p>
-            </div>
-            <div class="joinMembership">
-              <p>회원가입</p>
-            </div>
+            <button
+              type="button"
+              class="signIn"
+              onclick="location.href='../templates/login.html'"
+            >
+              로그인
+            </button>
+            <button
+              type="button"
+              class="joinMembership"
+              onclick="location.href='../templates/signup.html'"
+            >
+              회원가입
+            </button>
           </div>
         </div>
       </div>
@@ -37,13 +52,13 @@
         <div class="selectContainer">
           <div class="selectBox">
             <div class="locationSelect">
-              <select id="localParent">
+              <select id="localParent" onchange="categoryChange1(this)">
                 <option>선택</option>
-                <option>서울</option>
-                <option>광주</option>
-                <option>충남</option>
+                <option value="a">서울</option>
+                <option value="b">광주</option>
+                <option value="c">충남</option>
               </select>
-              <select id="localChildOne">
+              <select id="localChildOne" onchange="categoryChange2(this)">
                 <option>선택</option>
               </select>
               <select id="localChildTwo">

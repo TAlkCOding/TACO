@@ -57,6 +57,11 @@ a {
   justify-content: space-between;
 }
 
+.button {
+  border: none;
+  background: none;
+}
+
 .logo {
   width: 120px;
   height: 30px;
@@ -75,11 +80,9 @@ a {
   background-color: #ffffff;
   border-radius: 8px;
   display: flex;
+  border: none;
   align-items: center; /*세로축*/
   justify-content: center; /*가로축*/
-}
-
-.signIn p {
   font-size: 14px;
   font-weight: 700;
   color: #5555ff;
@@ -92,11 +95,9 @@ a {
   background-color: #5555ff;
   border-radius: 8px;
   display: flex;
+  border: none;
   align-items: center; /*세로축*/
   justify-content: center; /*가로축*/
-}
-
-.joinMembership p {
   font-size: 14px;
   font-weight: 700;
   color: #ffffff;

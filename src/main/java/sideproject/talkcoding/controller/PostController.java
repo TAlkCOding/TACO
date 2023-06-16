@@ -78,24 +78,42 @@ public class PostController {
         model.addAttribute("reply", replyList);
         
         
-        // 세션을 가져와서 만약 게시글, 댓글 userIndex와 같다면, 1을 출력해 수정 및 삭제 버튼 활성화 / 다르면 0 or 2 출력
+        // 세션을 가져와서 만약 게시글, 댓글 userIndex와 같다면
+        // 1을 출력해 수정 및 삭제 버튼 활성화 
+        // 로그인 했지만, 다르면 0 
+        // 로그인하지 않았다면, 2 출력
         // 수정 필요
-        Integer checkedUserIndex = 0;
+        Integer checkedUserIndexForPost = 0;
         if(userIndex != null){
             if(userIndex == post.get().getUserIndex()){
                 // 게시글, 댓글, 세션이 같으면
-                checkedUserIndex = 1;
-                model.addAttribute("checkIndex", checkedUserIndex);
+                checkedUserIndexForPost = 1;
+                model.addAttribute("checkIndexForPost", checkedUserIndexForPost);
             } else if(userIndex != post.get().getUserIndex()){
-                checkedUserIndex = 2;
-                model.addAttribute("checkIndex", checkedUserIndex);
+                checkedUserIndexForPost = 2;
+                model.addAttribute("checkIndexForPost", checkedUserIndexForPost);
             } else {
-                model.addAttribute("checkIndex", checkedUserIndex);
+                model.addAttribute("checkIndexForPost", checkedUserIndexForPost);
+            }
+        }
+        
+        Integer checkedUserIndexForReply = 0;
+        if(userIndex != null){
+            for(ReplyEntity reply : replyList){
+                if(userIndex == reply.getReplyUserIndex()){
+                    checkedUserIndexForReply = 1;
+                    model.addAttribute("checkIndexForReply", checkedUserIndexForReply);
+                } else if(userIndex != reply.getReplyUserIndex()){
+                    checkedUserIndexForReply = 2;
+                    model.addAttribute("checkIndexForReply", checkedUserIndexForReply);
+                } else {
+                    model.addAttribute("checkIndexForReply", checkedUserIndexForReply);
+                }
             }
         }
         
         
-        return new ResponseEntity<>(checkedUserIndex, HttpStatus.OK);
+        return new ResponseEntity<>(checkedUserIndexForPost, HttpStatus.OK);
         // return "post_detail";
     }
 

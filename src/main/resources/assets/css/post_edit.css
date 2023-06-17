@@ -1,0 +1,315 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-style: normal;
+}
+body {
+  background-color: #ffffff;
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+  justify-content: center;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+p {
+  font-family: "Pretendard-Regular";
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.root {
+  display: block;
+}
+
+.header {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 50px rgb(0, 0, 0, 0.05);
+  display: flex;
+  width: 100%;
+  height: 85px;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+}
+
+.nav {
+  width: 1200px;
+  display: flex;
+  align-items: center; /*세로축*/
+  justify-content: space-between;
+}
+
+.button {
+  border: none;
+  background: none;
+}
+
+.logo {
+  width: 120px;
+  height: 30px;
+}
+
+.topButton {
+  width: 144px;
+  height: 41px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.writingWord {
+  width: 72px;
+  height: 41px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+  font-size: 14px;
+  font-weight: bold;
+  color: #5555ff;
+  font-family: "Pretendard-Regular";
+}
+
+.profileBox {
+  width: 72px;
+  height: 41px;
+  display: flex;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+}
+
+.picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #000000;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 1830px;
+  justify-content: center;
+}
+
+.lineContainer {
+  display: block;
+  width: 792px;
+  height: 100%;
+}
+
+.subContainer {
+  display: flex;
+  width: 252px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 80px 0px 55px 0px;
+  font-family: "Pretendard-Regular";
+}
+
+.titleBox {
+  display: flex;
+  width: 792px;
+  height: 43px;
+  justify-content: center;
+  border: 1px solid #dadada;
+  border-radius: 16px;
+  margin-bottom: 71px;
+}
+
+.title {
+  display: flex;
+  width: 760px;
+  height: 43px;
+  align-items: center;
+  font-size: 14px;
+  color: #212529;
+  font-family: "Pretendard-Regular";
+}
+
+.inputBox {
+  width: 792px;
+  height: 547px;
+  margin-bottom: 137px;
+}
+
+.regionLanguage {
+  display: flex;
+  width: 164px;
+  height: 52px;
+  font-size: 32px;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 55px;
+  font-family: "Pretendard-Regular";
+}
+
+.regionWord {
+  display: flex;
+  width: 102px;
+  height: 52px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #454545;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  font-family: "Pretendard-Regular";
+}
+
+.locationSelect {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 792px;
+  height: 43px;
+  margin-bottom: 50px;
+}
+
+#localParent {
+  width: 204px;
+  height: 43px;
+  border: 1px solid #dadada;
+  border-radius: 32px;
+}
+
+#localChildOne {
+  width: 204px;
+  height: 43px;
+  border: 1px solid #dadada;
+  border-radius: 32px;
+}
+
+#localChildTwo {
+  width: 204px;
+  height: 43px;
+  border: 1px solid #dadada;
+  border-radius: 32px;
+}
+
+.languageWord {
+  display: flex;
+  width: 102px;
+  height: 52px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #454545;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  font-family: "Pretendard-Regular";
+}
+
+.languageSelect {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 792px;
+  height: 43px;
+  margin-bottom: 228px;
+}
+
+.languageBox {
+  display: flex;
+  width: 204px;
+  height: 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.language {
+  display: flex;
+  width: 144px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dadada;
+  border-radius: 32px;
+  font-size: 14px;
+  color: #5555ff;
+  font-family: "Pretendard-Regular";
+}
+
+.addLanguage {
+  display: flex;
+  width: 144px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dadada;
+  border-radius: 32px;
+  font-size: 14px;
+  color: #dadada;
+  font-family: "Pretendard-Regular";
+}
+
+.additional {
+  width: 30px;
+  height: 30px;
+}
+
+.bottomContainer {
+  display: flex;
+  width: 792px;
+  height: 60px;
+  justify-content: flex-end;
+}
+
+.bottomButton {
+  width: 282px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteButton {
+  width: 141px;
+  height: 60px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  border: none;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+  font-size: 20px;
+  font-weight: 700;
+  color: #5555ff;
+  font-family: "Pretendard-Regular";
+}
+
+.storeButton {
+  width: 141px;
+  height: 60px;
+  background-color: #5555ff;
+  border-radius: 16px;
+  display: flex;
+  border: none;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: "Pretendard-Regular";
+}

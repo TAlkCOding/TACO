@@ -57,6 +57,11 @@ a {
   justify-content: space-between;
 }
 
+.button {
+  border: none;
+  background: none;
+}
+
 .logo {
   width: 120px;
   height: 30px;

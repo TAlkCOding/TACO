@@ -12,7 +12,14 @@
       <!-- 헤더 부분 사용할때 이부분 사용-->
       <div class="header">
         <div class="nav">
-          <img class="logo" src="../assets/img/logo.png" />
+          <button type="button" class="button">
+            <img
+              class="logo"
+              alt="logo"
+              src="../assets/img/logo.png"
+              onclick="location.href='../templates/main.html'"
+            />
+          </button>
           <div class="navContainer">
             <div class="navButton"><p>글쓰기</p></div>
             <div class="profile"><img src="../assets/img/profile.jpeg" /></div>
@@ -23,7 +30,9 @@
       <div class="main">
         <div class="container">
           <div class="menu">
-            <button class="menuList" onclick="location.href='./mypage.html'"><p>내 정보</p></button>
+            <button class="menuList" onclick="location.href='./mypage.html'">
+              <p>내 정보</p>
+            </button>
             <button class="menuList"><p>내 계정</p></button>
           </div>
           <div class="myInfo">

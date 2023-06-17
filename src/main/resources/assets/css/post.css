@@ -57,6 +57,11 @@ a {
   justify-content: space-between;
 }
 
+.button {
+  border: none;
+  background: none;
+}
+
 .logo {
   width: 120px;
   height: 30px;
@@ -285,6 +290,7 @@ a {
   background-color: #ffffff;
   border-radius: 16px;
   display: flex;
+  border: none;
   align-items: center; /*세로축*/
   justify-content: center; /*가로축*/
   font-size: 20px;
@@ -299,6 +305,7 @@ a {
   background-color: #5555ff;
   border-radius: 16px;
   display: flex;
+  border: none;
   align-items: center; /*세로축*/
   justify-content: center; /*가로축*/
   font-size: 20px;

@@ -26,7 +26,14 @@
     <div class="root">
       <div class="header">
         <div class="nav">
-          <img class="logo" src="../assets/img/logo.png" />
+          <button type="button" class="button">
+            <img
+              class="logo"
+              alt="logo"
+              src="../assets/img/logo.png"
+              onclick="location.href='../templates/main.html'"
+            />
+          </button>
 
           <div class="topButton">
             <div class="writingWord">글쓰기</div>
@@ -75,8 +82,20 @@
           </div>
           <div class="bottomContainer">
             <div class="bottomButton">
-              <div class="deleteButton">취소</div>
-              <div class="storeButton">저장하기</div>
+              <button
+                type="button"
+                class="deleteButton"
+                onclick="location.href='../templates/post_detail.html'"
+              >
+                취소
+              </button>
+              <button
+                type="button"
+                class="storeButton"
+                onclick="location.href='../templates/post_detail.html'"
+              >
+                저장하기
+              </button>
             </div>
           </div>
         </div>

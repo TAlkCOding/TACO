@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/main.css" />
   </head>
@@ -12,7 +13,7 @@
     <div class="root">
       <div class="header">
         <div class="nav">
-          <button type="button" class="button">
+          <button type="button">
             <img
               class="logo"
               alt="logo"
@@ -40,13 +41,30 @@
       </div>
       <div class="subContainer">
         <div class="newsContainer">
-          <div class="newsBoxLine"></div>
+          <div class="timeline_box active">
+            <!-- active 주기-->
+            <div class="img_wrap"></div>
+          </div>
+          <div class="timeline_box">
+            <div class="img_wrap"></div>
+          </div>
+          <div class="timeline_box">
+            <div class="img_wrap"></div>
+          </div>
         </div>
+        <!-- btn area -->
+
         <div class="rotationContainer">
-          <div class="rotation">
-            <div class="CurrentNewsCircle"></div>
-            <div class="newsCircle"></div>
-            <div class="newsCircle"></div>
+          <div class="timeline_btn">
+            <button type="button" name="button">
+              <div class="newsCircle"></div>
+            </button>
+            <button type="button" name="button">
+              <div class="newsCircle"></div>
+            </button>
+            <button type="button" name="button">
+              <div class="newsCircle"></div>
+            </button>
           </div>
         </div>
         <div class="selectContainer">
@@ -270,7 +288,7 @@
         </div>
       </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="../assets/js/main.js"></script>
   </body>
 </html>

@@ -91,3 +91,46 @@ function categoryChange2(localChildOne) {
     target.appendChild(opt);
   }
 }
+
+/*버튼 클릭시 슬라이드 보여줌*/
+$(function () {
+  //1. 버튼의 각각의 인덱스 받아오기
+  $(".timeline_btn > button").each(function (i) {
+    let indexNum = i;
+    //2. .timeline_box(컨텐츠영역)의 각각의 인덱스 받아오기
+    $(this).click(function () {
+      //3. 버튼의 인덱스와 .timeline_box 인덱스 비교
+      $(".timeline_box").each(function (j) {
+        if (indexNum == j) {
+          //4. 기존의 class 삭제 후 추가
+          $(".timeline_box").removeClass("active");
+          $(this).addClass("active");
+        }
+      });
+    });
+  });
+});
+
+/*자동 슬라이드*/
+var slideWrapper = document.querySelector(".newContainer");
+var slides = document.querySelectorAll(".img_wrap");
+var totalSlides = slides.length; // item의 갯수
+
+var sliderWidth = slideWrapper.clientWidth; // container의 width
+var slideIndex = 0;
+var slider = document.querySelector(".timeline_box");
+
+slider.style.width = sliderWidth * totalSlides + "px";
+
+showSlides();
+
+function showSlides() {
+  for (var i = 0; i < slides.length; i++) {
+    slider.style.left = -(sliderWidth * slideIndex) + "px";
+  }
+  slideIndex++;
+  if (slideIndex === totalSlides) {
+    slideIndex = 0;
+  }
+  setTimeout(showSlides, 2000);
+}

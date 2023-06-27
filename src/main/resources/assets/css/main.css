@@ -114,22 +114,26 @@ button {
 
 .newsContainer {
   display: flex;
-  width: 100%;
+  width: 300vw;
   height: 378px;
-  justify-content: center;
-  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s; /*서서히 변경해 주세요*/
 }
 
 .newsBoxLine {
-  width: 1200px;
+  width: 100vw;
   height: 330px;
-  display: flex;
-  justify-content: center;
-  align-items: center; /*세로축*/
+  float: left;
+  background-color: #383838;
   border-radius: 16px;
+  margin-top: 48px;
   opacity: 0.85;
-  position: absolute;
   bottom: 0px;
+}
+
+.newsBoxLine img {
+  width: 100%;
+  height: 330px;
 }
 
 .rotationContainer {
@@ -157,7 +161,9 @@ button {
   background-color: #000000;
 }
 
-.newsCircle {
+.newsCircle1,
+.newsCircle2,
+.newsCircle3 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -521,67 +527,4 @@ button {
   font-size: 14px;
   font-weight: 600;
   font-family: "Pretendard-Regular";
-}
-
-/******************************/
-.timeline_box {
-  width: 1200px;
-  height: 330px;
-  background: #f9f9f9;
-  display: flex;
-  border-radius: 16px;
-  position: absolute; /*.timeline_box 모두 겹치기*/
-  opacity: 0; /*기본 투명도*/
-  bottom: 0px;
-}
-
-.newsCircle {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #d9d9d9;
-}
-
-.timeline_box .img_wrap {
-  background-image: url("../img/slide1.png");
-  background-repeat: no-repeat;
-  width: 1200px;
-  height: 330px;
-  border-radius: 16px;
-}
-
-.timeline_box:nth-child(2) .img_wrap {
-  background-image: url("../img/slide2.png");
-}
-
-.timeline_box:nth-child(3) .img_wrap {
-  background-image: url("../img/slide3.png");
-}
-
-.timeline_btn {
-  width: 100%;
-  height: auto;
-  text-align: center;
-  margin-top: 48px;
-}
-
-.timeline_btn > button {
-  display: inline-block;
-}
-
-/*active 상태일 때 opacity 1 을 줘서 화면에 노출 */
-.timeline_box.active {
-  opacity: 1;
-}
-
-button {
-  all: unset;
-  cursor: pointer;
-}
-
-.timeline_btn button {
-  border: none;
-  position: relative;
-  cursor: pointer;
-  margin: 0px 10px 0px 10px;
 }

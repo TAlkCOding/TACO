@@ -124,7 +124,6 @@ button {
   width: 100vw;
   height: 330px;
   float: left;
-  background-color: #383838;
   border-radius: 16px;
   margin-top: 48px;
   opacity: 0.85;
@@ -263,6 +262,11 @@ button {
   box-shadow: 0px 8px 24px rgb(0, 0, 0, 0.08);
   margin: 0px 24px 24px 0px;
   justify-content: center;
+  transition: all 0.2s linear;
+}
+
+.studyBox1:hover {
+  border-color: #5555ff;
 }
 
 .studyBox2 {
@@ -274,6 +278,11 @@ button {
   box-shadow: 0px 8px 24px rgb(0, 0, 0, 0.08);
   margin: 0px 24px 24px 0px;
   justify-content: center;
+  transition: all 0.2s linear;
+}
+
+.studyBox2:hover {
+  border-color: #5555ff;
 }
 
 .studyBox3 {
@@ -285,6 +294,11 @@ button {
   box-shadow: 0px 8px 24px rgb(0, 0, 0, 0.08);
   margin: 0px 24px 24px 0px;
   justify-content: center;
+  transition: all 0.2s linear;
+}
+
+.studyBox3:hover {
+  border-color: #5555ff;
 }
 
 .studyBox4 {
@@ -296,6 +310,11 @@ button {
   box-shadow: 0px 8px 24px rgb(0, 0, 0, 0.08);
   margin: 0px 0px 24px 0px;
   justify-content: center;
+  transition: all 0.2s linear;
+}
+
+.studyBox4:hover {
+  border-color: #5555ff;
 }
 
 .studyContainer {

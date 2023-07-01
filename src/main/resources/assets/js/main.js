@@ -119,9 +119,13 @@ function move() {
     if (curIndex === 2) {
       curIndex = -1;
     }
-  }, 1000);
+  }, 3000);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   move();
 });
+
+function newsCircle() {
+  var newsIndex = 0;
+}

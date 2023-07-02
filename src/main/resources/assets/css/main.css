@@ -153,20 +153,18 @@ button {
   align-items: center; /*세로축*/
 }
 
-.CurrentNewsCircle {
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background-color: #000000;
-}
-
-.newsCircle1,
-.newsCircle2,
-.newsCircle3 {
+.nonClick {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background-color: #d9d9d9;
+}
+
+.click {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: #000000;
 }
 
 .selectContainer {

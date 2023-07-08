@@ -92,29 +92,54 @@ function categoryChange2(localChildOne) {
   }
 }
 
-document.querySelector(".newsCircle2").addEventListener("click", function () {
-  document.querySelector(".newsContainer").style.transform =
-    "translate(-100vw)";
-});
-
-document.querySelector(".newsCircle3").addEventListener("click", function () {
-  document.querySelector(".newsContainer").style.transform =
-    "translate(-200vw)";
-});
-
-document.querySelector(".newsCircle1").addEventListener("click", function () {
-  document.querySelector(".newsContainer").style.transform = "translate(0vw)";
-});
-
+/*자동 슬라이드*/
 function move() {
   var curIndex = 0;
+  let one = document.getElementById("newsCircle1");
+  let two = document.getElementById("newsCircle2");
+  let three = document.getElementById("newsCircle3");
 
-  setInterval(function () {
+  document.querySelector("#newsCircle2").addEventListener("click", function () {
+    document.querySelector(".newsContainer").style.transform =
+      "translate(-100vw)";
+    return (curIndex = 0);
+  });
+
+  document.querySelector("#newsCircle3").addEventListener("click", function () {
+    document.querySelector(".newsContainer").style.transform =
+      "translate(-200vw)";
+    return (curIndex = 1);
+  });
+
+  document.querySelector("#newsCircle1").addEventListener("click", function () {
+    document.querySelector(".newsContainer").style.transform = "translate(0vw)";
+    return (curIndex = -1);
+  });
+
+  let interval = setInterval(function () {
     document.querySelector(".newsContainer").style.transition = "0.2s";
     document.querySelector(".newsContainer").style.transform =
       "translate3d(-" + 100 * (curIndex + 1) + "vw, 0px, 0px)";
 
     curIndex++;
+
+    if (curIndex === 0) {
+      one.className = "click";
+    } else {
+      one.className = "nonClick";
+    }
+
+    if (curIndex === 1) {
+      two.className = "click";
+    } else {
+      two.className = "nonClick";
+    }
+
+    if (curIndex === 2) {
+      three.className = "click";
+    } else {
+      three.className = "nonClick";
+    }
 
     if (curIndex === 2) {
       curIndex = -1;
@@ -126,6 +151,18 @@ document.addEventListener("DOMContentLoaded", function () {
   move();
 });
 
-function newsCircle() {
-  var newsIndex = 0;
+/*버튼 색 변경
+const nonClick = document.querySelectorAll(".nonClick");
+
+function handleClick(event) {
+  // div에서 모든 "click" 클래스 제거
+  nonClick.forEach((e) => {
+    e.classList.remove("click");
+  });
+  // 클릭한 div만 "click"클래스 추가
+  event.target.classList.add("click");
 }
+
+nonClick.forEach((e) => {
+  e.addEventListener("click", handleClick);
+}); */

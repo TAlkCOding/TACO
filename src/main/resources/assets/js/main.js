@@ -116,7 +116,7 @@ function move() {
     return (curIndex = -1);
   });
 
-  let interval = setInterval(function () {
+  setInterval(function () {
     document.querySelector(".newsContainer").style.transition = "0.2s";
     document.querySelector(".newsContainer").style.transform =
       "translate3d(-" + 100 * (curIndex + 1) + "vw, 0px, 0px)";
@@ -151,10 +151,13 @@ document.addEventListener("DOMContentLoaded", function () {
   move();
 });
 
+/* 
+let interval = move();
 /*버튼 색 변경
 const nonClick = document.querySelectorAll(".nonClick");
 
 function handleClick(event) {
+  clearInterval(interval);
   // div에서 모든 "click" 클래스 제거
   nonClick.forEach((e) => {
     e.classList.remove("click");
@@ -165,4 +168,6 @@ function handleClick(event) {
 
 nonClick.forEach((e) => {
   e.addEventListener("click", handleClick);
-}); */
+  move();
+});
+*/

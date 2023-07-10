@@ -89,7 +89,7 @@ function save_joindata() {
   else {
     $.ajax({
       type: "POST",
-      url: "../templates/signup",
+      url: "/signup",
       data: {
         name_give: name,
         nickName_give: nickName,

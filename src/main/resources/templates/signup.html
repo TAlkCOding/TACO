@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,7 +7,7 @@
     <title>TACO - Signup</title>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="../assets/css/signup.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
   </head>
   <body>
     <div class="root">
@@ -17,8 +17,8 @@
             <img
               class="logo"
               alt="logo"
-              src="../assets/img/logo.png"
-              onclick="location.href='../templates/main.html'"
+              src="/img/logo.png"
+              th:onclick="location.href='/'"
             />
           </button>
         </div>

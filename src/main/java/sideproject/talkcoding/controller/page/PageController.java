@@ -52,8 +52,7 @@ public class PageController {
     // 주소 설정 select box 값 가져와서 주소 별 게시글 가져오기 - ajax로 select box 데이터 가져오기
     
     // 시/도 select box만 설정했을 경우
-    @GetMapping("/address/{postSido}")
-    @ResponseBody
+    @GetMapping("/{postSido}")
     public ResponseEntity<Page<PostEntity>> searchSido(@PathVariable("postSido") String postSido,
                                                             @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable,
                                                             Model model){
@@ -74,8 +73,7 @@ public class PageController {
     }
 
     // 시/도, 구/군 select box 설정
-    @GetMapping("/address/{postSido}/{postGugun}")
-    @ResponseBody
+    @GetMapping("/{postSido}/{postGugun}")
     public ResponseEntity<Page<PostEntity>> searchGugun(@PathVariable("postSido") String postSido,
                                                             @PathVariable("postGugun") String postGugun,
                                                             @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable,
@@ -97,8 +95,7 @@ public class PageController {
     }
 
     // 시/도, 구/군, 동 select box 설정
-    @GetMapping("/address/{postSido}/{postGugun}/{postDong}")
-    @ResponseBody
+    @GetMapping("/{postSido}/{postGugun}/{postDong}")
     public ResponseEntity<Page<PostEntity>> searchDong(@PathVariable("postSido") String postSido,
                                                             @PathVariable("postGugun") String postGugun,
                                                             @PathVariable("postDong") String postDong,

@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <title>Document</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link
+      th:href="@{/styles/cssandjs/main.css}"
+      type="text/css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -281,6 +285,6 @@
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script type="text/javascript" th:src="@{/js/cssandjs/main.js}"></script>
   </body>
 </html>

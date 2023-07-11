@@ -26,7 +26,7 @@ public class PageController {
     
     // 메인페이지 게시글 리스트
     @GetMapping("/")
-    public ResponseEntity<Page<PostEntity>> postList(Model model, @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable){
+    public String postList(Model model, @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable){
         // 로그인 세션 환경 설정
 
         Page<PostEntity> readAll = postService.readAll(pageable);
@@ -45,7 +45,7 @@ public class PageController {
 
         
 
-        return new ResponseEntity<>(readAll, HttpStatus.OK);
+        return "main.html";
     }
 
     // 주소 설정 select box 값 가져와서 주소 별 게시글 가져오기 - ajax로 select box 데이터 가져오기

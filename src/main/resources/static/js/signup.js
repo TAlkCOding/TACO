@@ -40,30 +40,48 @@ $("input").on("blur", function () {
   $(".path4").css("stroke", "#b1b1b1");
 });
 
-// $(".condition").css("display", "none");
-// $(".condition1").css("display", "none");
-// $(".condition2").css("display", "none");
+$(".condition").css("display", "none");
+$(".condition1").css("display", "none");
+$(".condition2").css("display", "none");
 
 $(document).ready(() => {
   $("button").click((event) => {
     var nameVal = $(".nameInput").val();
     var nickNameVal = $(".nickNameInput").val();
-    var password = $(".passwordInput").val();
-    var passwordCheck = $(".passwordCheckInput").val();
     if (nameVal === nickNameVal) {
       $(".condition").css("display", "");
       event.preventDefault();
       console.log(nameVal);
       console.log(nickNameVal);
     }
+    if (nameVal !== nickNameVal) {
+      $(".condition").css("display", "none");
+      event.preventDefault();
+      console.log(nameVal);
+      console.log(nickNameVal);
+    }
+  });
+});
+
+$(document).ready(() => {
+  $("button").click((event) => {
+    var password = $(".passwordInput").val();
+    var passwordCheck = $(".passwordCheckInput").val();
+
     if(password !== passwordCheck) {
-      $(".condition1").css("display", "flex");
+      $(".condition2").css("display", "");
       event.preventDefault();
       console.log(password);
       console.log(passwordCheck);
     }
-  });
-});
+    if(password === passwordCheck) {
+      $(".condition2").css("display", "none");
+      event.preventDefault();
+      console.log(password);
+      console.log(passwordCheck);
+    }
+  })
+})
 
 $(".eye").css("display", "none");
 
@@ -82,6 +100,44 @@ $(document).ready(() => {
   });
 });
 
+// 아이디 중복검사
+
+// keyup 테스트
+$('.idInput').on("propertychange change keyup paste input", function(){
+  // console.log("keyup 테스트");
+  var userId = $(".idInput").val();
+  var data = {userId : userId}
+
+  $.ajax({
+    type: "post",
+    url: "/check/id",
+    data : data,
+    success : function(result){
+      //사용 가능
+      if(result === 0){
+        $(".condition1").css("display", "flex");
+        $(".id_input_re_1").css("display","inline-block");
+				$(".id_input_re_2").css("display", "none");
+        console.log("사용 가능");
+      }
+      // 아이디 중복
+      if(result === 1){
+        $(".condition1").css("display", "flex");
+        $(".id_input_re_1").css("display","none");
+				$(".id_input_re_2").css("display", "inline-block");
+        console.log("아이디 중복!");
+      }
+    }
+  });
+});
+
+// 회원가입
+$(document).ready(() => {
+  $(".join_button").click((event) => {
+    alert("회원가입되었습니다.");
+    document.getElementById("signup").submit();
+  })
+})
 
 /*사용자 정보 유효성 검사*/
 /*

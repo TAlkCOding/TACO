@@ -277,7 +277,7 @@ input::placeholder {
   width: 156px;
   height: 20px;
   margin-left: 33px;
-  margin-top: 146px;
+  margin-top: 124px;
   align-items: center;
 }
 
@@ -286,7 +286,7 @@ input::placeholder {
   color : green;
   font-size: 11px;
   font-weight: 600;
-  display : flex;
+  display : none;
 }
 /* 중복아이디 존재하는 경우 */
 .id_input_re_2{

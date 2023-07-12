@@ -276,7 +276,38 @@ input::placeholder {
   position: absolute;
   width: 156px;
   height: 20px;
-  margin-left: 170.8px;
-  margin-top: 33px;
+  margin-left: 33px;
+  margin-top: 146px;
   align-items: center;
+}
+
+/* 중복아이디 존재하지 않는경우 */
+.id_input_re_1{
+  color : green;
+  font-size: 11px;
+  font-weight: 600;
+  display : flex;
+}
+/* 중복아이디 존재하는 경우 */
+.id_input_re_2{
+  color : red;
+  font-size: 11px;
+  font-weight: 600;
+  display : none;
+}
+
+.condition2 {
+  display: flex;
+  position: absolute;
+  width: 156px;
+  height: 20px;
+  margin-left: 33px;
+  margin-top: 303px;
+  align-items: center;
+}
+
+.condition2 p {
+  font-size: 11px;
+  color: #ff5353;
+  font-weight: 600;
 }

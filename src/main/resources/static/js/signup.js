@@ -40,17 +40,27 @@ $("input").on("blur", function () {
   $(".path4").css("stroke", "#b1b1b1");
 });
 
-$(".condition").css("display", "none");
+// $(".condition").css("display", "none");
+// $(".condition1").css("display", "none");
+// $(".condition2").css("display", "none");
 
 $(document).ready(() => {
   $("button").click((event) => {
     var nameVal = $(".nameInput").val();
     var nickNameVal = $(".nickNameInput").val();
+    var password = $(".passwordInput").val();
+    var passwordCheck = $(".passwordCheckInput").val();
     if (nameVal === nickNameVal) {
       $(".condition").css("display", "");
       event.preventDefault();
       console.log(nameVal);
       console.log(nickNameVal);
+    }
+    if(password !== passwordCheck) {
+      $(".condition1").css("display", "flex");
+      event.preventDefault();
+      console.log(password);
+      console.log(passwordCheck);
     }
   });
 });

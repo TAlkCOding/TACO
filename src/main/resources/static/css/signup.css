@@ -269,3 +269,14 @@ input::placeholder {
   color: #848484;
   line-height: 18px;
 }
+
+/* 아이디 중복 확인 span */
+.condition1 {
+  display: flex;
+  position: absolute;
+  width: 156px;
+  height: 20px;
+  margin-left: 170.8px;
+  margin-top: 33px;
+  align-items: center;
+}

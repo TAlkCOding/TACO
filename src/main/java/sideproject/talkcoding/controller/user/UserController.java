@@ -80,10 +80,10 @@ public class UserController {
     // return 로그인 페이지
     // return "login.html";
     @PostMapping("/signup")
-    public ResponseEntity<UserEntity> signup(UserDto userDto){
-        UserEntity user = userService.save(userDto);
+    public String signup(UserDto userDto){
+        userService.save(userDto);
     
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        return "redirect:/login";
     }
 
     // 아이디 중복 체크 버튼

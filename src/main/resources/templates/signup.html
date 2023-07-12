@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,7 +7,7 @@
     <title>TACO - Signup</title>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="../assets/css/signup.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
   </head>
   <body>
     <div class="root">
@@ -17,8 +17,8 @@
             <img
               class="logo"
               alt="logo"
-              src="../assets/img/logo.png"
-              onclick="location.href='../templates/main.html'"
+              src="/img/logo.png"
+              th:onclick="location.href='/'"
             />
           </button>
         </div>
@@ -44,21 +44,22 @@
             </div>
           </div>
           <div class="rightContainer">
-            <form name="join_form" action="main.html" method="post">
+            <form name="join_form" action="/signup" method="post">
               <div class="signupForm">
                 <div class="signupUp">
                   <h1>회원가입</h1>
-                  <p>계정이 있으신가요?<a href="./login.html"> 로그인</a></p>
+                  <p>계정이 있으신가요?<a href="/login"> 로그인</a></p>
                 </div>
                 <div class="signupDown">
                   <div class="nameNick">
                     <div class="name">
-                      <input class="nameInput" type="text" placeholder="이름" />
+                      <input class="nameInput" type="text" name="userName" placeholder="이름" />
                     </div>
                     <div class="nickName">
                       <input
                         class="nickNameInput"
                         type="text"
+                        name="userNickName"
                         placeholder="닉네임"
                       />
                     </div>
@@ -84,7 +85,11 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                       ></path></svg
-                    ><input class="idInput" type="text" placeholder="아이디" />
+                    ><input class="idInput" type="text" name="userId"placeholder="아이디" />
+                  </div>
+                  <div class="condition1">
+                    <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
+                    <span class="id_input_re_2">아이디가 이미 존재합니다.</span>
                   </div>
                   <div class="password">
                     <svg
@@ -107,6 +112,7 @@
                     ><input
                       class="passwordInput"
                       type="password"
+                      name="userPassword"
                       placeholder="비밀번호"
                     />
                   </div>
@@ -213,10 +219,11 @@
                     ><input
                       class="phoneNumberInput"
                       type="text"
+                      name="userPhoneNumber"
                       placeholder="휴대폰 번호를 -없이 적어주세요."
                     />
                   </div>
-                  <button onClick="joinform_check()">회원가입</button>
+                  <button onClick="joinform_check()" class="join_button">회원가입</button>
                   <a href=""
                     >회원가입 시 TACO 서비스 이용 약관 및 개인정보 보호 정책에
                     동의하게 됩니다.</a
@@ -228,6 +235,6 @@
         </div>
       </div>
     </div>
-    <script src="../assets/js/signup.js"></script>
+    <script src="/js/signup.js"></script>
   </body>
 </html>

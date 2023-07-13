@@ -40,49 +40,9 @@ $("input").on("blur", function () {
   $(".path4").css("stroke", "#b1b1b1");
 });
 
-$(".condition").css("display", "none");
-$(".condition1").css("display", "none");
-$(".condition2").css("display", "none");
 
-$(document).ready(() => {
-  $("button").click((event) => {
-    var nameVal = $(".nameInput").val();
-    var nickNameVal = $(".nickNameInput").val();
-    if (nameVal === nickNameVal) {
-      $(".condition").css("display", "");
-      event.preventDefault();
-      console.log(nameVal);
-      console.log(nickNameVal);
-    }
-    if (nameVal !== nickNameVal) {
-      $(".condition").css("display", "none");
-      event.preventDefault();
-      console.log(nameVal);
-      console.log(nickNameVal);
-    }
-  });
-});
 
-$(document).ready(() => {
-  $("button").click((event) => {
-    var password = $(".passwordInput").val();
-    var passwordCheck = $(".passwordCheckInput").val();
-
-    if(password !== passwordCheck) {
-      $(".condition2").css("display", "");
-      event.preventDefault();
-      console.log(password);
-      console.log(passwordCheck);
-    }
-    if(password === passwordCheck) {
-      $(".condition2").css("display", "none");
-      event.preventDefault();
-      console.log(password);
-      console.log(passwordCheck);
-    }
-  })
-})
-
+// 비밀번호 display
 $(".eye").css("display", "none");
 
 $(document).ready(() => {
@@ -100,9 +60,28 @@ $(document).ready(() => {
   });
 });
 
-// 아이디 중복검사
+$(".condition").css("display", "none");
+$(".condition1").css("display", "none");
+$(".condition2").css("display", "none");
 
-// keyup 테스트
+// 이름 닉네임 중복
+$(document).ready(() => {
+  $("button").click((event) => {
+    var nameVal = $(".nameInput").val();
+    var nickNameVal = $(".nickNameInput").val();
+    if (nameVal === nickNameVal) {
+      $(".condition").css("display", "");
+      event.preventDefault();
+    }
+    if (nameVal !== nickNameVal) {
+      $(".condition").css("display", "none");
+      event.preventDefault();
+    }
+  });
+});
+
+
+// 아이디 중복검사
 $('.idInput').on("propertychange change keyup paste input", function(){
   // console.log("keyup 테스트");
   var userId = $(".idInput").val();
@@ -131,88 +110,53 @@ $('.idInput').on("propertychange change keyup paste input", function(){
   });
 });
 
-// 회원가입
+// 비밀번호 체크 다를 때
 $(document).ready(() => {
-  $(".join_button").click((event) => {
-    alert("회원가입되었습니다.");
-    document.getElementById("signup").submit();
+  $("button").click((event) => {
+    var password = $(".passwordInput").val();
+    var passwordCheck = $(".passwordCheckInput").val();
+
+    if(password !== passwordCheck) {
+      $(".condition2").css("display", "");
+      event.preventDefault();
+    }
+    if(password === passwordCheck) {
+      $(".condition2").css("display", "none");
+    }
   })
 })
 
-/*사용자 정보 유효성 검사*/
-/*
-function save_joindata() {
-  let name = $(".nameInput").val();
-  let nickName = $(".nickNameInput").val();
-  let id = $(".idInput").val();
-  let password = $(".passwordInput").val();
-  let passwordCheck = $(".passwordCheckInput").val();
-  let cellphone = $(".phoneNumberInput").val();
 
-  if (id.length < 4 || id.length >= 20) alert("ID가 양식에 적합하지 않습니다.");
-  else if (password.length < 4 || password.length >= 20)
-    alert("Password가 양식에 적합하지 않습니다.");
-  else if (password !== passwordCheck) alert("비밀번호가 일치하지 않습니다.");
-  else {
+// 회원가입
+$(document).ready(() => {
+  $(".join_button").click((event) => {
+    var nameVal = $(".nameInput").val();
+    var nickNameVal = $(".nickNameInput").val();
+    var password = $(".passwordInput").val();
+    var passwordCheck = $(".passwordCheckInput").val();
+
+    var userId = $(".idInput").val();
+    var data = {userId : userId}
+
     $.ajax({
-      type: "POST",
-      url: "/signup",
-      data: {
-        name_give: name,
-        nickName_give: nickName,
-        id_give: id,
-        password_give: password,
-        cellphone_give: cellphone,
-      },
-      success: function (data) {
-        if (data === "중복ID") {
-          alert("이미 존재하는 ID입니다.");
-        } else if (data === "성공") {
-          alert("정상적으로 회원가입 되었습니다.");
-        }
-      },
-    });
-  }
-}
-
-//입력받은 정보를 데이터베이스에 저장 및 보안을 위한 패스워드 암호화
-router.post("/", async function (req, res, next) {
-  var id = req.body.id;
-  var password = req.body.password;
-
-  const hashPassword = crypto
-    .createHash("sha512")
-    .update(password + salt)
-    .digest("hex");
-  var query = "SELECT userid FROM member where userid='" + id + "';"; //중복 처리하기위한 쿼리
-  connection.query(query, function (err, rows) {
-    if (rows.length == 0) {
-      //sql 제대로 연결되고 중복이 없는 경우
-      var sql = {
-        userid: id,
-        password: hashPassword,
-        salt: salt,
-      };
-      // create query
-      var query = connection.query(
-        "insert into member set ?",
-        sql,
-        function (err, rows) {
-          if (err) throw err;
-          else {
-            res.send("성공");
+      type: "post",
+      url: "/check/id",
+      data : data,
+      success : function(result){
+        if(nameVal !== nickNameVal){
+          if(password === passwordCheck){
+            if(result === 0){
+              alert("회원가입되었습니다.");
+              document.getElementById("signup").submit();
+            }
           }
         }
-      );
-    } else {
-      //이미 있음.
-      res.send("중복ID");
-    }
-  });
-});
-*/
+      }
+    })
+  })
+})
 
-//joinform_check 함수로 유효성 검사
+// joinform_check 함수로 유효성 검사
 // function joinform_check() {
 //   //변수에 담아주기
 //   var name = document.getElementsByClassName("nameInput")[0];
@@ -272,10 +216,4 @@ router.post("/", async function (req, res, next) {
 
 //   //입력 값 전송
 //   document.join_form.submit(); //유효성 검사의 포인트
-// }
-
-// //아이디 중복체크 팝업창(현재 공백문서)
-// function id_check() {
-//   //window.open("팝업될 문서 경로", "팝업될 문서 이름", "옵션");
-//   window.open("", "", "width=600, height=200, left=200, top=100");
 // }

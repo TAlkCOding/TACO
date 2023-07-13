@@ -136,18 +136,24 @@ $(document).ready(() => {
     var passwordCheck = $(".passwordCheckInput").val();
 
     var userId = $(".idInput").val();
-    var data = {userId : userId}
+    var data = {
+      userId : $(".idInput").val(),
+      userNickName : $(".nickNameInput").val()
+    };
 
     $.ajax({
       type: "post",
-      url: "/check/id",
+      url: "/check",
       data : data,
       success : function(result){
         if(nameVal !== nickNameVal){
           if(password === passwordCheck){
-            if(result === 0){
+            if(result === 3){
               alert("회원가입되었습니다.");
               document.getElementById("signup").submit();
+            }
+            else if(result === 2){
+              alert("닉네임이 중복됩니다.");
             }
           }
         }

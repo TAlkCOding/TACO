@@ -106,6 +106,32 @@ public class UserController {
         return new ResponseEntity<>(trueOrFalse, HttpStatus.OK);
     }
 
+    @PostMapping("/check")
+    public ResponseEntity<Integer> checkIdAndNick(@RequestParam String userId, @RequestParam String userNickName){
+        int checkId = userService.checkDuplicateId(userId);
+        int checkNick = userService.checkDuplicateNickName(userNickName);
+        //아이디 닉네임 둘다 중복될 때
+        if(checkId == 1 && checkNick == 1){
+            return new ResponseEntity<>(0, HttpStatus.BAD_REQUEST);
+        }
+        //아이디 중복될 때
+        if(checkId == 1 && checkNick == 0){
+            return new ResponseEntity<>(1, HttpStatus.BAD_REQUEST);
+        }
+        //닉네임 중복될 때
+        if(checkId == 0 && checkNick == 1){
+            return new ResponseEntity<>(2, HttpStatus.OK);
+
+        }
+        //아이디 닉네임 둘다 사용 가능할 때
+        if(checkId == 0 && checkNick == 0){
+            return new ResponseEntity<>(3, HttpStatus.OK);   
+        }
+        else
+            return new ResponseEntity<>(null, HttpStatus.BAD_GATEWAY);
+        
+    }
+
     // 아이디 찾기 페이지 넘어가기
     @GetMapping("/find/id")
     public String findIdPage(){

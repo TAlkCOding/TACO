@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
@@ -91,11 +90,10 @@ public class UserController {
     // id 창에 들어간 데이터를 ajax로 가져옴
     // return 1 or 0
     @PostMapping("/check/id")
-    @ResponseBody
-    public int checkId(@RequestParam String userId){
+    public ResponseEntity<Integer> checkId(@RequestParam String userId){
         int trueOrFalse = userService.checkDuplicateId(userId);
 
-        return trueOrFalse;
+        return new ResponseEntity<>(trueOrFalse, HttpStatus.OK);
     }
 
     // 닉네임 중복 체크 버튼

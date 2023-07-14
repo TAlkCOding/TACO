@@ -45,7 +45,36 @@ button {
 .root {
   display: block;
 }
+/*header 변경 css*/
+.writingWord {
+  width: 72px;
+  height: 41px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+  font-size: 14px;
+  font-weight: bold;
+  color: #5555ff;
+  font-family: "Pretendard-Regular";
+}
 
+.profileBox {
+  width: 72px;
+  height: 41px;
+  display: flex;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+}
+
+.picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #000000;
+}
+/***************/
 .header {
   background-color: #ffffff;
   box-shadow: 0px 4px 50px rgb(0, 0, 0, 0.05);

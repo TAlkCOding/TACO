@@ -31,6 +31,13 @@ $(document).ready(() => {
   });
 });
 
+//로그인 버튼 클릭시 실행
+$(document).ready(function () {
+  $("#loginButton").click(function () {
+    login();
+  });
+});
+
 //아이디 비밀번호 확인 및 알람
 function login() {
   var idInput = document.querySelector(".idInput").value;
@@ -45,30 +52,13 @@ function login() {
     },
     success: function (response) {
       if (response === "no userData") {
-        alert("Login failed");
+        alert("존재하지 않는 정보입니다.");
         window.location.href = "/login";
       } else {
-        alert("Login succeeded");
-        var newHTML = `
-          <div class="header">
-            <div class="nav">
-              <button type="button" class="button">
-                <img class="logo" alt="logo" src="/img/logo.png" onclick="location.href='/'" />
-              </button>
-              <div class="topButton">
-                <div class="writingWord">
-                  <p>글쓰기</p>
-                </div>
-                <div class="profileBox">
-                  <div class="picture"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
-        $(".header").html(newHTML);
-        // Redirect to the main page
-        window.location.href = "/";
+        alert("로그인 되었습니다.");
+        sessionStorage.setItem("isLoggedIn", "true"); //main에서 header 바꾸기
+
+        window.location.href = "/"; // Redirect to the main page
       }
     },
     error: function () {
@@ -76,10 +66,3 @@ function login() {
     },
   });
 }
-
-//로그인 버튼 클릭시 실행
-$(document).ready(function () {
-  $("#loginButton").click(function () {
-    login();
-  });
-});

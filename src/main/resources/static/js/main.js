@@ -1012,6 +1012,36 @@ document.addEventListener("DOMContentLoaded", function () {
   move();
 });
 
+$(document).ready(function () {
+  // Check login status from session or local storage
+  var isLoggedIn = sessionStorage.getItem("isLoggedIn");
+
+  if (isLoggedIn === "true") {
+    $(".header").addClass("writingWord");
+    $(".header").addClass("profileBox");
+    $(".header").addClass("picture");
+    // Update contents of the header class
+    var newHTML = `
+      <div class="header">
+        <div class="nav">
+          <button type="button" class="button">
+            <img class="logo" alt="logo" src="/img/logo.png" onclick="location.href='/'" />
+          </button>
+          <div class="topButton">
+            <div class="writingWord">
+              <p>글쓰기</p>
+            </div>
+            <div class="profileBox">
+              <div class="picture"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    $(".header").html(newHTML);
+  }
+});
+
 /*지역 selectBox url 변환*/
 $(document).ready(function () {
   $("#localParent").change(function () {

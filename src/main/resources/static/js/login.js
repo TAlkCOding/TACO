@@ -31,41 +31,37 @@ $(document).ready(() => {
   });
 });
 
-//입력받은 정보를 데이터베이스에 저장 및 보안을 위한 패스워드 암호화
-router.post("/", async function (req, res, next) {
-  var id = req.body.id;
-  var password = req.body.password;
+//아이디 비밀번호 확인 및 알람
+function login() {
+  var idInput = document.querySelector(".idInput").value;
+  var passwordInput = document.querySelector(".passwordInput").value;
 
-  var query = "select salt, password from member where userid'" + id + "';";
-  console.log(query);
-  connection.query(query, function (err, rows) {
-    if (err) throw err;
-    else {
-      if (rows.length == 0) {
-        //아이디가 존재하지 않는 경우
-        console.log("아이디 틀림");
-        res.redirect("/login");
+  $.ajax({
+    type: "POST",
+    url: "/login",
+    data: {
+      userId: idInput,
+      userPassword: passwordInput,
+    },
+    success: function (response) {
+      if (response === "no userData") {
+        alert("Login failed");
+        window.location.href = "/login";
       } else {
-        var salt = rows[0].salt;
-        var password = rows[0].password;
-        const hashPassword = crypto
-          .createHash("sha512")
-          .update(password + salt)
-          .digest("hex");
-        if (password === hashPassword) {
-          //로그인 성공
-          console.log("로그인 성공");
-          res.cookie("user", id, {
-            expires: new Data(Data.now() + 900000),
-            httpOnly: true,
-          });
-          res.redirect("/");
-        } else {
-          //로그인 실패 (아이디는 존재하지만 비밀번호가 다름)
-          console.log("로그인 실패 비밀번호 틀림.");
-          res.redirect("../templates /login");
-        }
+        alert("Login succeeded");
+        // Redirect to the main page
+        window.location.href = "/";
       }
-    }
+    },
+    error: function () {
+      alert("Error occurred during login");
+    },
+  });
+}
+
+//로그인 버튼 클릭시 실행
+$(document).ready(function () {
+  $("#loginButton").click(function () {
+    login();
   });
 });

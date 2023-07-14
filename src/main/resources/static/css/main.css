@@ -75,6 +75,40 @@ button {
   justify-content: space-between;
 }
 
+/*change header*/
+.writingWord {
+  width: 72px;
+  height: 41px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+}
+
+.writingWord p {
+  font-size: 14px;
+  font-weight: bold;
+  color: #5555ff;
+  font-family: "Pretendard-Regular";
+}
+
+.profileBox {
+  width: 72px;
+  height: 41px;
+  display: flex;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+}
+
+.picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #000000;
+}
+/*********/
+
 .signIn {
   width: 72px;
   height: 41px;

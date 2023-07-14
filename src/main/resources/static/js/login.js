@@ -49,6 +49,24 @@ function login() {
         window.location.href = "/login";
       } else {
         alert("Login succeeded");
+        var newHTML = `
+          <div class="header">
+            <div class="nav">
+              <button type="button" class="button">
+                <img class="logo" alt="logo" src="/img/logo.png" onclick="location.href='/'" />
+              </button>
+              <div class="topButton">
+                <div class="writingWord">
+                  <p>글쓰기</p>
+                </div>
+                <div class="profileBox">
+                  <div class="picture"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        $(".header").html(newHTML);
         // Redirect to the main page
         window.location.href = "/";
       }

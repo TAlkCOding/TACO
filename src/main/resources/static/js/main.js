@@ -1,5 +1,5 @@
 function categoryChange1(localParent) {
-  var a = [
+  var 서울특별시 = [
     "강남구",
     "강동구",
     "강북구",
@@ -49,7 +49,7 @@ function categoryChange1(localParent) {
   var target = document.getElementById("localChildOne");
   var removeAll = document.getElementById("localChildTwo");
 
-  if (localParent.value == "a") var localChildOne = a;
+  if (localParent.value == "서울특별시") var localChildOne = 서울특별시;
   else if (localParent.value == "b") var localChildOne = b;
   else if (localParent.value == "c") var localChildOne = c;
 
@@ -65,7 +65,7 @@ function categoryChange1(localParent) {
 }
 
 function categoryChange2(localChildOne) {
-  if (localParent.value == "a") {
+  if (localParent.value == "서울특별시") {
     var 강남구 = [
       "율현동",
       "도곡1동",
@@ -1012,23 +1012,39 @@ document.addEventListener("DOMContentLoaded", function () {
   move();
 });
 
-/* 
-let interval = move();
-/*버튼 색 변경
-const nonClick = document.querySelectorAll(".nonClick");
+/*지역 selectBox url 변환*/
+$(document).ready(function () {
+  $("#localParent").change(function () {
+    var postSido = $(this).val();
 
-function handleClick(event) {
-  clearInterval(interval);
-  // div에서 모든 "click" 클래스 제거
-  nonClick.forEach((e) = {
-    e.classList.remove("click");
+    updateURL(postSido, null, null);
   });
-  // 클릭한 div만 "click"클래스 추가
-  event.target.classList.add("click");
-}
 
-nonClick.forEach((e) = {
-  e.addEventListener("click", handleClick);
-  move();
+  $("#localChildOne").change(function () {
+    var postSido = $("#localParent").val();
+    var postGugun = $(this).val();
+    updateURL(postSido, postGugun, null);
+  });
+
+  $("#localChildTwo").change(function () {
+    var postSido = $("#localParent").val();
+    var postGugun = $("#localChildOne").val();
+    var postDong = $(this).val();
+    updateURL(postSido, postGugun, postDong);
+  });
+
+  function updateURL(postSido, postGugun, postDong) {
+    var url = "/";
+    if (postSido) {
+      url += "/" + postSido;
+    }
+    if (postGugun) {
+      url += "/" + postGugun;
+    }
+    if (postDong) {
+      url += "/" + postDong;
+    }
+
+    window.location.href = url;
+  }
 });
-*/

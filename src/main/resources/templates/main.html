@@ -21,21 +21,23 @@
               class="logo"
               alt="logo"
               src="/img/logo.png"
-              onclick="location.href='../templates/main.html'"
+              onclick="location.href='/'"
             />
           </button>
           <div class="topButton">
             <button
               type="button"
+              id="change"
               class="signIn"
-              onclick="location.href='../templates/login.html'"
+              onclick="location.href='/login'"
             >
               로그인
             </button>
             <button
               type="button"
+              id="change"
               class="joinMembership"
-              onclick="location.href='../templates/signup.html'"
+              onclick="location.href='/signup'"
             >
               회원가입
             </button>
@@ -67,9 +69,7 @@
             <div class="locationSelect">
               <select id="localParent" onchange="categoryChange1(this)">
                 <option>선택</option>
-                <option value="a">서울</option>
-                <option value="b">광주</option>
-                <option value="c">충남</option>
+                <option value="a">서울특별시</option>
               </select>
               <select id="localChildOne" onchange="categoryChange2(this)">
                 <option>선택</option>
@@ -284,6 +284,6 @@
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="/js/post.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>

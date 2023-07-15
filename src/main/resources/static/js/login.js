@@ -51,18 +51,14 @@ function login() {
       userPassword: passwordInput,
     },
     success: function (response) {
-      if (response === "no userData") {
-        alert("존재하지 않는 정보입니다.");
-        window.location.href = "/login";
-      } else {
-        alert("로그인 되었습니다.");
-        sessionStorage.setItem("isLoggedIn", "true"); //main에서 header 바꾸기
+      alert("로그인 되었습니다.");
+      sessionStorage.setItem("isLoggedIn", "true"); //main에서 header 바꾸기
 
-        window.location.href = "/"; // Redirect to the main page
-      }
+      window.location.href = "/"; // Redirect to the main page
     },
     error: function () {
-      alert("Error occurred during login");
+      alert("존재하지 않는 정보입니다.");
+      window.location.href = "/login";
     },
   });
 }

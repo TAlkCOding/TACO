@@ -43,13 +43,16 @@ function login() {
   var idInput = document.querySelector(".idInput").value;
   var passwordInput = document.querySelector(".passwordInput").value;
 
+  let data = {
+    userId : $(".idInput").val(),
+    userPassword: $(".passwordInput").val()
+  };
   $.ajax({
     type: "POST",
     url: "/login",
-    data: {
-      userId: idInput,
-      userPassword: passwordInput,
-    },
+    data: JSON.stringify(data),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
     success: function (response) {
       alert("로그인 되었습니다.");
       sessionStorage.setItem("isLoggedIn", "true"); //main에서 header 바꾸기

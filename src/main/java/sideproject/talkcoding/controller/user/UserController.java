@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
+import sideproject.talkcoding.model.dto.user.LoginDto;
 import sideproject.talkcoding.model.dto.user.UserDto;
 import sideproject.talkcoding.model.entity.user.UserEntity;
 import sideproject.talkcoding.service.image.ProfileService;
@@ -36,7 +39,7 @@ public class UserController {
     // 로그인 페이지 넘어가기
     @GetMapping("/login")
     public String loginPage(HttpSession session){
-        Long userIndex = (Long) session.getAttribute("userIndex");
+        Long userIndex = (Long) session.getAttribute("userIndex");  
         if(userIndex != null){
             return "redirect:/";
         }
@@ -47,7 +50,11 @@ public class UserController {
     // html form - post
     // return "redirect:/login";
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestParam("userId") String userId,@RequestParam("userPassword") String userPassword, HttpSession session){
+    @ResponseBody
+    public ResponseEntity<String> login(@RequestBody LoginDto loginDto, HttpSession session){
+        String userId = loginDto.getUserId();
+        String userPassword = loginDto.getUserPassword();
+
         Long userIndex = userService.login(userId, userPassword);
         if(userIndex == null){
             return new ResponseEntity<>("no userData", HttpStatus.BAD_REQUEST);

@@ -22,16 +22,28 @@
               class="logo"
               alt="logo"
               src="/img/logo.png"
-              onclick="location.href='../templates/main.html'"
+              onclick="location.href='/main'"
             />
           </button>
 
           <div class="topButton">
-            <div class="writingWord">
-              <p>글쓰기</p>
-            </div>
+            <button class="writingWord" onclick="location.href='/post_edit'">
+              글쓰기
+            </button>
             <div class="profileBox">
               <div class="picture"></div>
+              <button id="openSelectButton"></button>
+              <div id="mySelect" class="hidden">
+                <button id="selectMyPost">
+                  <img src="/img/pageEdit.svg" />내 작성글
+                </button>
+                <button id="selectOption">
+                  <img src="/img/option.svg" />설정
+                </button>
+                <button id="selectLogout">
+                  <img src="/img/logOut.svg" />로그아웃
+                </button>
+              </div>
             </div>
           </div>
         </div>

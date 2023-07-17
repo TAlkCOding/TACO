@@ -22,12 +22,29 @@
               class="logo"
               alt="logo"
               src="/img/logo.png"
-              onclick="location.href='../templates/main.html'"
+              onclick="location.href='/'"
             />
           </button>
-          <div class="navContainer">
-            <div class="navButton"><p>글쓰기</p></div>
-            <div class="profile"><img src="/img/profile.jpeg" /></div>
+
+          <div class="topButton">
+            <button class="writingWord" onclick="location.href='/post_edit'">
+              글쓰기
+            </button>
+            <div class="profileBox">
+              <div class="picture"></div>
+              <button id="openSelectButton"></button>
+              <div id="mySelect" class="hidden">
+                <button id="selectMyPost">
+                  <img src="/img/pageEdit.svg" />내 작성글
+                </button>
+                <button id="selectOption">
+                  <img src="/img/option.svg" />설정
+                </button>
+                <button id="selectLogout">
+                  <img src="/img/logOut.svg" />로그아웃
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -36,7 +53,7 @@
         <div class="container">
           <div class="menu">
             <button class="menuList"><p>내 정보</p></button>
-            <button class="menuList" onclick="location.href='./myaccount.html'">
+            <button class="menuList" onclick="location.href='/myaccount'">
               <p>내 계정</p>
             </button>
           </div>
@@ -70,5 +87,6 @@
         </div>
       </div>
     </div>
+    <script src="/js/mypage.js"></script>
   </body>
 </html>

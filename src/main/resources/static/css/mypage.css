@@ -30,19 +30,19 @@ a {
 
 /*헤더 css는 여기부터*/
 .header {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 50px rgb(0, 0, 0, 0.05);
   display: flex;
   width: 100%;
   height: 85px;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  box-shadow: 0px 4px 50px #ececec;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
 }
 
 .nav {
-  display: flex;
   width: 1200px;
-  align-items: center;
+  display: flex;
+  align-items: center; /*세로축*/
   justify-content: space-between;
 }
 
@@ -55,41 +55,121 @@ a {
   width: 120px;
   height: 30px;
 }
-.navContainer {
-  margin-left: 100px;
+
+.topButton {
+  width: 144px;
+  height: 41px;
   display: flex;
-  width: 161px;
-  height: 40px;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.navButton {
+.writingWord {
+  width: 72px;
+  height: 41px;
+  background-color: #ffffff;
+  border-radius: 8px;
   display: flex;
-  width: 78px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-}
-.navButton p {
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
   font-size: 14px;
-  font-weight: 600;
+  font-weight: bold;
   color: #5555ff;
+  border: none;
+  font-family: "Pretendard-Regular";
 }
 
-.profile {
+.profileBox {
+  width: 72px;
+  height: 41px;
   display: flex;
-  width: 78px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /*세로축*/
+  position: relative;
 }
 
-.profile img {
+.picture {
   width: 40px;
   height: 40px;
-  border-radius: 20px;
+  border-radius: 50%;
+  margin-left: 16px;
+  background-color: #000000;
+  margin-left: 10px;
 }
 
+#openSelectButton {
+  width: 12px;
+  height: 7px;
+  margin: 5px 0px 0px 10px;
+  border: none;
+  background: url("../img/vector.svg") no-repeat;
+}
+
+/*헤더 프로필 버튼 동작*/
+.hidden {
+  display: none;
+}
+
+#mySelect {
+  position: absolute;
+  width: 171px;
+  height: 146px;
+  top: 63px;
+  left: -93px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 0px 30px rgb(0, 0, 0, 0.04);
+}
+
+#selectMyPost {
+  display: flex;
+  margin-top: 19px;
+  width: 171px;
+  height: 36px;
+  border: none;
+  background-color: #ffffff;
+  color: #696969;
+  font-size: 16px;
+  align-items: center;
+  font-family: "Pretendard-Regular";
+}
+
+#selectMyPost:hover {
+  background-color: #eeeeff;
+  transition: 0.1s;
+}
+
+#selectOption {
+  display: flex;
+  width: 171px;
+  height: 36px;
+  border: none;
+  background-color: #ffffff;
+  color: #696969;
+  font-size: 16px;
+  align-items: center;
+  font-family: "Pretendard-Regular";
+}
+
+#selectOption:hover {
+  background-color: #eeeeff;
+  transition: 0.1s;
+}
+
+#selectLogout {
+  display: flex;
+  width: 171px;
+  height: 36px;
+  border: none;
+  background-color: #ffffff;
+  color: #696969;
+  font-size: 16px;
+  align-items: center;
+  font-family: "Pretendard-Regular";
+}
+
+#selectLogout:hover {
+  background-color: #eeeeff;
+  transition: 0.1s;
+}
 /*여기까지*/
 
 .main {
@@ -185,6 +265,9 @@ hr {
   width: 90px;
   height: 30px;
   margin-left: 9px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: solid 1px black;
 }
 .name {
   display: flex;

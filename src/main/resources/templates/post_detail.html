@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/css/post_detail.css" />
+    <link rel="stylesheet" href="../static/css/post_detail.css" />
   </head>
 
   <body>
@@ -21,17 +21,32 @@
             <img
               class="logo"
               alt="logo"
-              src="/img/logo.png"
-              onclick="location.href='/'"
+              src="../static/img/logo.png"
+              onclick="location.href='../templates/main.html'"
             />
           </button>
 
           <div class="topButton">
-            <div class="writingWord">
-              <p>글쓰기</p>
-            </div>
+            <button
+              class="writingWord"
+              onclick="location.href='../templates/post_edit.html'"
+            >
+              글쓰기
+            </button>
             <div class="profileBox">
               <div class="picture"></div>
+              <button id="openSelectButton"></button>
+              <div id="mySelect" class="hidden">
+                <button id="selectMyPost">
+                  <img src="../static/img/pageEdit.svg" />내 작성글
+                </button>
+                <button id="selectOption">
+                  <img src="../static/img/option.svg" />설정
+                </button>
+                <button id="selectLogout">
+                  <img src="../static/img/logOut.svg" />로그아웃
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -178,6 +193,6 @@
       </div>
     </div>
 
-    <script src="/js/psot_detail.js"></script>
+    <script src="../static/js/post_detail.js"></script>
   </body>
 </html>

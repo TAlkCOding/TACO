@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/mypage.css" />
+    <link rel="stylesheet" href="../static/css/mypage.css" />
     <title>TACO - Settings</title>
   </head>
   <body>
@@ -21,13 +21,33 @@
             <img
               class="logo"
               alt="logo"
-              src="/img/logo.png"
+              src="../static/img/logo.png"
               onclick="location.href='../templates/main.html'"
             />
           </button>
-          <div class="navContainer">
-            <div class="navButton"><p>글쓰기</p></div>
-            <div class="profile"><img src="/img/profile.jpeg" /></div>
+
+          <div class="topButton">
+            <button
+              class="writingWord"
+              onclick="location.href='../templates/post_edit.html'"
+            >
+              글쓰기
+            </button>
+            <div class="profileBox">
+              <div class="picture"></div>
+              <button id="openSelectButton"></button>
+              <div id="mySelect" class="hidden">
+                <button id="selectMyPost">
+                  <img src="../static/img/pageEdit.svg" />내 작성글
+                </button>
+                <button id="selectOption">
+                  <img src="../static/img/option.svg" />설정
+                </button>
+                <button id="selectLogout">
+                  <img src="../static/img/logOut.svg" />로그아웃
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -36,7 +56,10 @@
         <div class="container">
           <div class="menu">
             <button class="menuList"><p>내 정보</p></button>
-            <button class="menuList" onclick="location.href='./myaccount.html'">
+            <button
+              class="menuList"
+              onclick="location.href='../templates/myaccount.html'"
+            >
               <p>내 계정</p>
             </button>
           </div>
@@ -45,7 +68,7 @@
             <div class="profileImg">
               <p>프로필 사진</p>
               <div class="imgUpload">
-                <img src="/img/profile.jpeg" alt="" />
+                <img src="../static/img/profile.jpeg" alt="" />
                 <button>이미지 업로드</button>
               </div>
             </div>
@@ -70,5 +93,6 @@
         </div>
       </div>
     </div>
+    <script src="../static/js/mypage.js"></script>
   </body>
 </html>

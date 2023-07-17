@@ -11,7 +11,7 @@
     <title>TACO - Login</title>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="../static/css/login.css" />
   </head>
   <body>
     <div class="root">
@@ -21,8 +21,8 @@
             <img
               class="logo"
               alt="logo"
-              src="/img/logo.png"
-              onclick="location.href='/'"
+              src="../static/img/logo.png"
+              onclick="location.href='../templates/main.html'"
             />
           </button>
         </div>
@@ -52,7 +52,11 @@
               <div class="loginForm">
                 <div class="loginUp">
                   <h1>로그인</h1>
-                  <p>TACO가 처음이신가요?<a href="/signup"> 회원가입</a></p>
+                  <p>
+                    TACO가 처음이신가요?<a href="../templates/signup.html">
+                      회원가입</a
+                    >
+                  </p>
                 </div>
                 <div class="loginDown">
                   <div class="id">
@@ -152,7 +156,7 @@
                     </div>
                   </div>
                   <button id="loginButton">로그인</button>
-                  <a href="/findid">아이디/비밀번호 찾기</a>
+                  <a href="../templates/findid.html">아이디/비밀번호 찾기</a>
                 </div>
               </div>
             <!-- </form> -->
@@ -160,6 +164,6 @@
         </div>
       </div>
     </div>
-    <script src="/js/login.js?ver=1"></script>
+    <script src="../static/js/login.js?ver=1"></script>
   </body>
 </html>

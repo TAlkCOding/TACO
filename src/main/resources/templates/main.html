@@ -78,7 +78,6 @@
                 <option>선택</option>
               </select>
             </div>
-
             <div class="searchingBox">
               <input class="searching" type="text" placeholder="제목, 게시글" />
               <img class="searchIcon" src="/img/search.png" />
@@ -88,7 +87,8 @@
       </div>
       <div class="mainContainer">
         <div class="contentContainer">
-          <div class="studyBox">
+          <th:block th:each="post : ${posts}">
+            <div class="studyBox">
             <div class="studyContainer">
               <div class="topBox">
                 <div class="profile">
@@ -99,13 +99,12 @@
                   </div>
                   <div class="name">조혜령</div>
                 </div>
-                <div class="dateBox">작성일 2023.03.26</div>
+                <div class="dateBox" th:text="${post.postRegDate}">작성일 2023.03.26</div>
               </div>
               <div class="spaceBox"></div>
               <div class="contentBox">
-                <div class="content">
-                  프론트 엔드 스터디 모집합니다. 같이 하실 분은 연락을 꼭
-                  주세요!! 프로 ...
+                <div class="content" th:text="${post.title}">
+                  게시글 제목
                 </div>
               </div>
               <div class="languageContainer">
@@ -114,7 +113,7 @@
                   <div class="languageWord">언어</div>
                 </div>
                 <div class="languageBox">
-                  <div class="language">#리액트 #장고</div>
+                  <div class="language" th:text="${post.postLanguage1}">사용언어</div>
                 </div>
               </div>
               <div class="regionContainer">
@@ -124,214 +123,23 @@
                 </div>
                 <div class="regionBoxes">
                   <div class="regionBoxL">
-                    <div class="regionL">서울특별시</div>
+                    <div class="regionL" th:text="${post.postSido}">시/도</div>
                   </div>
                   <div class="regionBox">
-                    <div class="region">강남구</div>
+                    <div class="region" th:text="${post.postGugun}">구/군</div>
                   </div>
                   <div class="regionBox">
-                    <div class="region">대치동</div>
+                    <div class="region" th:text="${post.postDong}">동</div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="studyBox">
-            <div class="studyContainer">
-              <div class="topBox">
-                <div class="profile">
-                  <div class="circleContainer">
-                    <div class="circle">
-                      <div class="commentsCircle">112</div>
-                    </div>
-                  </div>
-                  <div class="name">조혜령</div>
-                </div>
-                <div class="dateBox">작성일 2023.03.26</div>
-              </div>
-              <div class="spaceBox"></div>
-              <div class="contentBox">
-                <div class="content">
-                  프론트 엔드 스터디 모집합니다. 같이 하실 분은 연락을 꼭
-                  주세요!! 프로 ...
-                </div>
-              </div>
-              <div class="languageContainer">
-                <div class="languageArrow">
-                  <img class="arrow" src="/img/arrow.png" />
-                  <div class="languageWord">언어</div>
-                </div>
-                <div class="languageBox">
-                  <div class="language">#리액트 #장고</div>
-                </div>
-              </div>
-              <div class="regionContainer">
-                <div class="regionArrow">
-                  <img class="arrow" src="/img/arrow.png" />
-                  <div class="regionWord">지역</div>
-                </div>
-                <div class="regionBoxes">
-                  <div class="regionBoxL">
-                    <div class="regionL">서울특별시</div>
-                  </div>
-                  <div class="regionBox">
-                    <div class="region">강남구</div>
-                  </div>
-                  <div class="regionBox">
-                    <div class="region">세곡동</div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-          <div class="studyBox">
-            <div class="studyContainer">
-              <div class="topBox">
-                <div class="profile">
-                  <div class="circleContainer">
-                    <div class="circle">
-                      <div class="commentsCircle">33</div>
-                    </div>
-                  </div>
-                  <div class="name">조혜령</div>
-                </div>
-                <div class="dateBox">작성일 2023.03.26</div>
-              </div>
-              <div class="spaceBox"></div>
-              <div class="contentBox">
-                <div class="content">
-                  프론트 엔드 스터디 모집합니다. 같이 하실 분은 연락을 꼭
-                  주세요!! 프로 ...
-                </div>
-              </div>
-              <div class="languageContainer">
-                <div class="languageArrow">
-                  <img class="arrow" src="/img/arrow.png" />
-                  <div class="languageWord">언어</div>
-                </div>
-                <div class="languageBox">
-                  <div class="language">#리액트 #장고</div>
-                </div>
-              </div>
-              <div class="regionContainer">
-                <div class="regionArrow">
-                  <img class="arrow" src="/img/arrow.png" />
-                  <div class="regionWord">지역</div>
-                </div>
-                <div class="regionBoxes">
-                  <div class="regionBoxL">
-                    <div class="regionL">서울특별시</div>
-                  </div>
-                  <div class="regionBox">
-                    <div class="region">관악구</div>
-                  </div>
-                  <div class="regionBox">
-                    <div class="region">신림동</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="studyBox">
-            <div class="studyContainer">
-              <div class="topBox">
-                <div class="profile">
-                  <div class="circleContainer">
-                    <div class="circle">
-                      <div class="commentsCircle">33</div>
-                    </div>
-                  </div>
-                  <div class="name">조혜령</div>
-                </div>
-                <div class="dateBox">작성일 2023.03.26</div>
-              </div>
-              <div class="spaceBox"></div>
-              <div class="contentBox">
-                <div class="content">
-                  프론트 엔드 스터디 모집합니다. 같이 하실 분은 연락을 꼭
-                  주세요!! 프로 ...
-                </div>
-              </div>
-              <div class="languageContainer">
-                <div class="languageArrow">
-                  <img class="arrow" src="/img/arrow.png" />
-                  <div class="languageWord">언어</div>
-                </div>
-                <div class="languageBox">
-                  <div class="language">#리액트 #장고</div>
-                </div>
-              </div>
-              <div class="regionContainer">
-                <div class="regionArrow">
-                  <img class="arrow" src="/img/arrow.png" />
-                  <div class="regionWord">지역</div>
-                </div>
-                <div class="regionBoxes">
-                  <div class="regionBoxL">
-                    <div class="regionL">서울특별시</div>
-                  </div>
-                  <div class="regionBox">
-                    <div class="region">관악구</div>
-                  </div>
-                  <div class="regionBox">
-                    <div class="region">신림동</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="studyBox">
-            <div class="studyContainer">
-              <div class="topBox">
-                <div class="profile">
-                  <div class="circleContainer">
-                    <div class="circle">
-                      <div class="commentsCircle">3</div>
-                    </div>
-                  </div>
-                  <div class="name">조혜령</div>
-                </div>
-                <div class="dateBox">작성일 2023.03.26</div>
-              </div>
-              <div class="spaceBox"></div>
-              <div class="contentBox">
-                <div class="content">
-                  프론트 엔드 스터디 모집합니다. 같이 하실 분은 연락을 꼭
-                  주세요!! 프로 ...
-                </div>
-              </div>
-              <div class="languageContainer">
-                <div class="languageArrow">
-                  <img class="arrow" src="/img/arrow.png" />
-                  <div class="languageWord">언어</div>
-                </div>
-                <div class="languageBox">
-                  <div class="language">#리액트 #장고</div>
-                </div>
-              </div>
-              <div class="regionContainer">
-                <div class="regionArrow">
-                  <img class="arrow" src="/img/arrow.png" />
-                  <div class="regionWord">지역</div>
-                </div>
-                <div class="regionBoxes">
-                  <div class="regionBox">
-                    <div class="region">경기도</div>
-                  </div>
-                  <div class="regionBox">
-                    <div class="region">파주시</div>
-                  </div>
-                  <div class="regionBox">
-                    <div class="region">금촌동</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </th:block>
         </div>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js?ver=1"></script>
   </body>
 </html>

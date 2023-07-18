@@ -15,6 +15,12 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    public Optional<UserEntity> findByUserEntity(Long userIndex){
+        Optional<UserEntity> user = userRepository.findById(userIndex);
+
+        return user;
+    }
+
     // 아이디 중복 체크 버튼 기능 (파라미터 -> 비교할 회원 아이디)
     // 버튼 클릭시 ajax로 get방식으로 받아와서 중복 확인 리턴 값이 1이면 중복 0이면 사용가능 창 띄우기
 	// ajax 처리시 반환값 다시 생각해보기

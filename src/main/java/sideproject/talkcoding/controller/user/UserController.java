@@ -60,9 +60,10 @@ public class UserController {
             return new ResponseEntity<>("no userData", HttpStatus.BAD_REQUEST);
             // return "redirect:/login";
         }
+        else if(userIndex != null){
         session.setAttribute("userIndex", userIndex);
         log.info(session.getAttribute("userIndex").toString());
-        
+        }
         return new ResponseEntity<>(userIndex.toString(), HttpStatus.OK);
         // return "redirect:/";
     }

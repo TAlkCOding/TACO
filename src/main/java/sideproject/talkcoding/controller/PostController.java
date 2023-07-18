@@ -63,7 +63,7 @@ public class PostController {
         return new ResponseEntity<>(post, HttpStatus.OK);
         // return "redirect:/post_detail.html";
     }
- 
+
     // 게시글 상세보기
     @GetMapping("/post/{postId}")
     public ResponseEntity<Integer> read(HttpSession session, @PathVariable(name = "postId") Long postId, Model model) {

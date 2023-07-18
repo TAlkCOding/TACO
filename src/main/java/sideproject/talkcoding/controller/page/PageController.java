@@ -1,6 +1,9 @@
 package sideproject.talkcoding.controller.page;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,19 +18,34 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lombok.extern.slf4j.Slf4j;
+import sideproject.talkcoding.model.entity.image.ProfileEntity;
 import sideproject.talkcoding.model.entity.post.PostEntity;
+import sideproject.talkcoding.service.image.ProfileService;
 import sideproject.talkcoding.service.post.PostService;
 
 @Controller
+@Slf4j
 public class PageController {
 
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private ProfileService  profileService;
     
     // 메인페이지 게시글 리스트
     @GetMapping("/")
-    public String postList(Model model, @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable){
+    public String postList(Model model, @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable, HttpSession session){
         // 로그인 세션 환경 설정
+        Long userIndex = (Long) session.getAttribute("userIndex");
+        if(userIndex != null){
+            log.info(session.getAttribute("userIndex").toString());
+            Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+        if(userProfile.isPresent()){
+            model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            }
+        }
 
         Page<PostEntity> readAll = postService.readAll(pageable);
 

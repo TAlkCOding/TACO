@@ -11,7 +11,7 @@
     <title>TACO - Login</title>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="../static/css/login.css" />
+    <link rel="stylesheet" href="/css/login.css" />
   </head>
   <body>
     <div class="root">
@@ -21,8 +21,8 @@
             <img
               class="logo"
               alt="logo"
-              src="../static/img/logo.png"
-              onclick="location.href='../templates/main.html'"
+              src="/img/logo.png"
+              onclick="location.href='/'"
             />
           </button>
         </div>
@@ -49,121 +49,121 @@
           </div>
           <div class="rightContainer">
             <!-- <form> -->
-              <div class="loginForm">
-                <div class="loginUp">
-                  <h1>로그인</h1>
-                  <p>
-                    TACO가 처음이신가요?<a href="../templates/signup.html">
-                      회원가입</a
-                    >
-                  </p>
-                </div>
-                <div class="loginDown">
-                  <div class="id">
-                    <svg
-                      width="24px"
-                      height="24px"
-                      stroke-width="1.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      color="#000000"
-                    >
-                      <path
-                        class="path1"
-                        d="M5 20v-1a7 7 0 017-7v0a7 7 0 017 7v1M12 12a4 4 0 100-8 4 4 0 000 8z"
-                        stroke="#B1B1B1"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path></svg
-                    ><input class="idInput" type="text" placeholder="아이디" />
-                  </div>
-                  <div class="password">
-                    <svg
-                      width="24px"
-                      height="24px"
-                      stroke-width="1.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      color="#000000"
-                    >
-                      <path
-                        class="path2"
-                        d="M16 12h1.4a.6.6 0 01.6.6v6.8a.6.6 0 01-.6.6H6.6a.6.6 0 01-.6-.6v-6.8a.6.6 0 01.6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"
-                        stroke="#B1B1B1"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path></svg
-                    ><input
-                      class="passwordInput"
-                      type="password"
-                      placeholder="비밀번호"
-                    />
-                    <div class="eye">
-                      <?xml version="1.0" encoding="UTF-8"?><svg
-                        width="24px"
-                        height="24px"
-                        stroke-width="1.5"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        color="#000000"
-                      >
-                        <path
-                          d="M12 14a2 2 0 100-4 2 2 0 000 4z"
-                          stroke="#B1B1B1"
-                          stroke-width="3.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        ></path>
-                        <path
-                          d="M21 12c-1.889 2.991-5.282 6-9 6s-7.111-3.009-9-6c2.299-2.842 4.992-6 9-6s6.701 3.158 9 6z"
-                          stroke="#B1B1B1"
-                          stroke-width="1.8"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div class="eyeClose">
-                      <?xml version="1.0" encoding="UTF-8"?><svg
-                        width="24px"
-                        height="24px"
-                        stroke-width="1.5"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        color="#000000"
-                      >
-                        <path
-                          d="M3 3l18 18M10.5 10.677a2 2 0 002.823 2.823"
-                          stroke="#B1B1B1"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        ></path>
-                        <path
-                          d="M7.362 7.561C5.68 8.74 4.279 10.42 3 12c1.889 2.991 5.282 6 9 6 1.55 0 3.043-.523 4.395-1.35M12 6c4.008 0 6.701 3.158 9 6a15.66 15.66 0 01-1.078 1.5"
-                          stroke="#B1B1B1"
-                          stroke-width="1.8"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <button id="loginButton">로그인</button>
-                  <a href="../templates/findid.html">아이디/비밀번호 찾기</a>
-                </div>
+            <div class="loginForm">
+              <div class="loginUp">
+                <h1>로그인</h1>
+                <p>TACO가 처음이신가요?<a href="/signup"> 회원가입</a></p>
               </div>
+              <div class="loginDown">
+                <div class="id">
+                  <svg
+                    width="24px"
+                    height="24px"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    color="#000000"
+                  >
+                    <path
+                      class="path1"
+                      d="M5 20v-1a7 7 0 017-7v0a7 7 0 017 7v1M12 12a4 4 0 100-8 4 4 0 000 8z"
+                      stroke="#B1B1B1"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path></svg
+                  ><input class="idInput" type="text" placeholder="아이디" />
+                </div>
+                <div class="password">
+                  <svg
+                    width="24px"
+                    height="24px"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    color="#000000"
+                  >
+                    <path
+                      class="path2"
+                      d="M16 12h1.4a.6.6 0 01.6.6v6.8a.6.6 0 01-.6.6H6.6a.6.6 0 01-.6-.6v-6.8a.6.6 0 01.6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"
+                      stroke="#B1B1B1"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path></svg
+                  ><input
+                    class="passwordInput"
+                    type="password"
+                    placeholder="비밀번호"
+                  />
+                  <div class="eye">
+                    <?xml version="1.0" encoding="UTF-8"?><svg
+                      width="24px"
+                      height="24px"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      color="#000000"
+                    >
+                      <path
+                        d="M12 14a2 2 0 100-4 2 2 0 000 4z"
+                        stroke="#B1B1B1"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                      <path
+                        d="M21 12c-1.889 2.991-5.282 6-9 6s-7.111-3.009-9-6c2.299-2.842 4.992-6 9-6s6.701 3.158 9 6z"
+                        stroke="#B1B1B1"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="eyeClose">
+                    <?xml version="1.0" encoding="UTF-8"?><svg
+                      width="24px"
+                      height="24px"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      color="#000000"
+                    >
+                      <path
+                        d="M3 3l18 18M10.5 10.677a2 2 0 002.823 2.823"
+                        stroke="#B1B1B1"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                      <path
+                        d="M7.362 7.561C5.68 8.74 4.279 10.42 3 12c1.889 2.991 5.282 6 9 6 1.55 0 3.043-.523 4.395-1.35M12 6c4.008 0 6.701 3.158 9 6a15.66 15.66 0 01-1.078 1.5"
+                        stroke="#B1B1B1"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <button id="loginButton">로그인</button>
+                <a href="/findid">아이디/비밀번호 찾기</a>
+              </div>
+            </div>
             <!-- </form> -->
           </div>
         </div>
       </div>
     </div>
+<<<<<<< HEAD
+    <script src="/js/login.js?ver=1"></script>
+=======
     <script src="/js/login.js?ver=2"></script>
+>>>>>>> 45a4b4b81bacbb3e78c6de84170dac323523ebdd
   </body>
 </html>

@@ -11,7 +11,7 @@
     <title>TACO - Signup</title>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="../static/css/signup.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
   </head>
   <body>
     <div class="root">
@@ -21,7 +21,7 @@
             <img
               class="logo"
               alt="logo"
-              src="../static/img/logo.png"
+              src="/img/logo.png"
               th:onclick="location.href='/'"
             />
           </button>
@@ -57,11 +57,7 @@
               <div class="signupForm">
                 <div class="signupUp">
                   <h1>회원가입</h1>
-                  <p>
-                    계정이 있으신가요?<a href="../templates/login.html">
-                      로그인</a
-                    >
-                  </p>
+                  <p>계정이 있으신가요?<a href="/login"> 로그인</a></p>
                 </div>
                 <div class="signupDown">
                   <div class="nameNick">
@@ -261,6 +257,6 @@
         </div>
       </div>
     </div>
-    <script src="../static/js/signup.js"></script>
+    <script src="/js/signup.js"></script>
   </body>
 </html>

@@ -38,8 +38,9 @@ public class PostDto {
     // 유저 인텍스
     private Long userIndex;
 
+    private String userNickName;
 
-    public PostEntity toEntity(Long userIndex) {
+    public PostEntity toEntity(Long userIndex, String userNickName) {
         PostEntity postEntity = PostEntity.builder()
         .title(title)
         .description(description)
@@ -51,6 +52,7 @@ public class PostDto {
         .postLanguage2(postLanguage2)
         .postLanguage3(postLanguage3)
         .userIndex(userIndex)
+        .userNickName(userNickName)
         .build();
 
         return postEntity;

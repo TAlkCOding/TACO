@@ -1032,7 +1032,8 @@ $(document).ready(function () {
               <p>글쓰기</p>
             </div>
             <div class="profileBox">
-              <div class="picture"></div>
+              <div class="picture">
+              </div>
             </div>
           </div>
         </div>

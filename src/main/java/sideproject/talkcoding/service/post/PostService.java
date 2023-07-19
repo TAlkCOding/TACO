@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import sideproject.talkcoding.model.dto.post.PostDto;
 import sideproject.talkcoding.model.entity.post.PostEntity;
+import sideproject.talkcoding.model.entity.user.UserEntity;
 import sideproject.talkcoding.repository.PostRepository;
+import sideproject.talkcoding.repository.UserRepository;
 
 @Service
 public class PostService {
@@ -19,9 +21,13 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     // 게시글 저장
     public PostEntity save(PostDto postDto, Long userIndex) {
-        PostEntity postEntity = postDto.toEntity(userIndex);
+        Optional<UserEntity> user = userRepository.findById(userIndex);
+        PostEntity postEntity = postDto.toEntity(userIndex, user.get().getUserNickName());
         PostEntity saved = postRepository.save(postEntity);
 
         return saved;

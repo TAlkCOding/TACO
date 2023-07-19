@@ -70,6 +70,10 @@ public class PostEntity {
     @NotNull
     private Long userIndex;
 
+    @Column
+    @NotNull
+    private String userNickName;
+
     public PostDto toDto() {
         PostDto postDto = PostDto.builder()
         .title(title)
@@ -82,6 +86,7 @@ public class PostEntity {
         .postLanguage2(postLanguage2)
         .postLanguage3(postLanguage3)
         .userIndex(userIndex)
+        .userNickName(userNickName)
         .build();
 
         return postDto;

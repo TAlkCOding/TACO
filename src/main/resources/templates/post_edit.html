@@ -18,13 +18,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <title>Document</title>
-    <link rel="stylesheet" href="../static/css/post_edit.css" />
-    <script src="../static/js/summernote/summernote-lite.js"></script>
-    <script src="../static/js/summernote/lang/summernote-ko-KR.js"></script>
-    <link
-      rel="stylesheet"
-      href="../static/css/summernote/summernote-lite.css"
-    />
+    <link rel="stylesheet" href="/css/post_edit.css" />
+    <script src="/js/summernote/summernote-lite.js"></script>
+    <script src="/js/summernote/lang/summernote-ko-KR.js"></script>
+    <link rel="stylesheet" href="/css/summernote/summernote-lite.css" />
   </head>
 
   <body>
@@ -36,16 +33,13 @@
               <img
                 class="logo"
                 alt="logo"
-                src="../static/img/logo.png"
-                onclick="location.href='../templates/main.html'"
+                src="/img/logo.png"
+                onclick="location.href='/'"
               />
             </button>
 
             <div class="topButton">
-              <button
-                class="writingWord"
-                onclick="location.href='../templates/post_edit.html'"
-              >
+              <button class="writingWord" onclick="location.href='/post_edit'">
                 글쓰기
               </button>
               <div class="profileBox">
@@ -53,13 +47,13 @@
                 <button id="openSelectButton"></button>
                 <div id="mySelect" class="hidden">
                   <button id="selectMyPost">
-                    <img src="../static/img/pageEdit.svg" />내 작성글
+                    <img src="/img/pageEdit.svg" />내 작성글
                   </button>
                   <button id="selectOption">
-                    <img src="../static/img/option.svg" />설정
+                    <img src="/img/option.svg" />설정
                   </button>
                   <button id="selectLogout">
-                    <img src="../static/img/logOut.svg" />로그아웃
+                    <img src="/img/logOut.svg" />로그아웃
                   </button>
                 </div>
               </div>
@@ -105,7 +99,7 @@
                   onfocus="this.placeholder=''"
                   onblur="this.placeholder='직접 입력하기'"
                 />
-                <img class="additional1" src="../static/img/plus.svg" />
+                <img class="additional1" src="/img/plus.svg" />
               </div>
               <div class="languageBox">
                 <input
@@ -115,7 +109,7 @@
                   onfocus="this.placeholder=''"
                   onblur="this.placeholder='직접 입력하기'"
                 />
-                <img class="additional2" src="../static/img/plus.svg" />
+                <img class="additional2" src="/img/plus.svg" />
               </div>
               <div class="languageBox">
                 <input
@@ -125,7 +119,7 @@
                   onfocus="this.placeholder=''"
                   onblur="this.placeholder='직접 입력하기'"
                 />
-                <img class="additional3" src="../static/img/plus.svg" />
+                <img class="additional3" src="/img/plus.svg" />
               </div>
             </div>
             <div class="bottomContainer">
@@ -135,14 +129,14 @@
                   type="submit"
                   class="storeButton"
                   value="저장하기"
-                  onclick="location.href='../templates/post_detail.html'"
+                  onclick="location.href='/post_detail'"
                 />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <script src="../static/js/post_edit.js"></script>
+      <script src="/js/post_edit.js"></script>
     </form>
   </body>
 </html>

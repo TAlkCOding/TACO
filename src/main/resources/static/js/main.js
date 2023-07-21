@@ -1008,21 +1008,13 @@ function move() {
   }, 3000);
 }
 
+//로그인시 헤더 변환
 document.addEventListener("DOMContentLoaded", function () {
-  move();
-});
-
-$(document).ready(function () {
-  // Check login status from session or local storage
   var isLoggedIn = sessionStorage.getItem("isLoggedIn");
 
   if (isLoggedIn === "true") {
-    $(".header").addClass("writingWord");
-    $(".header").addClass("profileBox");
-    $(".header").addClass("picture");
-    // Update contents of the header class
     var newHTML = `
-    <div class="header">
+      <div class="header">
       <div class="nav">
         <button type="button" class="button">
           <img
@@ -1039,7 +1031,7 @@ $(document).ready(function () {
           <div class="profileBox">
             <div class="picture"></div>
             <button id="openSelectButton"></button>
-            <div id="mySelect" class="hidden">
+            <div id="mySelect" class="hidden" style="z-index: 2;">
               <button id="selectMyPost">
                 <img src="/img/pageEdit.svg" />내 작성글
               </button>
@@ -1056,25 +1048,29 @@ $(document).ready(function () {
         </div>
       </div>
     </div>
-    `;
+      `;
     $(".header").html(newHTML);
-  }
-});
 
-// nav바 설정
-document
-  .getElementById("openSelectButton")
-  .addEventListener("click", function () {
-    var selectBox = document.getElementById("mySelect");
-    selectBox.classList.remove("hidden");
-  });
+    document
+      .getElementById("openSelectButton")
+      .addEventListener("click", function (event) {
+        var selectBox = document.getElementById("mySelect");
+        selectBox.classList.toggle("hidden");
+        event.stopPropagation();
+      });
 
-document.body.addEventListener("click", function (event) {
-  var selectBox = document.getElementById("mySelect");
-  var openButton = document.getElementById("openSelectButton");
+    document.body.addEventListener("click", function (event) {
+      var selectBox = document.getElementById("mySelect");
+      var openButton = document.getElementById("openSelectButton");
 
-  if (event.target !== selectBox && event.target !== openButton) {
-    selectBox.classList.add("hidden");
+      if (
+        event.target !== selectBox &&
+        event.target !== openButton &&
+        !selectBox.contains(event.target)
+      ) {
+        selectBox.classList.add("hidden");
+      }
+    });
   }
 });
 

@@ -47,13 +47,13 @@
       <div class="subContainer">
         <div class="newsContainer">
           <div class="newsBoxLine">
-            <img src="/img/slide1.png" />
+            <img src="/img/slide1.png" style="z-index: 1" />
           </div>
           <div class="newsBoxLine">
-            <img src="/img/slide2.png" />
+            <img src="/img/slide2.png" style="z-index: 1" />
           </div>
           <div class="newsBoxLine">
-            <img src="/img/slide3.png" />
+            <img src="/img/slide3.png" style="z-index: 1" />
           </div>
         </div>
 
@@ -88,7 +88,10 @@
       <div class="mainContainer">
         <div class="contentContainer">
           <th:block th:each="post : ${posts}">
-            <div class="studyBox" th:onclick="|location.href='@{/post/{postId}(postId=${post.postIndex})}'|">
+            <div
+              class="studyBox"
+              th:onclick="|location.href='@{/post/{postId}(postId=${post.postIndex})}'|"
+            >
               <div class="studyContainer">
                 <div class="topBox">
                   <div class="profile">
@@ -99,13 +102,13 @@
                     </div>
                     <div class="name" th:text="${post.userNickName}">이름</div>
                   </div>
-                  <div class="dateBox" th:text="${post.postRegDate}">작성일</div>
+                  <div class="dateBox" th:text="${post.postRegDate}">
+                    작성일
+                  </div>
                 </div>
                 <div class="spaceBox"></div>
                 <div class="contentBox">
-                  <div class="content" th:text="${post.title}">
-                    게시글 제목
-                  </div>
+                  <div class="content" th:text="${post.title}">게시글 제목</div>
                 </div>
                 <div class="languageContainer">
                   <div class="languageArrow">
@@ -113,7 +116,9 @@
                     <div class="languageWord">언어</div>
                   </div>
                   <div class="languageBox">
-                    <div class="language" th:text="${post.postLanguage1}">사용언어</div>
+                    <div class="language" th:text="${post.postLanguage1}">
+                      사용언어
+                    </div>
                   </div>
                 </div>
                 <div class="regionContainer">
@@ -123,10 +128,14 @@
                   </div>
                   <div class="regionBoxes">
                     <div class="regionBoxL">
-                      <div class="regionL" th:text="${post.postSido}">시/도</div>
+                      <div class="regionL" th:text="${post.postSido}">
+                        시/도
+                      </div>
                     </div>
                     <div class="regionBox">
-                      <div class="region" th:text="${post.postGugun}">구/군</div>
+                      <div class="region" th:text="${post.postGugun}">
+                        구/군
+                      </div>
                     </div>
                     <div class="regionBox">
                       <div class="region" th:text="${post.postDong}">동</div>
@@ -138,13 +147,21 @@
           </th:block>
           <!--굳이 태그로 감쌀 필요 없는 부분을 타임리프 문법으로 사용할 때 사용-->
           <th:block th:each="page:${#numbers.sequence(startPage, endPage)}">
-          <a th:if="${page != nowPage}" th:href="@{/(page=${page -1})}" th:text="${page}"></a>
-          <strong th:if="${page == nowPage}" th:text="${page}" style="color:red"></strong>
+            <a
+              th:if="${page != nowPage}"
+              th:href="@{/(page=${page -1})}"
+              th:text="${page}"
+            ></a>
+            <strong
+              th:if="${page == nowPage}"
+              th:text="${page}"
+              style="color: red"
+            ></strong>
           </th:block>
         </div>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="/js/main.js?ver=2"></script
+    <script src="/js/main.js?ver=2"></script>
   </body>
 </html>

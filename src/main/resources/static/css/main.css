@@ -47,16 +47,13 @@ button {
 }
 /*header 변경*/
 .writingWord {
-  width: 72px;
+  width: 80px;
   height: 41px;
   background-color: #ffffff;
   border-radius: 8px;
   display: flex;
   align-items: center; /*세로축*/
   justify-content: center; /*가로축*/
-}
-
-.writingWord p {
   font-size: 14px;
   font-weight: bold;
   color: #5555ff;
@@ -64,34 +61,11 @@ button {
 }
 
 .profileBox {
-  width: 72px;
+  width: 80px;
   height: 41px;
   display: flex;
   align-items: center; /*세로축*/
-  justify-content: center; /*가로축*/
-}
-
-.picture {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-left: 16px;
-  background-color: #000000;
-  margin-left: 10px;
-
-}
-
-#openSelectButton {
-  width: 12px;
-  height: 7px;
-  margin: 5px 0px 0px 10px;
-  border: none;
-  background: url("../img/vector.svg") no-repeat;
-}
-
-/*헤더 프로필 버튼 동작*/
-.hidden {
-  display: none;
+  position: relative;
 }
 
 #mySelect {
@@ -103,6 +77,28 @@ button {
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0px 0px 30px rgb(0, 0, 0, 0.04);
+}
+
+.picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 16px;
+  background-color: #000000;
+  margin-left: 10px;
+}
+
+#openSelectButton {
+  width: 12px;
+  height: 7px;
+  margin: 5px 0px 0px 10px;
+  border: none;
+  background: url("/img/vector.svg") no-repeat;
+}
+
+/*헤더 프로필 버튼 동작*/
+.hidden {
+  display: none;
 }
 
 #selectMyPost {
@@ -180,14 +176,14 @@ button {
 }
 
 .topButton {
-  width: 180px;
+  width: 160px;
   height: 41px;
   display: flex;
   justify-content: space-between;
 }
 
 .signIn {
-  width: 72px;
+  width: 80px;
   height: 41px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -202,7 +198,7 @@ button {
 }
 
 .joinMembership {
-  width: 72px;
+  width: 80px;
   height: 41px;
   background-color: #5555ff;
   border-radius: 8px;

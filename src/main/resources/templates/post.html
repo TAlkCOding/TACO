@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html
   lang="en"
-  lang="en"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:th="http://www.thymeleaf.org"
 >
@@ -25,84 +24,118 @@
   </head>
 
   <body>
-    <div class="root">
-      <div class="header">
-        <div class="nav">
-          <button type="button" class="button">
-            <img
-              class="logo"
-              alt="logo"
-              src="/img/logo.png"
-              onclick="location.href='/'"
-            />
-          </button>
+    <form id="myForm" action="/post/save" method="post">
+      <div class="root">
+        <div class="header">
+          <div class="nav">
+            <button type="button" class="button">
+              <img
+                class="logo"
+                alt="logo"
+                src="/img/logo.png"
+                onclick="location.href='/'"
+              />
+            </button>
 
-          <div class="topButton">
-            <div class="writingWord">글쓰기</div>
-            <div class="profileBox">
-              <div class="picture"></div>
+            <div class="topButton">
+              <button class="writingWord" onclick="location.href='/post_edit'">
+                글쓰기
+              </button>
+              <div class="profileBox">
+                <div class="picture"></div>
+                <button id="openSelectButton"></button>
+                <div id="mySelect" class="hidden">
+                  <button id="selectMyPost">
+                    <img src="/img/pageEdit.svg" />내 작성글
+                  </button>
+                  <button id="selectOption">
+                    <img src="/img/option.svg" />설정
+                  </button>
+                  <button id="selectLogout">
+                    <img src="/img/logOut.svg" />로그아웃
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="lineContainer">
+            <div class="subContainer">프로젝트 기본 정보</div>
+            <div class="titleBox">
+              <input
+                class="postTitle"
+                type="text"
+                placeholder="제목을 입력해주세요."
+                onfocus="this.placeholder=''"
+                onblur="this.placeholder='제목을 입력해주세요.'"
+              />
+            </div>
+            <div class="inputBox">
+              <textarea class="summernote" name="editordata"></textarea>
+            </div>
+            <div class="regionLanguage">지역 및 언어</div>
+            <div class="regionWord">지역</div>
+            <div class="locationSelect">
+              <select id="localParent" onchange="categoryChange1(this)">
+                <option>도를 선택해주세요.</option>
+                <option value="서울특별시">서울특별시</option>
+              </select>
+              <select id="localChildOne" onchange="categoryChange2(this)">
+                <option>시를 선택해주세요.</option>
+              </select>
+              <select id="localChildTwo">
+                <option>동을 선택해주세요.</option>
+              </select>
+            </div>
+            <div class="languageWord">언어</div>
+            <div id="hashContainer" class="languageSelect">
+              <div class="languageBox">
+                <input
+                  class="language1"
+                  type="text"
+                  placeholder="직접 입력하기"
+                  onfocus="this.placeholder=''"
+                  onblur="this.placeholder='직접 입력하기'"
+                />
+                <img class="additional1" src="/img/plus.svg" />
+              </div>
+              <div class="languageBox">
+                <input
+                  class="language2"
+                  type="text"
+                  placeholder="직접 입력하기"
+                  onfocus="this.placeholder=''"
+                  onblur="this.placeholder='직접 입력하기'"
+                />
+                <img class="additional2" src="/img/plus.svg" />
+              </div>
+              <div class="languageBox">
+                <input
+                  class="language3"
+                  type="text"
+                  placeholder="직접 입력하기"
+                  onfocus="this.placeholder=''"
+                  onblur="this.placeholder='직접 입력하기'"
+                />
+                <img class="additional3" src="/img/plus.svg" />
+              </div>
+            </div>
+            <div class="bottomContainer">
+              <div class="bottomButton">
+                <div class="deleteButton">취소</div>
+                <input
+                  type="submit"
+                  class="storeButton"
+                  value="저장하기"
+                  onclick="location.href='/post_detail'"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="container">
-        <div class="lineContainer">
-          <div class="subContainer">프로젝트 기본 정보</div>
-          <div class="titleBox">
-            <div class="title">프론트 엔드 모집 합니다.</div>
-          </div>
-          <div class="inputBox">
-            <textarea class="summernote" name="editordata"></textarea>
-          </div>
-          <div class="regionLanguage">지역 및 언어</div>
-          <div class="regionWord">지역</div>
-          <div class="locationSelect">
-            <select id="localParent">
-              <option>도를 선택해주세요.</option>
-            </select>
-            <select id="localChildOne">
-              <option>시를 선택해주세요.</option>
-            </select>
-            <select id="localChildTwo">
-              <option>동을 선택해주세요.</option>
-            </select>
-          </div>
-          <div class="languageWord">언어</div>
-          <div class="languageSelect">
-            <div class="languageBox">
-              <div class="language">리액트</div>
-              <img class="additional" src="/img/minus.png" />
-            </div>
-            <div class="languageBox">
-              <div class="language">HTML</div>
-              <img class="additional" src="/img/minus.png" />
-            </div>
-            <div class="languageBox">
-              <div class="addLanguage">직접 입력하기.</div>
-              <img class="additional" src="/img/plus.png" />
-            </div>
-          </div>
-          <div class="bottomContainer">
-            <div class="bottomButton">
-              <button
-                type="button"
-                class="deleteButton"
-                onclick="location.href='/post_detail'"
-              >
-                취소
-              </button>
-              <button
-                type="button"
-                class="storeButton"
-                onclick="location.href='/post_detail'"
-              >
-                저장하기
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="/js/post.js"></script>
+      <script src="/js/post.js"></script>
+    </form>
   </body>
 </html>

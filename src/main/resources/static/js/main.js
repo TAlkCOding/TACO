@@ -1022,24 +1022,59 @@ $(document).ready(function () {
     $(".header").addClass("picture");
     // Update contents of the header class
     var newHTML = `
-      <div class="header">
-        <div class="nav">
-          <button type="button" class="button">
-            <img class="logo" alt="logo" src="/img/logo.png" onclick="location.href='/'" />
+    <div class="header">
+      <div class="nav">
+        <button type="button" class="button">
+          <img
+            class="logo"
+            alt="logo"
+            src="/img/logo.png"
+            onclick="location.href='/'"
+          />
+        </button>
+        <div class="topButton">
+          <button class="writingWord" onclick="location.href='/post'">
+            글쓰기
           </button>
-          <div class="topButton">
-            <div class="writingWord">
-              <p>글쓰기</p>
-            </div>
-            <div class="profileBox">
-              <div class="picture">
-              </div>
+          <div class="profileBox">
+            <div class="picture"></div>
+            <button id="openSelectButton"></button>
+            <div id="mySelect" class="hidden">
+              <button id="selectMyPost">
+                <img src="/img/pageEdit.svg" />내 작성글
+              </button>
+              <button id="selectOption">
+                <img src="/img/option.svg" />설정
+              </button>
+              <form action="/logout" method="post">
+                <button type="submit" id="selectLogout">  
+                  <img src="/img/logOut.svg" />로그아웃
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </div>
+    </div>
     `;
     $(".header").html(newHTML);
+  }
+});
+
+// nav바 설정
+document
+  .getElementById("openSelectButton")
+  .addEventListener("click", function () {
+    var selectBox = document.getElementById("mySelect");
+    selectBox.classList.remove("hidden");
+  });
+
+document.body.addEventListener("click", function (event) {
+  var selectBox = document.getElementById("mySelect");
+  var openButton = document.getElementById("openSelectButton");
+
+  if (event.target !== selectBox && event.target !== openButton) {
+    selectBox.classList.add("hidden");
   }
 });
 

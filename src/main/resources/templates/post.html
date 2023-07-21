@@ -24,7 +24,6 @@
   </head>
 
   <body>
-    <form id="myForm" action="/post/save" method="post">
       <div class="root">
         <div class="header">
           <div class="nav">
@@ -36,9 +35,8 @@
                 onclick="location.href='/'"
               />
             </button>
-
             <div class="topButton">
-              <button class="writingWord" onclick="location.href='/post_edit'">
+              <button class="writingWord" onclick="location.href='/post'">
                 글쓰기
               </button>
               <div class="profileBox">
@@ -51,40 +49,44 @@
                   <button id="selectOption">
                     <img src="/img/option.svg" />설정
                   </button>
-                  <button id="selectLogout">
+                  <form action="/logout" method="post">
+                  <button type="submit" id="selectLogout">  
                     <img src="/img/logOut.svg" />로그아웃
                   </button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="container">
+          <form id="myForm" action="/post/save" method="post">
           <div class="lineContainer">
             <div class="subContainer">프로젝트 기본 정보</div>
             <div class="titleBox">
               <input
                 class="postTitle"
                 type="text"
+                name="title"
                 placeholder="제목을 입력해주세요."
                 onfocus="this.placeholder=''"
                 onblur="this.placeholder='제목을 입력해주세요.'"
               />
             </div>
             <div class="inputBox">
-              <textarea class="summernote" name="editordata"></textarea>
+              <textarea name="description" class="summernote"></textarea>
             </div>
             <div class="regionLanguage">지역 및 언어</div>
             <div class="regionWord">지역</div>
             <div class="locationSelect">
-              <select id="localParent" onchange="categoryChange1(this)">
+              <select id="localParent" name="postSido" onchange="categoryChange1(this)">
                 <option>도를 선택해주세요.</option>
                 <option value="서울특별시">서울특별시</option>
               </select>
-              <select id="localChildOne" onchange="categoryChange2(this)">
+              <select id="localChildOne" name="postGugun" onchange="categoryChange2(this)">
                 <option>시를 선택해주세요.</option>
               </select>
-              <select id="localChildTwo">
+              <select id="localChildTwo" name="postDong">
                 <option>동을 선택해주세요.</option>
               </select>
             </div>
@@ -93,6 +95,7 @@
               <div class="languageBox">
                 <input
                   class="language1"
+                  name="postLanguage1
                   type="text"
                   placeholder="직접 입력하기"
                   onfocus="this.placeholder=''"
@@ -103,6 +106,7 @@
               <div class="languageBox">
                 <input
                   class="language2"
+                  name="postLanguage2"
                   type="text"
                   placeholder="직접 입력하기"
                   onfocus="this.placeholder=''"
@@ -113,6 +117,7 @@
               <div class="languageBox">
                 <input
                   class="language3"
+                  name="postLanguage3"
                   type="text"
                   placeholder="직접 입력하기"
                   onfocus="this.placeholder=''"

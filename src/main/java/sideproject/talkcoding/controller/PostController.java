@@ -16,13 +16,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import lombok.extern.slf4j.Slf4j;
 import sideproject.talkcoding.model.dto.post.PostDto;
+import sideproject.talkcoding.model.entity.image.ProfileEntity;
 import sideproject.talkcoding.model.entity.post.PostEntity;
 import sideproject.talkcoding.model.entity.post.ReplyEntity;
+import sideproject.talkcoding.service.image.ProfileService;
 import sideproject.talkcoding.service.post.PostService;
 import sideproject.talkcoding.service.post.ReplyService;
 
 @Controller
+@Slf4j
 public class PostController {
     
 
@@ -32,10 +36,20 @@ public class PostController {
     @Autowired
     private ReplyService replyService;
 
+    @Autowired
+    private ProfileService profileService;
+
     // 글쓰기 페이지 들어가기
     @GetMapping("/post")
-    public String post(HttpSession session){
-        // Long userIndex = (Long) session.getAttribute("userIndex");
+    public String post(HttpSession session, Model model){
+        Long userIndex = (Long) session.getAttribute("userIndex");
+        if(userIndex != null){
+            log.info(session.getAttribute("userIndex").toString());
+            Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+        if(userProfile.isPresent()){
+            model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            }
+        }
 
         return "post";
     }
@@ -55,18 +69,16 @@ public class PostController {
     // 게시글 작성 / return 저장한 게시글 상세 페이지
     // 로그인이 되어있지 않으면 애초에 해당 url 설정을 해두지 않을 것이기 때문에 로그인 체크 안해도 됨
     @PostMapping("/post/save")
-    public ResponseEntity<PostEntity> save(HttpSession session, @ModelAttribute("post") PostDto postDto){
+    public String save(HttpSession session, @ModelAttribute PostDto postDto){
         Long userIndex = (Long) session.getAttribute("userIndex");
-        PostEntity post = postService.save(postDto, userIndex);    // 변경해야함( 테스트위해서 변경 )
-        // postService.save(postDto, userIndex);
+        postService.save(postDto, userIndex);
         
-        return new ResponseEntity<>(post, HttpStatus.OK);
-        // return "redirect:/post_detail.html";
+        return "redirect:/";
     }
 
     // 게시글 상세보기
     @GetMapping("/post/{postId}")
-    public ResponseEntity<Integer> read(HttpSession session, @PathVariable(name = "postId") Long postId, Model model) {
+    public String read(HttpSession session, @PathVariable(name = "postId") Long postId, Model model) {
         Long userIndex = (Long) session.getAttribute("userIndex");
         
         // 게시글 model
@@ -113,7 +125,7 @@ public class PostController {
         }
         
         
-        return new ResponseEntity<>(checkedUserIndexForPost, HttpStatus.OK);
+        return "post_detail";
         // return "post_detail";
     }
 

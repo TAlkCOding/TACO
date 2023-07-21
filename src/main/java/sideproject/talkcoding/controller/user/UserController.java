@@ -70,10 +70,11 @@ public class UserController {
 
     // 로그아웃 기능
     @PostMapping("/logout")
-    public ResponseEntity<String> logout(HttpSession session){
+    public String logout(HttpSession session){
         session.invalidate();
+        log.info("successfully logout");
 
-        return new ResponseEntity<>("logout successfully", HttpStatus.OK);
+        return "redirect:/";
         // return "redirect:/";
     }
 

@@ -1024,14 +1024,14 @@ function categoryChange2(localChildOne) {
 
 //언어 해시태그 설정
 function resetImageAndText(imgElement, inputElement) {
-  imgElement.src = "../static/img/plus.svg"; //주소 주의
+  imgElement.src = "/img/plus.svg"; //주소 주의
   inputElement.classList.remove("blue-text");
   inputElement.value = ""; // input 내용 삭제
 }
 
 function handleImageClick(imgElement, inputElement) {
   if (imgElement.src.endsWith("plus.svg")) {
-    imgElement.src = "../static/img/minus.svg"; //주소 주의
+    imgElement.src = "/img/minus.svg"; //주소 주의
     inputElement.classList.add("blue-text");
   } else {
     resetImageAndText(imgElement, inputElement);

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html
   lang="en"
-  lang="en"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:th="http://www.thymeleaf.org"
 >
@@ -27,7 +26,7 @@
           </button>
 
           <div class="topButton">
-            <button class="writingWord" onclick="location.href='/post_edit'">
+            <button class="writingWord" onclick="location.href='/post_editl'">
               글쓰기
             </button>
             <div class="profileBox">
@@ -62,8 +61,19 @@
             <div class="profileImg">
               <p>프로필 사진</p>
               <div class="imgUpload">
-                <img src="/img/profile.jpeg" alt="" />
-                <button>이미지 업로드</button>
+                <form method="post">
+                  <div id="profileImg"></div>
+                  <div class="imgButton">
+                    <label for="chooseFile">이미지 업로드</label>
+                  </div>
+                  <input
+                    type="file"
+                    id="chooseFile"
+                    name="chooseFile"
+                    accept="image/*"
+                    onchange="loadFile(this)"
+                  />
+                </form>
               </div>
             </div>
             <hr />

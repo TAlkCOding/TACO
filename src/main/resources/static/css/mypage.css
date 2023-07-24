@@ -24,6 +24,11 @@ ol {
 a {
   text-decoration: none;
 }
+
+form {
+  display: flex;
+  align-items: center;
+}
 .root {
   display: block;
 }
@@ -57,14 +62,14 @@ a {
 }
 
 .topButton {
-  width: 160px;
+  width: 144px;
   height: 41px;
   display: flex;
   justify-content: space-between;
 }
 
 .writingWord {
-  width: 80px;
+  width: 72px;
   height: 41px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -79,7 +84,7 @@ a {
 }
 
 .profileBox {
-  width: 80px;
+  width: 72px;
   height: 41px;
   display: flex;
   align-items: center; /*세로축*/
@@ -252,22 +257,38 @@ hr {
 .imgUpload {
   display: flex;
   align-items: center;
-
   width: 139px;
   height: 40px;
 }
-.imgUpload img {
+
+#profileImg {
   width: 40px;
   height: 40px;
+  background-color: black;
   border-radius: 20px;
 }
-.imgUpload button {
+
+.imgButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
   width: 90px;
   height: 30px;
   margin-left: 9px;
   background-color: #ffffff;
   border-radius: 8px;
   border: solid 1px black;
+}
+
+label {
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* 못생긴 기존 input 숨기기 */
+#chooseFile {
+  visibility: hidden;
 }
 .name {
   display: flex;

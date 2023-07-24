@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TACO - Find</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="/css/foundpw.css" />
+  </head>
+  <body>
+    <div class="root">
+      <div class="header">
+        <div class="nav">
+          <button type="button" class="button">
+            <img
+              class="logo"
+              alt="logo"
+              src="/img/logo.png"
+              onclick="location.href='/'"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="main">
+        <div class="container">
+          <div class="leftContainer">
+            <div class="intro">
+              <div class="marker">
+                <lottie-player
+                  src="https://assets10.lottiefiles.com/datafiles/BWweJKuWuiTWcaI/data.json"
+                  background="transparent"
+                  speed="1"
+                  style="width: 150px; height: 150px"
+                  loop
+                  autoplay
+                ></lottie-player>
+                <div class="blinder"></div>
+              </div>
+
+              내<span> 이웃</span>과 함께<br />
+              <span>만들고 소통</span>하는 공간
+            </div>
+          </div>
+          <div class="rightContainer">
+            <form>
+              <div class="loginForm">
+                <div class="back">
+                  <?xml version="1.0" encoding="UTF-8"?><svg
+                    width="24px"
+                    height="24px"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    color="#000000"
+                  >
+                    <path
+                      d="M15 6l-6 6 6 6"
+                      stroke="#B1B1B1"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  <p>뒤로가기</p>
+                </div>
+                <div class="loginUp">
+                  <h1>비밀번호 찾기</h1>
+                </div>
+                <div class="findComment">
+                  <p>당신의 소중한 비밀번호를 찾았습니다!</p>
+                  <p>비밀번호는 다음과 같습니다.</p>
+                </div>
+                <div class="idBox">
+                  <div class="eye">
+                    <div class="pw">chohl0203</div>
+                    <?xml version="1.0" encoding="UTF-8"?><svg
+                      width="24px"
+                      height="24px"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      color="#000000"
+                    >
+                      <path
+                        d="M12 14a2 2 0 100-4 2 2 0 000 4z"
+                        stroke="#B1B1B1"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                      <path
+                        d="M21 12c-1.889 2.991-5.282 6-9 6s-7.111-3.009-9-6c2.299-2.842 4.992-6 9-6s6.701 3.158 9 6z"
+                        stroke="#B1B1B1"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="eyeClose">
+                    <div class="dot">••••••••</div>
+                    <?xml version="1.0" encoding="UTF-8"?><svg
+                      width="24px"
+                      height="24px"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      color="#000000"
+                    >
+                      <path
+                        d="M3 3l18 18M10.5 10.677a2 2 0 002.823 2.823"
+                        stroke="#B1B1B1"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                      <path
+                        d="M7.362 7.561C5.68 8.74 4.279 10.42 3 12c1.889 2.991 5.282 6 9 6 1.55 0 3.043-.523 4.395-1.35M12 6c4.008 0 6.701 3.158 9 6a15.66 15.66 0 01-1.078 1.5"
+                        stroke="#B1B1B1"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="caution">
+                  비밀번호가 노출되지 않도록 주의 하세요.
+                </div>
+                <div class="loginDown">
+                  <button>로그인</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/foundpw.js"></script>
+  </body>
+</html>

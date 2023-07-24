@@ -149,8 +149,6 @@ public class UserController {
 
     // 아이디 찾기 버튼 클릭시 기능
     // 이름 전화번호 받아와서 해당 아이디 보여주기
-    // ajax로 데이터 받아와서 뿌리기
-    // return "login.html";
     @PostMapping("/find/id")
     public ResponseEntity<String> findId(@RequestParam("userName") String userName, @RequestParam("userPhoneNumber") String userPhoneNumber, Model model){
         String userId = userService.findId(userName, userPhoneNumber);
@@ -166,8 +164,6 @@ public class UserController {
 
     // 비밀번호 찾기 버튼 클릭 시 기능
     // 이름과 아이디 파라미터를 받아 비밀번호 보여주기
-    // ajax로 데이터 받아서 뿌리기
-    // return "login.html";
     @PostMapping("/find/pw")
     public ResponseEntity<String> findPw(@RequestParam("userId") String userId,@RequestParam("userName") String userName){
         String userPassword = userService.findPassword(userId, userName);

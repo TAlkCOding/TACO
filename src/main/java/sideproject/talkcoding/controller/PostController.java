@@ -83,7 +83,8 @@ public class PostController {
         
         // 게시글 model
         Optional<PostEntity> post = postService.read(postId);
-        model.addAttribute("post", post);
+        post.ifPresent(o -> model.addAttribute("post", o));
+        
 
         // 댓글 model
         List<ReplyEntity> replyList = replyService.read(postId);

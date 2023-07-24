@@ -59,7 +59,6 @@ public class PostService {
     public Optional<PostEntity> edit(Long postId, PostDto postDto) {
         Optional<PostEntity> post = postRepository.findById(postId);
 
-       
         return post.map(p -> {
             post.get().setTitle(postDto.getTitle());
             post.get().setDescription(postDto.getDescription());

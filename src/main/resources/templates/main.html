@@ -102,7 +102,7 @@
                     </div>
                     <div class="name" th:text="${post.userNickName}">이름</div>
                   </div>
-                  <div class="dateBox" th:text="${post.postRegDate}">
+                  <div class="dateBox" th:text="${#temporals.format(post.postRegDate, 'yyyy-MM-dd')}">
                     작성일
                   </div>
                 </div>

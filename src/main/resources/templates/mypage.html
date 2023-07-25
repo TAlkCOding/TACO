@@ -26,7 +26,7 @@
           </button>
 
           <div class="topButton">
-            <button class="writingWord" onclick="location.href='/post_editl'">
+            <button class="writingWord" onclick="location.href='/post'">
               글쓰기
             </button>
             <div class="profileBox">
@@ -52,16 +52,16 @@
         <div class="container">
           <div class="menu">
             <button class="menuList"><p>내 정보</p></button>
-            <button class="menuList" onclick="location.href='/myaccount'">
+            <button class="menuList" onclick="location.href='/user/account'">
               <p>내 계정</p>
             </button>
           </div>
+          <form enctype="multipart/form-data" action="/user/edit" method="post">
           <div class="myInfo">
             <h1>내 정보</h1>
             <div class="profileImg">
               <p>프로필 사진</p>
               <div class="imgUpload">
-                <form method="post">
                   <div id="profileImg"></div>
                   <div class="imgButton">
                     <label for="chooseFile">이미지 업로드</label>
@@ -69,31 +69,31 @@
                   <input
                     type="file"
                     id="chooseFile"
-                    name="chooseFile"
+                    name="originFileName"
                     accept="image/*"
                     onchange="loadFile(this)"
                   />
-                </form>
               </div>
             </div>
             <hr />
             <div class="name">
               <p>이름</p>
-              <input type="text" />
+              <input type="text" name="userName" th:value="${userInfo.userName}"/>
             </div>
             <hr />
             <div class="nickName">
               <p>닉네임</p>
-              <input type="text" />
+              <input type="text" name="userNickName" th:value="${userInfo.userNickName}"/>
             </div>
             <hr />
             <div class="phoneNumber">
               <p>휴대폰 번호</p>
-              <input type="text" />
+              <input type="text" name="userPhoneNumber" th:value="${userInfo.userPhoneNumber}"/>
             </div>
             <hr />
-            <div class="saveButton"><button>저장하기</button></div>
+            <div class="saveButton"><button type="submit">저장하기</button></div>
           </div>
+        </form>
         </div>
       </div>
     </div>

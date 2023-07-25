@@ -38,13 +38,11 @@
                 ></lottie-player>
                 <div class="blinder"></div>
               </div>
-
               내<span> 이웃</span>과 함께<br />
               <span>만들고 소통</span>하는 공간
             </div>
           </div>
           <div class="rightContainer">
-            <form>
               <div class="loginForm">
                 <div class="back">
                   <?xml version="1.0" encoding="UTF-8"?><svg
@@ -67,24 +65,25 @@
                   <p>뒤로가기</p>
                 </div>
                 <div class="loginUp">
-                  <h1>아이디 찾기</h1>
+                  <h1 onclick="location.href='/find/id'">아이디 찾기</h1>
                   <div class="updown"></div>
-                  <h1>비밀번호 찾기</h1>
+                  <h1 onclick="location.href='/find/pw'">비밀번호 찾기</h1>
                 </div>
-                <div class="loginDown">
-                  <div class="name">
-                    <input class="nameInput" type="text" placeholder="이름" />
-                  </div>
-                  <div class="phoneNumber">
-                    <?xml version="1.0" encoding="UTF-8"?><svg
-                      width="24px"
-                      height="24px"
-                      stroke-width="1.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      color="#000000"
-                    >
+                <form action="/find/id" method="post">
+                  <div class="loginDown">
+                    <div class="name">
+                      <input class="nameInput" type="text" name="userName" placeholder="이름" />
+                    </div>
+                    <div class="phoneNumber">
+                      <?xml version="1.0" encoding="UTF-8"?><svg
+                        width="24px"
+                        height="24px"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        color="#000000"
+                      >
                       <path
                         class="path4"
                         d="M12 16.01l.01-.011"
@@ -102,13 +101,14 @@
                     ><input
                       class="phoneNumberInput"
                       type="text"
+                      name="userPhoneNumber"
                       placeholder="휴대폰 번호를 -없이 적어주세요."
                     />
+                    </div>
+                    <button type="submit">아이디 찾기</button>
                   </div>
-                  <button>아이디 찾기</button>
                 </div>
-              </div>
-            </form>
+                </form>
           </div>
         </div>
       </div>

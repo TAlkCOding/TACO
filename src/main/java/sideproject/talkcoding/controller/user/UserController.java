@@ -150,10 +150,10 @@ public class UserController {
     // 아이디 찾기 버튼 클릭시 기능
     // 이름 전화번호 받아와서 해당 아이디 보여주기
     @PostMapping("/find/id")
-    public ResponseEntity<String> findId(@RequestParam("userName") String userName, @RequestParam("userPhoneNumber") String userPhoneNumber, Model model){
+    public String findId(@RequestParam("userName") String userName, @RequestParam("userPhoneNumber") String userPhoneNumber, Model model){
         String userId = userService.findId(userName, userPhoneNumber);
         model.addAttribute("userId", userId);
-        return new ResponseEntity<>(userId, HttpStatus.OK);
+        return "foundid";
     }
 
     // 비밀번호 찾기 페이지 넘어가기
@@ -165,27 +165,27 @@ public class UserController {
     // 비밀번호 찾기 버튼 클릭 시 기능
     // 이름과 아이디 파라미터를 받아 비밀번호 보여주기
     @PostMapping("/find/pw")
-    public ResponseEntity<String> findPw(@RequestParam("userId") String userId,@RequestParam("userName") String userName){
+    public String findPw(@RequestParam("userId") String userId,@RequestParam("userName") String userName,Model model){
         String userPassword = userService.findPassword(userId, userName);
-        
-        return new ResponseEntity<>(userPassword, HttpStatus.OK);
+        model.addAttribute("userPassword", userPassword);
+        return "foundpw";
     }
 
     // 회원정보 수정 페이지 넘어가기
     @GetMapping("/user/edit")
-    public ResponseEntity<Optional<UserEntity>> UserEdit(HttpSession session, Model model){
+    public String UserEdit(HttpSession session, Model model){
         Long userIndex = (Long) session.getAttribute("userIndex");
 
         Optional<UserEntity> userInfo = userService.findUserInfo(userIndex);
-        model.addAttribute("userInfo", userInfo);
+        userInfo.ifPresent(o -> model.addAttribute("userInfo", o));
 
-        return new ResponseEntity<>(userInfo, HttpStatus.OK);
+        return "mypage";
     }
 
     // 회원정보 수정 버튼 기능
     // 테스트위해 반환값 변경
     @PostMapping("/user/edit")
-    public ResponseEntity<String> userEdit(HttpSession session,@RequestParam("originFileName") MultipartFile originFileName, @ModelAttribute UserDto userDto) throws IOException{
+    public String userEdit(HttpSession session,@RequestParam("originFileName") MultipartFile originFileName, @ModelAttribute UserDto userDto) throws IOException{
         Long userIndex = (Long) session.getAttribute("userIndex");
         
         UserEntity user = userDto.toEntity();
@@ -198,7 +198,14 @@ public class UserController {
             profileService.saveProfile(originFileName, userIndex);
         }
 
-        return new ResponseEntity<>("프로필 및 개인정보 수정 완료!", HttpStatus.OK);
+        return "redirect:/";
+    }
+
+    @GetMapping("/user/account")
+    public String userAccount(HttpSession session){
+        Long userIndex = (Long) session.getAttribute("userIndex");
+
+        return "myaccount";
     }
 
     // 비밀번호 변경 기능

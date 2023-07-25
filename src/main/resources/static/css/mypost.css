@@ -212,18 +212,7 @@ a {
   height: calc(100vh - 319px);
 }
 
-.studyBox1 {
-  display: flex;
-  width: 588px;
-  height: 321px;
-  border: 1px solid #e8e8e8;
-  border-radius: 32px;
-  box-shadow: 0px 8px 24px rgb(0, 0, 0, 0.08);
-  margin: 0px 0px 80px 0px;
-  justify-content: center;
-}
-
-.studyBox2 {
+.studyBox {
   display: flex;
   width: 588px;
   height: 321px;

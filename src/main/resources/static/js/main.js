@@ -1032,11 +1032,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="picture"></div>
             <button id="openSelectButton"></button>
             <div id="mySelect" class="hidden" style="z-index: 2;">
-              <button id="selectMyPost">
+              <button id="selectMyPost" onclick="location.href='/post/my'">
                 <img src="/img/pageEdit.svg" />내 작성글
               </button>
-              <button id="selectOption">
-                <img src="/img/option.svg" />설정
+              <button id="selectOption" onclick="location.href='/user/edit'">
+                <img src="/img/option.svg"/>설정
               </button>
               <form action="/logout" method="post">
                 <button type="submit" id="selectLogout">  

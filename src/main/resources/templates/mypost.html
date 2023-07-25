@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html
   lang="en"
-  lang="en"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:th="http://www.thymeleaf.org"
 >
@@ -25,7 +24,6 @@
               onclick="location.href='/main'"
             />
           </button>
-
           <div class="topButton">
             <button class="writingWord" onclick="location.href='/post_edit'">
               글쓰기
@@ -34,15 +32,17 @@
               <div class="picture"></div>
               <button id="openSelectButton"></button>
               <div id="mySelect" class="hidden">
-                <button id="selectMyPost">
-                  <img src="/img/pageEdit.svg" />내 작성글
+                <button id="selectMyPost" onclick="location.href='/post/my'">
+                  <img src="/img/pageEdit.svg"/>내 작성글
                 </button>
-                <button id="selectOption">
-                  <img src="/img/option.svg" />설정
+                <button id="selectOption" onclick="location.href='/user/edit'">
+                  <img src="/img/option.svg"/>설정
                 </button>
+                <form action="/logout" method="post">
                 <button id="selectLogout">
                   <img src="/img/logOut.svg" />로그아웃
                 </button>
+                </form>
               </div>
             </div>
           </div>
@@ -52,7 +52,8 @@
         <div class="lineContainer">
           <div class="subContainer">내 작성글</div>
           <div class="postContainer">
-            <div class="studyBox1">
+            <th:block th:each="post : ${mypost}">
+            <div class="studyBox" th:onclick="|location.href='@{/post/{postId}(postId=${post.postIndex})}'|">
               <div class="studyContainer">
                 <div class="topBox">
                   <div class="profile">
@@ -61,15 +62,14 @@
                         <div class="commentsCircle">12</div>
                       </div>
                     </div>
-                    <div class="name">조혜령</div>
+                    <div class="name" th:text="${post.userNickName}">닉네임</div>
                   </div>
-                  <div class="dateBox">작성일 2023.03.26</div>
+                  <div class="dateBox" th:text="${#temporals.format(post.postRegDate, 'yyyy-MM-dd')}">작성일</div>
                 </div>
                 <div class="spaceBox"></div>
                 <div class="contentBox">
-                  <div class="content">
-                    프론트 엔드 스터디 모집합니다. 같이 하실 분은 연락을 꼭
-                    주세요!! 프로 ...
+                  <div class="content" th:text="${post.title}">
+                    게시글 제목
                   </div>
                 </div>
                 <div class="languageContainer">
@@ -78,7 +78,7 @@
                     <div class="languageWord">언어</div>
                   </div>
                   <div class="languageBox">
-                    <div class="language">#리액트 #장고</div>
+                    <div class="language" th:text="${post.postLanguage1}">사용언어1</div>
                   </div>
                 </div>
                 <div class="regionContainer">
@@ -88,66 +88,19 @@
                   </div>
                   <div class="regionBoxes">
                     <div class="regionBox">
-                      <div class="region">경기도</div>
+                      <div class="region" th:text="${post.postSido}">시/도</div>
                     </div>
                     <div class="regionBox">
-                      <div class="region">파주시</div>
+                      <div class="region" th:text="${post.postGugun}">구/군</div>
                     </div>
                     <div class="regionBox">
-                      <div class="region">금촌동</div>
+                      <div class="region" th:text="${post.postDong}">동</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="studyBox2">
-              <div class="studyContainer">
-                <div class="topBox">
-                  <div class="profile">
-                    <div class="circleContainer">
-                      <div class="circle">
-                        <div class="commentsCircle">12</div>
-                      </div>
-                    </div>
-                    <div class="name">조혜령</div>
-                  </div>
-                  <div class="dateBox">작성일 2023.03.26</div>
-                </div>
-                <div class="spaceBox"></div>
-                <div class="contentBox">
-                  <div class="content">
-                    프론트 엔드 스터디 모집합니다. 같이 하실 분은 연락을 꼭
-                    주세요!! 프로 ...
-                  </div>
-                </div>
-                <div class="languageContainer">
-                  <div class="languageArrow">
-                    <img class="arrow" src="/img/arrow.png" />
-                    <div class="languageWord">언어</div>
-                  </div>
-                  <div class="languageBox">
-                    <div class="language">#리액트 #장고</div>
-                  </div>
-                </div>
-                <div class="regionContainer">
-                  <div class="regionArrow">
-                    <img class="arrow" src="/img/arrow.png" />
-                    <div class="regionWord">지역</div>
-                  </div>
-                  <div class="regionBoxes">
-                    <div class="regionBox">
-                      <div class="region">경기도</div>
-                    </div>
-                    <div class="regionBox">
-                      <div class="region">파주시</div>
-                    </div>
-                    <div class="regionBox">
-                      <div class="region">금촌동</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </th:block>
           </div>
         </div>
       </div>

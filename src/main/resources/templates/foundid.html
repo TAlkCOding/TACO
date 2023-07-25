@@ -22,7 +22,7 @@
               class="logo"
               alt="logo"
               src="/img/logo.png"
-              onclick="location.href='/main.html'"
+              onclick="location.href='/'"
             />
           </button>
         </div>
@@ -48,7 +48,6 @@
             </div>
           </div>
           <div class="rightContainer">
-            <form>
               <div class="loginForm">
                 <div class="back">
                   <?xml version="1.0" encoding="UTF-8"?><svg
@@ -79,7 +78,7 @@
                 </div>
                 <div class="idBox">
                   <div class="eye">
-                    <div class="id">johr0302</div>
+                    <div class="id" th:text="${userId}">아이디</div>
                     <?xml version="1.0" encoding="UTF-8"?><svg
                       width="24px"
                       height="24px"
@@ -135,10 +134,9 @@
                 </div>
                 <div class="caution">아이디가 노출되지 않도록 주의 하세요.</div>
                 <div class="loginDown">
-                  <button>로그인</button>
+                  <button onclick="location.href='/login'">로그인</button>
                 </div>
               </div>
-            </form>
           </div>
         </div>
       </div>

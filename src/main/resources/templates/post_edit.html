@@ -24,7 +24,6 @@
   </head>
 
   <body>
-    <form id="myForm" action="/post/save" method="post">
       <div class="root">
         <div class="header">
           <div class="nav">
@@ -38,54 +37,59 @@
             </button>
 
             <div class="topButton">
-              <button class="writingWord" onclick="location.href='/post_edit'">
+              <button class="writingWord" onclick="location.href='/post'">
                 글쓰기
               </button>
               <div class="profileBox">
                 <div class="picture"></div>
                 <button id="openSelectButton"></button>
                 <div id="mySelect" class="hidden">
-                  <button id="selectMyPost">
+                  <button id="selectMyPost" onclick="location.href='/post/my'">
                     <img src="/img/pageEdit.svg" />내 작성글
                   </button>
-                  <button id="selectOption">
+                  <button id="selectOption" onclick="location.href='/user/edit'">
                     <img src="/img/option.svg" />설정
                   </button>
-                  <button id="selectLogout">
-                    <img src="/img/logOut.svg" />로그아웃
-                  </button>
+                  <form action="/logout" method="post">
+                    <button type="submit" id="selectLogout">  
+                      <img src="/img/logOut.svg" />로그아웃
+                    </button>
+                    </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="container">
+          <form id="myForm" th:action='@{/post/edit/{postId}(postId=${post.postIndex})}' method="post">
           <div class="lineContainer">
             <div class="subContainer">프로젝트 기본 정보</div>
             <div class="titleBox">
               <input
                 class="postTitle"
                 type="text"
+                name="title"
                 placeholder="제목을 입력해주세요."
                 onfocus="this.placeholder=''"
                 onblur="this.placeholder='제목을 입력해주세요.'"
+                th:value="${post.title}"
               />
             </div>
             <div class="inputBox">
-              <textarea class="summernote" name="editordata"></textarea>
+              <textarea class="summernote" name="description" th:value="${post.description}" th:text="${post.description}"></textarea>
             </div>
             <div class="regionLanguage">지역 및 언어</div>
             <div class="regionWord">지역</div>
             <div class="locationSelect">
-              <select id="localParent" onchange="categoryChange1(this)">
-                <option>도를 선택해주세요.</option>
+              <select id="localParent" name="postSido" onchange="categoryChange1(this)">
+                <option th:text="${post.postSido}">도를 선택해주세요.</option>
                 <option value="서울특별시">서울특별시</option>
               </select>
-              <select id="localChildOne" onchange="categoryChange2(this)">
-                <option>시를 선택해주세요.</option>
+              <select id="localChildOne" name="postGugun" onchange="categoryChange2(this)">
+                <option th:text="${post.postGugun}">시를 선택해주세요.</option>
               </select>
-              <select id="localChildTwo">
-                <option>동을 선택해주세요.</option>
+              <select id="localChildTwo" name="postDong">
+                <option th:text="${post.postDong}">동을 선택해주세요.</option>
               </select>
             </div>
             <div class="languageWord">언어</div>
@@ -94,9 +98,11 @@
                 <input
                   class="language1"
                   type="text"
+                  name="postLanguage1"
                   placeholder="직접 입력하기"
                   onfocus="this.placeholder=''"
                   onblur="this.placeholder='직접 입력하기'"
+                  th:value="${post.postLanguage1}"
                 />
                 <img class="additional1" src="/img/plus.svg" />
               </div>
@@ -104,9 +110,11 @@
                 <input
                   class="language2"
                   type="text"
+                  name="postLanguage2"
                   placeholder="직접 입력하기"
                   onfocus="this.placeholder=''"
                   onblur="this.placeholder='직접 입력하기'"
+                  th:value="${post.postLanguage2}"
                 />
                 <img class="additional2" src="/img/plus.svg" />
               </div>
@@ -114,9 +122,11 @@
                 <input
                   class="language3"
                   type="text"
+                  name="postLanguage3"
                   placeholder="직접 입력하기"
                   onfocus="this.placeholder=''"
                   onblur="this.placeholder='직접 입력하기'"
+                  th:value="${post.postLanguage3}"
                 />
                 <img class="additional3" src="/img/plus.svg" />
               </div>
@@ -128,14 +138,13 @@
                   type="submit"
                   class="storeButton"
                   value="저장하기"
-                  onclick="location.href='/post_detail'"
                 />
               </div>
             </div>
           </div>
+          </form>
         </div>
       </div>
-      <script src="/js/post_edit.js"></script>
-    </form>
+      <script src="/js/post_edit.js?ver=1"></script>
   </body>
 </html>

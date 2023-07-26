@@ -66,7 +66,10 @@
             <hr />
             <div class="deletePassword">
               <p>회원탈퇴</p>
-              <button>회원탈퇴</button>
+              <form id="delete-form" action="/user/delete" method="post">
+                <input type="hidden" name="_method" value="delete"/>
+                <button>회원탈퇴</button>
+              </form>
             </div>
             <hr />
             <div class="saveButton"><button>저장하기</button></div>

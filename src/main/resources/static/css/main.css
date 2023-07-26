@@ -7,6 +7,11 @@
   font-style: normal;
 }
 
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   background-color: #ffffff;
   -ms-overflow-style: none; /* 인터넷 익스플로러 */
@@ -45,9 +50,9 @@ button {
 .root {
   display: block;
 }
-/*header 변경*/
+/*header 변경 css*/
 .writingWord {
-  width: 80px;
+  width: 72px;
   height: 41px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -61,98 +66,20 @@ button {
 }
 
 .profileBox {
-  width: 80px;
+  width: 72px;
   height: 41px;
   display: flex;
   align-items: center; /*세로축*/
-  position: relative;
-}
-
-#mySelect {
-  position: absolute;
-  width: 171px;
-  height: 146px;
-  top: 63px;
-  left: -93px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0px 0px 30px rgb(0, 0, 0, 0.04);
+  justify-content: center; /*가로축*/
 }
 
 .picture {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin-left: 16px;
   background-color: #000000;
-  margin-left: 10px;
 }
-
-#openSelectButton {
-  width: 12px;
-  height: 7px;
-  margin: 5px 0px 0px 10px;
-  border: none;
-  background: url("/img/vector.svg") no-repeat;
-}
-
-/*헤더 프로필 버튼 동작*/
-.hidden {
-  display: none;
-}
-
-#selectMyPost {
-  display: flex;
-  margin-top: 19px;
-  width: 171px;
-  height: 36px;
-  border: none;
-  background-color: #ffffff;
-  color: #696969;
-  font-size: 16px;
-  align-items: center;
-  font-family: "Pretendard-Regular";
-}
-
-#selectMyPost:hover {
-  background-color: #eeeeff;
-  transition: 0.1s;
-}
-
-#selectOption {
-  display: flex;
-  width: 171px;
-  height: 36px;
-  border: none;
-  background-color: #ffffff;
-  color: #696969;
-  font-size: 16px;
-  align-items: center;
-  font-family: "Pretendard-Regular";
-}
-
-#selectOption:hover {
-  background-color: #eeeeff;
-  transition: 0.1s;
-}
-
-#selectLogout {
-  display: flex;
-  width: 171px;
-  height: 36px;
-  border: none;
-  background-color: #ffffff;
-  color: #696969;
-  font-size: 16px;
-  align-items: center;
-  font-family: "Pretendard-Regular";
-}
-
-#selectLogout:hover {
-  background-color: #eeeeff;
-  transition: 0.1s;
-}
-
+/***************/
 .header {
   background-color: #ffffff;
   box-shadow: 0px 4px 50px rgb(0, 0, 0, 0.05);
@@ -176,14 +103,14 @@ button {
 }
 
 .topButton {
-  width: 160px;
+  width: 180px;
   height: 41px;
   display: flex;
   justify-content: space-between;
 }
 
 .signIn {
-  width: 80px;
+  width: 72px;
   height: 41px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -198,7 +125,7 @@ button {
 }
 
 .joinMembership {
-  width: 80px;
+  width: 72px;
   height: 41px;
   background-color: #5555ff;
   border-radius: 8px;
@@ -302,6 +229,7 @@ button {
   height: 42px;
   border: 1px solid #b1b1b1;
   border-radius: 8px;
+  text-align-last: center;
 }
 
 #localChildOne {
@@ -309,6 +237,7 @@ button {
   height: 42px;
   border: 1px solid #b1b1b1;
   border-radius: 8px;
+  text-align-last: center;
 }
 
 #localChildTwo {
@@ -316,6 +245,7 @@ button {
   height: 42px;
   border: 1px solid #b1b1b1;
   border-radius: 8px;
+  text-align-last: center;
 }
 
 .searchingBox {
@@ -354,9 +284,8 @@ button {
 
 .contentContainer {
   display: flex;
-  width: 1200px;
+  width: 1230px;
   height: 1356px;
-  justify-content: space-between;
   flex-wrap: wrap;
   align-content: flex-start;
 }
@@ -368,7 +297,7 @@ button {
   border: 1px solid #e8e8e8;
   border-radius: 32px;
   box-shadow: 0px 8px 24px rgb(0, 0, 0, 0.08);
-  margin-bottom: 24px;
+  margin: 0px 12px 24px 12px;
   justify-content: center;
   transition: all 0.2s linear;
 }
@@ -505,6 +434,7 @@ button {
   display: flex;
   width: 37px;
   height: 30px;
+  margin-right: 15px;
   justify-content: space-between;
   align-items: center; /*세로축*/
 }
@@ -527,17 +457,17 @@ button {
 
 .languageBox {
   display: flex;
-  width: 114px;
+  width: 60px;
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 16px;
   justify-content: center;
-  margin-left: 15px;
+  margin-left: 3px;
 }
 
 .language {
   display: flex;
-  width: 86px;
+  width: 60px;
   height: 30px;
   justify-content: center;
   align-items: center;
@@ -562,6 +492,7 @@ button {
   height: 30px;
   justify-content: space-between;
   align-items: center; /*세로축*/
+  margin-right: 15px;
 }
 
 .arrow {
@@ -580,13 +511,6 @@ button {
   font-family: "Pretendard-Regular";
 }
 
-.regionBoxes {
-  display: flex;
-  width: 192px;
-  height: 30px;
-  justify-content: space-between;
-}
-
 .regionBox {
   display: flex;
   width: 54px;
@@ -595,6 +519,7 @@ button {
   border-radius: 16px;
   background: #ffe455;
   justify-content: center;
+  margin-right: 3px;
 }
 
 .region {
@@ -616,6 +541,7 @@ button {
   border-radius: 16px;
   background: #ffe455;
   justify-content: center;
+  margin-right: 3px;
 }
 
 .regionL {

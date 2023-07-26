@@ -102,7 +102,10 @@
                     </div>
                     <div class="name" th:text="${post.userNickName}">이름</div>
                   </div>
-                  <div class="dateBox" th:text="${#temporals.format(post.postRegDate, 'yyyy-MM-dd')}">
+                  <div
+                    class="dateBox"
+                    th:text="${#temporals.format(post.postRegDate, 'yyyy-MM-dd')}"
+                  >
                     작성일
                   </div>
                 </div>
@@ -114,6 +117,16 @@
                   <div class="languageArrow">
                     <img class="arrow" src="/img/arrow.png" />
                     <div class="languageWord">언어</div>
+                  </div>
+                  <div class="languageBox">
+                    <div class="language" th:text="${post.postLanguage1}">
+                      사용언어
+                    </div>
+                  </div>
+                  <div class="languageBox">
+                    <div class="language" th:text="${post.postLanguage1}">
+                      사용언어
+                    </div>
                   </div>
                   <div class="languageBox">
                     <div class="language" th:text="${post.postLanguage1}">

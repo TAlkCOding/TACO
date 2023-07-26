@@ -32,30 +32,35 @@
               <div class="picture"></div>
               <button id="openSelectButton"></button>
               <div id="mySelect" class="hidden">
-                <button id="selectMyPost">
+                <button id="selectMyPost" onclick="location.href='/post/my'">
                   <img src="/img/pageEdit.svg" />내 작성글
                 </button>
-                <button id="selectOption">
+                <button id="selectOption" onclick="location.href='/user/edit'">
                   <img src="/img/option.svg" />설정
                 </button>
-                <button id="selectLogout">
-                  <img src="/img/logOut.svg" />로그아웃
-                </button>
+                <form action="/logout" method="post">
+                  <button type="submit" id="selectLogout">  
+                    <img src="/img/logOut.svg" />로그아웃
+                  </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="container">
-        <th:blokc th:each="post : ${post}">
+        <th:block th:each="post : ${post}">
         <div class="mainContainer">
           <div class="lineContainer">
             <div class="subContainer">
               <div class="titleBox">
                 <div class="title" th:text="${post.title}">제목</div>
                 <div class="deleteEdit">
-                  <div class="edit">수정</div>
-                  <div class="delete">삭제</div>
+                  <button class="edit" th:onclick="|location.href='@{/post/edit/{postId}(postId=${post.postIndex})}'|">수정</button>
+                  <form th:action='@{/post/delete/{postId}(postId=${post.postIndex})}' method="post">
+                    <input type="hidden" name="_method" value="delete"/>
+                    <button type="submit" class="delete">삭제</button>
+                  </form>
                 </div>
               </div>
             </div>

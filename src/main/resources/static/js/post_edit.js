@@ -1081,41 +1081,41 @@ languageInput3.addEventListener("blur", function () {
 });
 
 // 데이터 전송
-function handleSubmitForm(event) {
-  event.preventDefault();
+// function handleSubmitForm(event) {
+//   event.preventDefault();
 
-  var form = document.getElementById("myForm");
+//   var form = document.getElementById("myForm");
 
-  //게시글 제목, 내용
-  var postTitle = form.querySelector(".postTitle").value;
-  var summernoteContent = form.querySelector(".summernote").value;
+//   //게시글 제목, 내용
+//   var postTitle = form.querySelector(".postTitle").value;
+//   var summernoteContent = form.querySelector(".summernote").value;
 
-  //지역 선택
-  var selectedRegion = form.querySelector("#localParent").value;
-  var selectedCity = form.querySelector("#localChildOne").value;
-  var selectedDistrict = form.querySelector("#localChildTwo").value;
+//   //지역 선택
+//   var selectedRegion = form.querySelector("#localParent").value;
+//   var selectedCity = form.querySelector("#localChildOne").value;
+//   var selectedDistrict = form.querySelector("#localChildTwo").value;
 
-  //언어 파란색 글씨만
-  var languages = [];
-  var languageInputs = form.querySelectorAll(".languageBox input.blue-text");
-  languageInputs.forEach(function (input) {
-    if (input.value.trim() !== "") {
-      languages.push(input.value.trim());
-    }
-  });
+//   //언어 파란색 글씨만
+//   var languages = [];
+//   var languageInputs = form.querySelectorAll(".languageBox input.blue-text");
+//   languageInputs.forEach(function (input) {
+//     if (input.value.trim() !== "") {
+//       languages.push(input.value.trim());
+//     }
+//   });
 
-  //정리
-  var postData = {
-    title: postTitle,
-    content: summernoteContent,
-    region: selectedRegion,
-    city: selectedCity,
-    district: selectedDistrict,
-    languages: languages,
-  };
+//   //정리
+//   var postData = {
+//     title: postTitle,
+//     content: summernoteContent,
+//     region: selectedRegion,
+//     city: selectedCity,
+//     district: selectedDistrict,
+//     languages: languages,
+//   };
 
-  console.log("Data to be sent to the server:", postData);
-}
+//   console.log("Data to be sent to the server:", postData);
+// }
 
-var myForm = document.getElementById("myForm");
-myForm.addEventListener("submit", handleSubmitForm);
+// var myForm = document.getElementById("myForm");
+// myForm.addEventListener("submit", handleSubmitForm);

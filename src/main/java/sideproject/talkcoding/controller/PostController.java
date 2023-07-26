@@ -132,28 +132,28 @@ public class PostController {
 
     // 게시글 수정 페이지 들어가기 -> 게시글 수정 페이지에 수정하려는 게시글 들어가게 하는 페이지 (게시글 작성 페이지에 데이터가 들어가있는 화면)
     @GetMapping("/post/edit/{postId}")
-    public ResponseEntity<Optional<PostEntity>> editPage(@PathVariable("postId") Long postId, Model model){
+    public String editPage(@PathVariable("postId") Long postId, Model model){
         Optional<PostEntity> post = postService.read(postId);
-        model.addAttribute("post", post);
-        
-        return new ResponseEntity<>(post, HttpStatus.OK);
+        post.ifPresent(o -> model.addAttribute("post", o));
+
+        return "post_edit";
     }
 
     // 게시글 수정 (게시글 수정 페이지 들어가서 수정 버튼 클릭 시) / return 수정한 게시글 상세 페이지
     @PostMapping("/post/edit/{postId}")
-    public ResponseEntity<Optional<PostEntity>> edit(@PathVariable(name = "postId") Long postId, @ModelAttribute PostDto postDto){
+    public String edit(@PathVariable(name = "postId") Long postId, @ModelAttribute PostDto postDto, Model model){
         Optional<PostEntity> post = postService.edit(postId, postDto);
-        
-        return new ResponseEntity<>(post, HttpStatus.OK);
+
+        return "redirect:/";
     }
     
 
     // 게시글 삭제  / return 메인 페이지
     @DeleteMapping("/post/delete/{postId}")
-    public ResponseEntity<String> delete(@PathVariable(name = "postId") Long postId){
+    public String delete(@PathVariable(name = "postId") Long postId){
         postService.delete(postId);
 
-        return new ResponseEntity<>("delete success", HttpStatus.OK);
+        return "redirect:/";
         //return "/";
     }
 

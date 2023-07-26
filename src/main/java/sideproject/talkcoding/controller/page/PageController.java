@@ -67,7 +67,6 @@ public class PageController {
     }
 
     // 주소 설정 select box 값 가져와서 주소 별 게시글 가져오기 - ajax로 select box 데이터 가져오기
-    
     // 시/도 select box만 설정했을 경우
     @GetMapping("/address/{postSido}")
     public ResponseEntity<Page<PostEntity>> searchSido(@PathVariable("postSido") String postSido,

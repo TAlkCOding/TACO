@@ -220,10 +220,12 @@ public class UserController {
 
     // 회원 탈퇴 버튼 기능
     @DeleteMapping("/user/delete")
-    public ResponseEntity<String> deleteUserInfo(HttpSession session){
+    public String deleteUserInfo(HttpSession session){
         Long userIndex = (Long) session.getAttribute("userIndex");
         userService.deleteUserInfo(userIndex);
         session.invalidate();
-        return new ResponseEntity<String>("delete success", HttpStatus.OK);
+        log.info("탈퇴 되었습니다.");
+
+        return "redirect:/";
     }
 }

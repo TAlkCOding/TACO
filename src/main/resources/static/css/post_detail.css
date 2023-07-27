@@ -351,14 +351,14 @@ a {
 
 .regionBoxes {
   display: flex;
-  width: 192px;
+  width: 205px;
   height: 30px;
   justify-content: space-between;
 }
 
 .regionBox {
   display: flex;
-  width: 54px;
+  width: auto;
   height: 30px;
   border: 1px solid #ecd040;
   border-radius: 16px;
@@ -368,27 +368,34 @@ a {
 
 .region {
   display: flex;
-  width: 54px;
+  width: auto;
   height: 30px;
   justify-content: center;
   align-items: center;
   font-size: 14px;
   font-weight: 600;
+  margin: 0px 4px 0px 4px;
   font-family: "Pretendard-Regular";
 }
 
 .languageBox {
   display: flex;
-  width: 114px;
+  width: 200px;
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 16px;
   justify-content: center;
+  align-items: center;
 }
-
+.ent {
+  color: #5555ff;
+  margin-left: 3px;
+  font-size: 14px;
+  font-weight: 600;
+}
 .language {
   display: flex;
-  width: 86px;
+  width: auto;
   height: 30px;
   justify-content: center;
   align-items: center;

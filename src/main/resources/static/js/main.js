@@ -1014,40 +1014,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (isLoggedIn === "true") {
     var newHTML = `
-      <div class="header">
-      <div class="nav">
-        <button type="button" class="button">
-          <img
-            class="logo"
-            alt="logo"
-            src="/img/logo.png"
-            onclick="location.href='/'"
-          />
+    <div class="header">
+    <div class="nav">
+      <button type="button" class="button">
+        <img
+          class="logo"
+          alt="logo"
+          src="/img/logo.png"
+          onclick="location.href='/'"
+        />
+      </button>
+      <div class="topButton">
+        <button class="writingWord" onclick="location.href='/post'">
+          글쓰기
         </button>
-        <div class="topButton">
-          <button class="writingWord" onclick="location.href='/post'">
-            글쓰기
-          </button>
-          <div class="profileBox">
-            <div class="picture"></div>
-            <button id="openSelectButton"></button>
-            <div id="mySelect" class="hidden" style="z-index: 2;">
-              <button id="selectMyPost" onclick="location.href='/post/my'">
-                <img src="/img/pageEdit.svg" />내 작성글
+        <div class="profileBox">
+          <div class="picture"></div>
+          <button id="openSelectButton"></button>
+          <div id="mySelect" class="hidden" style="z-index: 2">
+            <button id="selectMyPost" onclick="location.href='/post/my'">
+              <img src="/img/pageEdit.svg" />내 작성글
+            </button>
+            <button id="selectOption" onclick="location.href='/user/edit'">
+              <img src="/img/option.svg" />설정
+            </button>
+            <form action="/logout" method="post">
+              <button type="submit" id="selectLogout">
+                <img src="/img/logOut.svg" />로그아웃
               </button>
-              <button id="selectOption" onclick="location.href='/user/edit'">
-                <img src="/img/option.svg"/>설정
-              </button>
-              <form action="/logout" method="post">
-                <button type="submit" id="selectLogout">  
-                  <img src="/img/logOut.svg" />로그아웃
-                </button>
-              </form>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
       `;
     $(".header").html(newHTML);
 

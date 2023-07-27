@@ -24,43 +24,43 @@
   </head>
 
   <body>
-      <div class="root">
-        <div class="header">
-          <div class="nav">
-            <button type="button" class="button">
-              <img
-                class="logo"
-                alt="logo"
-                src="/img/logo.png"
-                onclick="location.href='/'"
-              />
+    <div class="root">
+      <div class="header">
+        <div class="nav">
+          <button type="button" class="button">
+            <img
+              class="logo"
+              alt="logo"
+              src="/img/logo.png"
+              onclick="location.href='/'"
+            />
+          </button>
+          <div class="topButton">
+            <button class="writingWord" onclick="location.href='/post'">
+              글쓰기
             </button>
-            <div class="topButton">
-              <button class="writingWord" onclick="location.href='/post'">
-                글쓰기
-              </button>
-              <div class="profileBox">
-                <div class="picture"></div>
-                <button id="openSelectButton"></button>
-                <div id="mySelect" class="hidden">
-                  <button id="selectMyPost" onclick="location.href='/post/my'">
-                    <img src="/img/pageEdit.svg" />내 작성글
-                  </button>
-                  <button id="selectOption" onclick="location.href='/user/edit'">
-                    <img src="/img/option.svg" />설정
-                  </button>
-                  <form action="/logout" method="post">
-                  <button type="submit" id="selectLogout">  
+            <div class="profileBox">
+              <div class="picture"></div>
+              <button id="openSelectButton"></button>
+              <div id="mySelect" class="hidden">
+                <button id="selectMyPost" onclick="location.href='/post/my'">
+                  <img src="/img/pageEdit.svg" />내 작성글
+                </button>
+                <button id="selectOption" onclick="location.href='/user/edit'">
+                  <img src="/img/option.svg" />설정
+                </button>
+                <form action="/logout" method="post">
+                  <button type="submit" id="selectLogout">
                     <img src="/img/logOut.svg" />로그아웃
                   </button>
-                  </form>
-                </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
-        <div class="container">
-          <form id="myForm" action="/post/save" method="post">
+      </div>
+      <div class="container">
+        <form id="myForm" action="/post/save" method="post">
           <div class="lineContainer">
             <div class="subContainer">프로젝트 기본 정보</div>
             <div class="titleBox">
@@ -79,11 +79,19 @@
             <div class="regionLanguage">지역 및 언어</div>
             <div class="regionWord">지역</div>
             <div class="locationSelect">
-              <select id="localParent" name="postSido" onchange="categoryChange1(this)">
+              <select
+                id="localParent"
+                name="postSido"
+                onchange="categoryChange1(this)"
+              >
                 <option>도를 선택해주세요.</option>
                 <option value="서울특별시">서울특별시</option>
               </select>
-              <select id="localChildOne" name="postGugun" onchange="categoryChange2(this)">
+              <select
+                id="localChildOne"
+                name="postGugun"
+                onchange="categoryChange2(this)"
+              >
                 <option>시를 선택해주세요.</option>
               </select>
               <select id="localChildTwo" name="postDong">
@@ -129,17 +137,13 @@
             <div class="bottomContainer">
               <div class="bottomButton">
                 <div class="deleteButton">취소</div>
-                <input
-                  type="submit"
-                  class="storeButton"
-                  value="저장하기"
-                />
+                <input type="submit" class="storeButton" value="저장하기" />
               </div>
             </div>
           </div>
-          </form>
-        </div>
+        </form>
       </div>
-      <script src="/js/post.js"></script>
+    </div>
+    <script src="/js/post.js?ver=2"></script>
   </body>
 </html>

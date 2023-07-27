@@ -16,7 +16,7 @@
     <div class="root">
       <div class="header">
         <div class="nav">
-          <button type="button">
+          <button type="button" class="button">
             <img
               class="logo"
               alt="logo"
@@ -121,16 +121,15 @@
                     <div class="languageWord">언어</div>
                   </div>
                   <div class="languageBox">
+                    <div class="ent">&#35;</div>
                     <div class="language" th:text="${post.postLanguage1}">
                       사용언어
                     </div>
-                  </div>
-                  <div class="languageBox">
+                    <div class="ent">&#35;</div>
                     <div class="language" th:text="${post.postLanguage1}">
                       사용언어
                     </div>
-                  </div>
-                  <div class="languageBox">
+                    <div class="ent">&#35;</div>
                     <div class="language" th:text="${post.postLanguage1}">
                       사용언어
                     </div>
@@ -142,10 +141,8 @@
                     <div class="regionWord">지역</div>
                   </div>
                   <div class="regionBoxes">
-                    <div class="regionBoxL">
-                      <div class="regionL" th:text="${post.postSido}">
-                        시/도
-                      </div>
+                    <div class="regionBox">
+                      <div class="region" th:text="${post.postSido}">시/도</div>
                     </div>
                     <div class="regionBox">
                       <div class="region" th:text="${post.postGugun}">

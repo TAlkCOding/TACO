@@ -1096,7 +1096,7 @@ $(document).ready(function () {
   });
 
   function updateURL(postSido, postGugun, postDong) {
-    var url = "/";
+    var url = "/address";
     if (postSido) {
       url += "/" + postSido;
     }

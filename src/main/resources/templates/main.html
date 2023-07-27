@@ -68,20 +68,22 @@
           <div class="selectBox">
             <div class="locationSelect">
               <select id="localParent" onchange="categoryChange1(this)">
-                <option>선택</option>
+                <option>도를 선택해주세요.</option>
                 <option value="서울특별시">서울특별시</option>
               </select>
               <select id="localChildOne" onchange="categoryChange2(this)">
-                <option>선택</option>
+                <option>시를 선택해주세요.</option>
               </select>
               <select id="localChildTwo">
-                <option>선택</option>
+                <option>동을 선택해주세요.</option>
               </select>
             </div>
+            <form action="/search" method="get">
             <div class="searchingBox">
-              <input class="searching" type="text" placeholder="제목, 게시글" />
+              <input class="searching" type="text" name="keyword" placeholder="제목, 게시글" />
               <img class="searchIcon" src="/img/search.png" />
             </div>
+            </form>
           </div>
         </div>
       </div>
@@ -175,6 +177,6 @@
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="/js/main.js?ver=2"></script>
+    <script src="/js/main.js?ver=4"></script>
   </body>
 </html>

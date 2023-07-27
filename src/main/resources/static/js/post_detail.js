@@ -13,3 +13,11 @@ document.body.addEventListener("click", function (event) {
     selectBox.classList.add("hidden");
   }
 });
+
+
+$(document).ready(() => { 
+  var index_button = $('input[name=index_button]').val();
+  if(index_button == 1){
+    $(".deleteEdit").css("display", "flex");
+  }
+});

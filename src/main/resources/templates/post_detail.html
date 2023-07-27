@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/css/post_detail.css" />
+    <link rel="stylesheet" href="/css/post_detail.css?ver=1" />
   </head>
 
   <body>
@@ -49,6 +49,7 @@
         </div>
       </div>
       <div class="container">
+        <input type="hidden" name="index_button" th:value="${checkIndexForPost}">
         <th:block th:each="post : ${post}">
         <div class="mainContainer">
           <div class="lineContainer">
@@ -169,6 +170,7 @@
       </th:block>
       </div>
     </div>
-    <script src="/js/post_detail.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="/js/post_detail.js?ver=1"></script>
   </body>
 </html>

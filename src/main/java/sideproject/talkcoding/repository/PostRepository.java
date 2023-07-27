@@ -16,7 +16,7 @@ public interface PostRepository extends JpaRepository<PostEntity, Long>{
     List<PostEntity> findByUserIndex(Long userIndex);
 
     // 게시글 제목 검색 기능
-    List<PostEntity> findByTitleContaining(String keyword);
+    Page<PostEntity> findByTitleContaining(String keyword, Pageable pagealbe);
 
     // 시/군/동에 따른 게시글들 목록 페이지네이션
     Page<PostEntity> findByPostSidoContaining(String postSido, Pageable pagealbe);

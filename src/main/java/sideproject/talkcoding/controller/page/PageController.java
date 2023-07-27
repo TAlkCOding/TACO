@@ -1,6 +1,5 @@
 package sideproject.talkcoding.controller.page;
 
-import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -10,8 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -69,7 +66,7 @@ public class PageController {
     // 주소 설정 select box 값 가져와서 주소 별 게시글 가져오기 - ajax로 select box 데이터 가져오기
     // 시/도 select box만 설정했을 경우
     @GetMapping("/address/{postSido}")
-    public ResponseEntity<Page<PostEntity>> searchSido(@PathVariable("postSido") String postSido,
+    public String searchSido(@PathVariable("postSido") String postSido,
                                                             @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable,
                                                             Model model){
         Page<PostEntity> sidoList = postService.findSido(postSido, pageable);
@@ -79,18 +76,18 @@ public class PageController {
         int startPage = Math.max(nowPage -4,1);
         int endPage = Math.min(nowPage +5,sidoList.getTotalPages());
 
-        model.addAttribute("sidoList", sidoList);
+        model.addAttribute("posts", sidoList);
         model.addAttribute("nowPage", nowPage);
         model.addAttribute("startPage",startPage);
         model.addAttribute("endPage",endPage);
 
         
-        return new ResponseEntity<>(sidoList, HttpStatus.OK);
+        return "main";
     }
 
     // 시/도, 구/군 select box 설정
     @GetMapping("/address/{postSido}/{postGugun}")
-    public ResponseEntity<Page<PostEntity>> searchGugun(@PathVariable("postSido") String postSido,
+    public String searchGugun(@PathVariable("postSido") String postSido,
                                                             @PathVariable("postGugun") String postGugun,
                                                             @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable,
                                                             Model model){    
@@ -101,18 +98,18 @@ public class PageController {
         int startPage = Math.max(nowPage -4,1);
         int endPage = Math.min(nowPage +5,gugunList.getTotalPages());
 
-        model.addAttribute("gugunList", gugunList);
+        model.addAttribute("posts", gugunList);
         model.addAttribute("nowPage", nowPage);
         model.addAttribute("startPage",startPage);
         model.addAttribute("endPage",endPage);
 
     
-        return new ResponseEntity<>(gugunList, HttpStatus.OK);
+        return "main";
     }
 
     // 시/도, 구/군, 동 select box 설정
     @GetMapping("/address/{postSido}/{postGugun}/{postDong}")
-    public ResponseEntity<Page<PostEntity>> searchDong(@PathVariable("postSido") String postSido,
+    public String searchDong(@PathVariable("postSido") String postSido,
                                                             @PathVariable("postGugun") String postGugun,
                                                             @PathVariable("postDong") String postDong,
                                                             @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable,
@@ -124,22 +121,34 @@ public class PageController {
         int startPage = Math.max(nowPage-4, 1);
         int endPage = Math.min(nowPage +5, dongList.getTotalPages());
 
-        model.addAttribute("gugunList", dongList);
+        model.addAttribute("posts", dongList);
         model.addAttribute("nowPage", nowPage);
         model.addAttribute("startPage",startPage);
         model.addAttribute("endPage",endPage);
     
-        return new ResponseEntity<>(dongList, HttpStatus.OK);
+        return "main";
     }
 
     // 제목, 게시글 검색 기능
     // GetMapping 이므로 url 뒤에 ?keyword = ... 이런 형식으로 들어가야 됨
     // PostMapping 에서의 RequestParam과 다름
-    @GetMapping("/post/search")
-    public ResponseEntity<List<PostEntity>> search(@RequestParam("keyword") String keyword, Model model){
-        List<PostEntity> searchList = postService.search(keyword);
-        model.addAttribute("searchList", searchList);
+    @GetMapping("/search")
+    public String search(@RequestParam("keyword") String keyword,
+                         @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC)
+                         Pageable pageable,
+                         Model model){
+        Page<PostEntity> searchList = postService.search(keyword, pageable);
 
-        return new ResponseEntity<>(searchList, HttpStatus.OK);
+        // 페이징 처리
+        int nowPage = searchList.getPageable().getPageNumber()+1; //pageable이 갖고 있는 페이지는 0부터 시작하기 때문에
+        int startPage = Math.max(nowPage-4, 1);
+        int endPage = Math.min(nowPage +5, searchList.getTotalPages());
+
+        model.addAttribute("posts", searchList);
+        model.addAttribute("nowPage", nowPage);
+        model.addAttribute("startPage",startPage);
+        model.addAttribute("endPage",endPage);
+
+        return "main";
     }
 }

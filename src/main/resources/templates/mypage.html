@@ -62,68 +62,66 @@
               <p>내 계정</p>
             </button>
           </div>
-          <form
-                  enctype="multipart/form-data"
-                  action="/user/edit"
-                  method="post"
-                >
-          <div class="myInfo">
-            <h1>내 정보</h1>
-            <div class="profileImg">
-              <p>프로필 사진</p>
-              <div class="imgUpload">
-                  <div id="profileImg">
-                    <img
-                      onerror="this.src='/img/default_profile.png'"
-                      th:src="@{/upload/{uploadfile}(uploadfile=${userProfile})}"
-                      id="profileImg"
-                      class="img"
+          <form enctype="multipart/form-data" action="/user/edit" method="post">
+            <div class="myInfo">
+              <h1>내 정보</h1>
+              <div class="profileImg">
+                <p>프로필 사진</p>
+                <div class="imgUpload">
+                  <div class="shape">
+                    <div id="profileImg">
+                      <img
+                        onerror="this.src='/img/default_profile.png'"
+                        th:src="@{/upload/{uploadfile}(uploadfile=${userProfile})}"
+                        id="profileImg"
+                        class="img"
+                      />
+                    </div>
+                    <div class="imgButton">
+                      <label for="chooseFile">이미지 업로드</label>
+                    </div>
+                    <input
+                      type="file"
+                      id="chooseFile"
+                      name="originFileName"
+                      accept="image/*"
+                      onchange="loadFile(this)"
                     />
                   </div>
-                  <div class="imgButton">
-                    <label for="chooseFile">이미지 업로드</label>
-                  </div>
-                  <input
-                    type="file"
-                    id="chooseFile"
-                    name="originFileName"
-                    accept="image/*"
-                    onchange="loadFile(this)"
-                  />
+                </div>
+              </div>
+              <hr />
+              <div class="name">
+                <p>이름</p>
+                <input
+                  type="text"
+                  name="userName"
+                  th:value="${userInfo.userName}"
+                />
+              </div>
+              <hr />
+              <div class="nickName">
+                <p>닉네임</p>
+                <input
+                  type="text"
+                  name="userNickName"
+                  th:value="${userInfo.userNickName}"
+                />
+              </div>
+              <hr />
+              <div class="phoneNumber">
+                <p>휴대폰 번호</p>
+                <input
+                  type="text"
+                  name="userPhoneNumber"
+                  th:value="${userInfo.userPhoneNumber}"
+                />
+              </div>
+              <hr />
+              <div class="saveButton">
+                <button type="submit">저장하기</button>
               </div>
             </div>
-            <hr />
-            <div class="name">
-              <p>이름</p>
-              <input
-                type="text"
-                name="userName"
-                th:value="${userInfo.userName}"
-              />
-            </div>
-            <hr />
-            <div class="nickName">
-              <p>닉네임</p>
-              <input
-                type="text"
-                name="userNickName"
-                th:value="${userInfo.userNickName}"
-              />
-            </div>
-            <hr />
-            <div class="phoneNumber">
-              <p>휴대폰 번호</p>
-              <input
-                type="text"
-                name="userPhoneNumber"
-                th:value="${userInfo.userPhoneNumber}"
-              />
-            </div>
-            <hr />
-            <div class="saveButton">
-              <button type="submit">저장하기</button>
-            </div>
-          </div>
           </form>
         </div>
       </div>

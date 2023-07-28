@@ -81,27 +81,41 @@
                     accept="image/*"
                     onchange="loadFile(this)"
                   />
+                </div>
+              </div>
+              <hr />
+              <div class="name">
+                <p>이름</p>
+                <input
+                  type="text"
+                  name="userName"
+                  th:value="${userInfo.userName}"
+                />
+              </div>
+              <hr />
+              <div class="nickName">
+                <p>닉네임</p>
+                <input
+                  type="text"
+                  name="userNickName"
+                  th:value="${userInfo.userNickName}"
+                />
+              </div>
+              <hr />
+              <div class="phoneNumber">
+                <p>휴대폰 번호</p>
+                <input
+                  type="text"
+                  name="userPhoneNumber"
+                  th:value="${userInfo.userPhoneNumber}"
+                />
+              </div>
+              <hr />
+              <div class="saveButton">
+                <button type="submit">저장하기</button>
               </div>
             </div>
-            <hr />
-            <div class="name">
-              <p>이름</p>
-              <input type="text" name="userName" th:value="${userInfo.userName}"/>
-            </div>
-            <hr />
-            <div class="nickName">
-              <p>닉네임</p>
-              <input type="text" name="userNickName" th:value="${userInfo.userNickName}"/>
-            </div>
-            <hr />
-            <div class="phoneNumber">
-              <p>휴대폰 번호</p>
-              <input type="text" name="userPhoneNumber" th:value="${userInfo.userPhoneNumber}"/>
-            </div>
-            <hr />
-            <div class="saveButton"><button type="submit">저장하기</button></div>
-          </div>
-        </form>
+          </form>
         </div>
       </div>
     </div>

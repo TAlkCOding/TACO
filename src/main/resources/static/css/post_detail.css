@@ -36,44 +36,20 @@ a {
   text-decoration: none;
 }
 
-.root {
-  display: block;
-}
-
-.header {
-  background-color: #ffffff;
-  box-shadow: 0px 4px 50px rgb(0, 0, 0, 0.05);
-  display: flex;
-  width: 100%;
-  height: 85px;
-  align-items: center; /*세로축*/
-  justify-content: center; /*가로축*/
-}
-
-.nav {
-  width: 1200px;
-  display: flex;
-  align-items: center; /*세로축*/
-  justify-content: space-between;
-}
-
 .button {
   border: none;
   background: none;
 }
 
-.logo {
-  width: 120px;
-  height: 30px;
+button:focus {
+  outline: none;
 }
 
-.topButton {
-  width: 160px;
-  height: 41px;
-  display: flex;
-  justify-content: space-between;
+.root {
+  display: block;
 }
 
+/*header 변경 css*/
 .writingWord {
   width: 80px;
   height: 41px;
@@ -180,6 +156,65 @@ a {
 #selectLogout:hover {
   background-color: #eeeeff;
   transition: 0.1s;
+}
+/***************/
+.header {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 50px rgb(0, 0, 0, 0.05);
+  display: flex;
+  width: 100%;
+  height: 85px;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+}
+
+.nav {
+  width: 1200px;
+  display: flex;
+  align-items: center; /*세로축*/
+  justify-content: space-between;
+}
+
+.logo {
+  width: 120px;
+  height: 30px;
+}
+
+.topButton {
+  width: 160px;
+  height: 41px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.signIn {
+  width: 72px;
+  height: 41px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  border: none;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+  font-size: 14px;
+  font-weight: 700;
+  color: #5555ff;
+  font-family: "Pretendard-Regular";
+}
+
+.joinMembership {
+  width: 72px;
+  height: 41px;
+  background-color: #5555ff;
+  border-radius: 8px;
+  display: flex;
+  border: none;
+  align-items: center; /*세로축*/
+  justify-content: center; /*가로축*/
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: "Pretendard-Regular";
 }
 
 .container {

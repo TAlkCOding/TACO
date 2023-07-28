@@ -1119,3 +1119,12 @@ languageInput3.addEventListener("blur", function () {
 
 // var myForm = document.getElementById("myForm");
 // myForm.addEventListener("submit", handleSubmitForm);
+
+// Add event listener 로그아웃 버튼 클릭
+document.getElementById("selectLogout").addEventListener("click", function () {
+  // isLoggedIn sessionStorage 제거
+  sessionStorage.removeItem("isLoggedIn");
+
+  // 로그아웃 후 메인 페이지 이동
+  window.location.href = "/";
+});

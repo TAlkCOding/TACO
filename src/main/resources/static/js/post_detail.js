@@ -14,10 +14,14 @@ document.body.addEventListener("click", function (event) {
   }
 });
 
-
-$(document).ready(() => { 
-  var index_button = $('input[name=index_button]').val();
-  if(index_button == 1){
+$(document).ready(() => {
+  var index_button = $("input[name=index_button]").val();
+  if (index_button == 1) {
     $(".deleteEdit").css("display", "flex");
   }
+});
+
+//헤더 변환 함수 사용 from main.js
+document.addEventListener("DOMContentLoaded", function () {
+  updateHeader();
 });

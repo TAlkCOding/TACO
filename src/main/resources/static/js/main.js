@@ -1009,7 +1009,7 @@ function move() {
 }
 
 //로그인시 헤더 변환
-document.addEventListener("DOMContentLoaded", function () {
+function updateHeader() {
   var isLoggedIn = sessionStorage.getItem("isLoggedIn");
 
   if (isLoggedIn === "true") {
@@ -1071,7 +1071,20 @@ document.addEventListener("DOMContentLoaded", function () {
         selectBox.classList.add("hidden");
       }
     });
+
+    // Add event listener to the Logout button
+    document
+      .getElementById("selectLogout")
+      .addEventListener("click", function () {
+        // Remove isLoggedIn from sessionStorage
+        sessionStorage.removeItem("isLoggedIn");
+      });
   }
+}
+
+//헤더 변환 함수 사용
+document.addEventListener("DOMContentLoaded", function () {
+  updateHeader();
 });
 
 /*지역 selectBox url 변환*/

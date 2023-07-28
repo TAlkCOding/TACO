@@ -364,6 +364,12 @@ button:focus {
   justify-content: center;
 }
 
+.centerGuide {
+  display: block;
+  width: 1230px;
+  height: 1600px;
+}
+
 .contentContainer {
   display: flex;
   width: 1230px;
@@ -622,5 +628,36 @@ button:focus {
   font-size: 14px;
   font-weight: 600;
   margin: 0px 4px 0px 4px;
+  font-family: "Pretendard-Regular";
+}
+
+.pageNum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.restPage {
+  display: flex;
+  color: #5555ff;
+  font-size: 14px;
+  width: 20px;
+  height: 20px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  font-family: "Pretendard-Regular";
+}
+
+.currentPage {
+  display: flex;
+  font-size: 14px;
+  width: 20px;
+  height: 20px;
+  color: white;
+  background-color: #5555ff;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
   font-family: "Pretendard-Regular";
 }

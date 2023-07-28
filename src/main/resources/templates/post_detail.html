@@ -25,31 +25,31 @@
             />
           </button>
           <div class="topButton">
-            <button class="writingWord" onclick="location.href='/post_edit'">
-              글쓰기
+            <button
+              type="button"
+              id="change"
+              class="signIn"
+              onclick="location.href='/login'"
+            >
+              로그인
             </button>
-            <div class="profileBox">
-              <div class="picture"></div>
-              <button id="openSelectButton"></button>
-              <div id="mySelect" class="hidden">
-                <button id="selectMyPost" onclick="location.href='/post/my'">
-                  <img src="/img/pageEdit.svg" />내 작성글
-                </button>
-                <button id="selectOption" onclick="location.href='/user/edit'">
-                  <img src="/img/option.svg" />설정
-                </button>
-                <form action="/logout" method="post">
-                  <button type="submit" id="selectLogout">
-                    <img src="/img/logOut.svg" />로그아웃
-                  </button>
-                </form>
-              </div>
-            </div>
+            <button
+              type="button"
+              id="change"
+              class="joinMembership"
+              onclick="location.href='/signup'"
+            >
+              회원가입
+            </button>
           </div>
         </div>
       </div>
       <div class="container">
-        <input type="hidden" name="index_button" th:value="${checkIndexForPost}">
+        <input
+          type="hidden"
+          name="index_button"
+          th:value="${checkIndexForPost}"
+        />
         <th:block th:each="post : ${post}">
           <div class="mainContainer">
             <div class="lineContainer">

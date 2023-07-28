@@ -69,12 +69,11 @@
                 <p>프로필 사진</p>
                 <div class="imgUpload">
                   <div class="shape">
-                    <div id="profileImg">
+                    <div class="profileCircle">
                       <img
                         onerror="this.src='/img/default_profile.png'"
                         th:src="@{/upload/{uploadfile}(uploadfile=${userProfile})}"
                         id="profileImg"
-                        class="img"
                       />
                     </div>
                     <div class="imgButton">

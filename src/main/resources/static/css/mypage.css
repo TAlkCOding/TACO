@@ -28,6 +28,7 @@ a {
 form {
   display: flex;
   align-items: center;
+  position: relative;
 }
 .root {
   display: block;
@@ -96,7 +97,6 @@ form {
   height: 40px;
   border-radius: 50%;
   margin-left: 16px;
-  background-color: #000000;
   margin-left: 10px;
 }
 
@@ -247,7 +247,13 @@ form {
 hr {
   border: 1px solid #dadada;
 }
-
+.profileImg {
+  display: flex;
+  align-items: center;
+  margin-left: 21px;
+  width: 100%;
+  height: 80px;
+}
 .imgUpload {
   display: flex;
   align-items: center;
@@ -255,10 +261,30 @@ hr {
   height: 40px;
 }
 
+#basicProfile {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
 #profileImg {
   width: 40px;
   height: 40px;
-  background-color: black;
+  border-radius: 20px;
+  position: absolute;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+}
+
+#basicProfile {
+  width: 40px;
+  height: 40px;
   border-radius: 20px;
 }
 
@@ -273,6 +299,9 @@ hr {
   background-color: #ffffff;
   border-radius: 8px;
   border: solid 1px black;
+  position: absolute;
+  top: 5px;
+  left: 45px;
 }
 
 label {

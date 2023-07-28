@@ -30,9 +30,11 @@
               글쓰기
             </button>
             <div class="profileBox">
-              <img class="picture"
+              <img
+                class="picture"
                 onerror="this.src='/img/default_profile.png'"
-                th:src="@{/upload/{uploadfile}(uploadfile=${userProfile})}"></img>
+                th:src="@{/upload/{uploadfile}(uploadfile=${userProfile})}"
+              />
               <button id="openSelectButton"></button>
               <div id="mySelect" class="hidden">
                 <button id="selectMyPost" onclick="location.href='/post/my'">
@@ -42,10 +44,10 @@
                   <img src="/img/option.svg" />설정
                 </button>
                 <form action="/logout" method="post">
-                  <button type="submit" id="selectLogout">  
+                  <button type="submit" id="selectLogout">
                     <img src="/img/logOut.svg" />로그아웃
                   </button>
-                  </form>
+                </form>
               </div>
             </div>
           </div>
@@ -60,62 +62,69 @@
               <p>내 계정</p>
             </button>
           </div>
-          <form enctype="multipart/form-data" action="/user/edit" method="post">
           <div class="myInfo">
             <h1>내 정보</h1>
             <div class="profileImg">
               <p>프로필 사진</p>
               <div class="imgUpload">
-                  <img 
-                    onerror="this.src='/img/default_profile.png'"
-                    th:src="@{/upload/{uploadfile}(uploadfile=${userProfile})}"
-                    id="profileImg">
-                  </img>
+                <form
+                  enctype="multipart/form-data"
+                  action="/user/edit"
+                  method="post"
+                >
+                  <div id="profileImg">
+                    <img
+                      onerror="this.src='/img/default_profile.png'"
+                      th:src="@{/upload/{uploadfile}(uploadfile=${userProfile})}"
+                      id="profileImg"
+                      class="img"
+                    />
+                  </div>
                   <div class="imgButton">
                     <label for="chooseFile">이미지 업로드</label>
                   </div>
                   <input
                     type="file"
                     id="chooseFile"
-                    name="originFileName"
+                    name="chooseFile"
                     accept="image/*"
                     onchange="loadFile(this)"
                   />
-                </div>
-              </div>
-              <hr />
-              <div class="name">
-                <p>이름</p>
-                <input
-                  type="text"
-                  name="userName"
-                  th:value="${userInfo.userName}"
-                />
-              </div>
-              <hr />
-              <div class="nickName">
-                <p>닉네임</p>
-                <input
-                  type="text"
-                  name="userNickName"
-                  th:value="${userInfo.userNickName}"
-                />
-              </div>
-              <hr />
-              <div class="phoneNumber">
-                <p>휴대폰 번호</p>
-                <input
-                  type="text"
-                  name="userPhoneNumber"
-                  th:value="${userInfo.userPhoneNumber}"
-                />
-              </div>
-              <hr />
-              <div class="saveButton">
-                <button type="submit">저장하기</button>
+                </form>
               </div>
             </div>
-          </form>
+            <hr />
+            <div class="name">
+              <p>이름</p>
+              <input
+                type="text"
+                name="userName"
+                th:value="${userInfo.userName}"
+              />
+            </div>
+            <hr />
+            <div class="nickName">
+              <p>닉네임</p>
+              <input
+                type="text"
+                name="userNickName"
+                th:value="${userInfo.userNickName}"
+              />
+            </div>
+            <hr />
+            <div class="phoneNumber">
+              <p>휴대폰 번호</p>
+              <input
+                type="text"
+                name="userPhoneNumber"
+                th:value="${userInfo.userPhoneNumber}"
+              />
+            </div>
+            <hr />
+            <div class="saveButton">
+              <button type="submit">저장하기</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

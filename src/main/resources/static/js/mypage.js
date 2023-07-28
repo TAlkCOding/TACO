@@ -27,8 +27,13 @@ function loadFile(input) {
   var newImage = document.createElement("img");
   newImage.setAttribute("class", "img");
 
-  //이미지 source 가져오기
-  newImage.src = URL.createObjectURL(file);
+  if (file) {
+    // Image source from the uploaded file
+    newImage.src = URL.createObjectURL(file);
+  } else {
+    // If no file is selected, use the default image
+    newImage.src = "/img/default_profile.png";
+  }
 
   newImage.style.width = "100%";
   newImage.style.height = "100%";

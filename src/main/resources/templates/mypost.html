@@ -21,11 +21,11 @@
               class="logo"
               alt="logo"
               src="/img/logo.png"
-              onclick="location.href='/main'"
+              onclick="location.href='/'"
             />
           </button>
           <div class="topButton">
-            <button class="writingWord" onclick="location.href='/post_edit'">
+            <button class="writingWord" onclick="location.href='/post'">
               글쓰기
             </button>
             <div class="profileBox">
@@ -78,7 +78,18 @@
                     <div class="languageWord">언어</div>
                   </div>
                   <div class="languageBox">
-                    <div class="language" th:text="${post.postLanguage1}">사용언어1</div>
+                    <div class="ent">&#35;</div>
+                      <div class="language" th:text="${post.postLanguage1}">
+                        사용언어
+                      </div>
+                      <div class="ent">&#35;</div>
+                      <div class="language" th:text="${post.postLanguage2}">
+                        사용언어
+                      </div>
+                      <div class="ent">&#35;</div>
+                      <div class="language" th:text="${post.postLanguage3}">
+                        사용언어
+                      </div>
                   </div>
                 </div>
                 <div class="regionContainer">

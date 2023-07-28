@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import lombok.extern.slf4j.Slf4j;
 import sideproject.talkcoding.model.dto.user.LoginDto;
 import sideproject.talkcoding.model.dto.user.UserDto;
+import sideproject.talkcoding.model.entity.image.ProfileEntity;
 import sideproject.talkcoding.model.entity.user.UserEntity;
 import sideproject.talkcoding.service.image.ProfileService;
 import sideproject.talkcoding.service.user.UserService;
@@ -175,6 +176,11 @@ public class UserController {
     @GetMapping("/user/edit")
     public String UserEdit(HttpSession session, Model model){
         Long userIndex = (Long) session.getAttribute("userIndex");
+
+        Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+        if(userProfile.isPresent()){
+            model.addAttribute("userProfile", userProfile.get().getStoreFileName());
+        }
 
         Optional<UserEntity> userInfo = userService.findUserInfo(userIndex);
         userInfo.ifPresent(o -> model.addAttribute("userInfo", o));

@@ -17,6 +17,7 @@ document.body.addEventListener("click", function (event) {
 $(document).ready(() => {
   var index_button = $("input[name=index_button]").val();
   if (index_button == 1) {
+    console.log(index_button);
     $(".deleteEdit").css("display", "flex");
   }
 });

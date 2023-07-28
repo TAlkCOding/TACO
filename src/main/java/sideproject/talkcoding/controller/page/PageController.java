@@ -39,8 +39,8 @@ public class PageController {
         if(userIndex != null){
             log.info(session.getAttribute("userIndex").toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
-        if(userProfile.isPresent()){
-            model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            if(userProfile.isPresent()){
+            model.addAttribute("userProfile", userProfile.get().getStoreFileName());
             }
         }
 

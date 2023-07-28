@@ -62,16 +62,16 @@
               <p>내 계정</p>
             </button>
           </div>
+          <form
+                  enctype="multipart/form-data"
+                  action="/user/edit"
+                  method="post"
+                >
           <div class="myInfo">
             <h1>내 정보</h1>
             <div class="profileImg">
               <p>프로필 사진</p>
               <div class="imgUpload">
-                <form
-                  enctype="multipart/form-data"
-                  action="/user/edit"
-                  method="post"
-                >
                   <div id="profileImg">
                     <img
                       onerror="this.src='/img/default_profile.png'"
@@ -86,11 +86,10 @@
                   <input
                     type="file"
                     id="chooseFile"
-                    name="chooseFile"
+                    name="originFileName"
                     accept="image/*"
                     onchange="loadFile(this)"
                   />
-                </form>
               </div>
             </div>
             <hr />
@@ -125,6 +124,7 @@
               <button type="submit">저장하기</button>
             </div>
           </div>
+          </form>
         </div>
       </div>
     </div>

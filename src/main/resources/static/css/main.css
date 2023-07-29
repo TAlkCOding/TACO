@@ -272,6 +272,7 @@ button:focus {
 .nonClick {
   width: 10px;
   height: 10px;
+  border: none;
   border-radius: 50%;
   background-color: #d9d9d9;
 }
@@ -280,6 +281,7 @@ button:focus {
   width: 13px;
   height: 13px;
   border-radius: 50%;
+  border: none;
   background-color: #000000;
 }
 

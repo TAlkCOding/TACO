@@ -44,8 +44,8 @@ function login() {
   var passwordInput = document.querySelector(".passwordInput").value;
 
   let data = {
-    userId : $(".idInput").val(),
-    userPassword: $(".passwordInput").val()
+    userId: $(".idInput").val(),
+    userPassword: $(".passwordInput").val(),
   };
   $.ajax({
     type: "POST",

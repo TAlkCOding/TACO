@@ -1128,3 +1128,31 @@ document.getElementById("selectLogout").addEventListener("click", function () {
   // 로그아웃 후 메인 페이지 이동
   window.location.href = "/";
 });
+
+//제목, 내용 확인 alert
+const form = document.getElementById("myForm");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); // Prevent form submission from refreshing the page
+
+  // input 값
+  const postTitle = document.querySelector(".postTitle").value;
+  const editorData = document.querySelector(".summernote").value;
+
+  if (!postTitle.trim() || !editorData.trim()) {
+    alert("제목과 내용을 입력해주세요.");
+  } else {
+    form.submit();
+  }
+});
+
+//태그 제거
+new_note_data = "<table><tr><td>test value</td></tr></table>";
+
+$("#textarea_note").summernote("reset");
+$("#textarea_note").summernote("destroy");
+$("#textarea_note").val(new_note_data);
+
+$("#textarea_note").summernote({
+  airMode: true,
+});

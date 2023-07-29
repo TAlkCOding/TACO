@@ -42,11 +42,13 @@
                 ></lottie-player>
                 <div class="blinder"></div>
               </div>
+
               내<span> 이웃</span>과 함께<br />
               <span>만들고 소통</span>하는 공간
             </div>
           </div>
           <div class="rightContainer">
+            <form>
               <div class="loginForm">
                 <div class="back">
                   <?xml version="1.0" encoding="UTF-8"?><svg
@@ -69,14 +71,13 @@
                   <p>뒤로가기</p>
                 </div>
                 <div class="loginUp">
-                  <h1 onclick="location.href='/find/id'">아이디 찾기</h1>
+                  <h1 class="id">아이디 찾기</h1>
                   <div class="updown"></div>
-                  <h1 onclick="location.href='/find/pw'">비밀번호 찾기</h1>
+                  <h1 class="pw">비밀번호 찾기</h1>
                 </div>
-                <form action="/find/pw" method="post">
                 <div class="loginDown">
                   <div class="name">
-                    <input class="nameInput" type="text" name="userName" placeholder="이름" />
+                    <input class="nameInput" type="text" placeholder="이름" />
                   </div>
                   <div class="phoneNumber">
                     <?xml version="1.0" encoding="UTF-8"?><svg
@@ -96,9 +97,11 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                       ></path></svg
-                    ><input class="idInput" type="text" name="userId" placeholder="아이디" />
+                    ><input class="idInput" type="text" placeholder="아이디" />
                   </div>
-                  <button type="submit">비밀번호 찾기</button>
+                  <button class="submitButton" type="submit">
+                    비밀번호 찾기
+                  </button>
                 </div>
               </div>
             </form>

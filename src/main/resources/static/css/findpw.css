@@ -25,6 +25,11 @@ a {
   text-decoration: none;
 }
 
+button {
+  border: none;
+  background: none;
+}
+
 .root {
   display: block;
 }
@@ -138,11 +143,9 @@ a {
   width: 286px;
   align-items: center;
 }
-/*******************/
-.loginUp h1:nth-last-child(1) {
+.pw {
   color: #5555ff;
 }
-/********************/
 .loginUp h1 {
   font-size: 20px;
   font-weight: 900;

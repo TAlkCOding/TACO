@@ -25,6 +25,11 @@ a {
   text-decoration: none;
 }
 
+button {
+  border: none;
+  background: none;
+}
+
 .root {
   display: block;
 }
@@ -138,7 +143,7 @@ a {
   width: 286px;
   align-items: center;
 }
-.loginUp h1:nth-child(1) {
+.id {
   color: #5555ff;
 }
 .loginUp h1 {
@@ -209,7 +214,7 @@ input::placeholder {
   color: #cdcdcd;
 }
 
-.loginDown button {
+.submitButton {
   background-color: #5555ff;
   border: none;
   border-radius: 16px;
@@ -218,7 +223,7 @@ input::placeholder {
   font-weight: 700;
   color: white;
 }
-.loginDown button:hover {
+.submitButton:hover {
   transition: 0.2s;
   background-color: #4747d6;
 }

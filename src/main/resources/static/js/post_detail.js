@@ -23,6 +23,7 @@ $(document).ready(() => {
 });
 
 //헤더 변환 함수 사용 from main.js
-document.addEventListener("DOMContentLoaded", function () {
-  updateHeader();
+$(document).ready(function () {
+  var isLoggedIn = sessionStorage.getItem("isLoggedIn");
+  updateHeader(isLoggedIn);
 });

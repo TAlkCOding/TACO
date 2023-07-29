@@ -1008,6 +1008,10 @@ function move() {
   }, 3000);
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  move();
+});
+
 //로그인시 헤더 변환
 function updateHeader() {
   var isLoggedIn = sessionStorage.getItem("isLoggedIn");

@@ -25,12 +25,12 @@ public class ReplyController {
     // 댓글 쓰기
     // thymeleaf로 해당 게시글 상세정보 가져올때 url 추가 하면 됨
     @PostMapping("/reply/save/{postId}")
-    public ResponseEntity<ReplyEntity> save(@PathVariable("postId") Long postIndex,  ReplyDto replyDto, HttpSession session){
+    public String save(@PathVariable("postId") Long postIndex,  ReplyDto replyDto, HttpSession session){
         Long userIndex = (Long) session.getAttribute("userIndex");
 
         ReplyEntity reply = replyService.save(replyDto, userIndex, postIndex);
 
-        return new ResponseEntity<ReplyEntity>(reply, HttpStatus.OK);
+        return "redirect:/";
     }
 
     // 댓글 수정

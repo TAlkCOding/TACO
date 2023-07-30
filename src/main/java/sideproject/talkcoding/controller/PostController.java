@@ -79,6 +79,15 @@ public class PostController {
     public String read(HttpSession session, @PathVariable(name = "postId") Long postId, Model model) {
         Long userIndex = (Long) session.getAttribute("userIndex");
         
+        // 프로필 가져오기
+        if(userIndex != null){
+            log.info(session.getAttribute("userIndex").toString());
+            Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+        if(userProfile.isPresent()){
+            model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            }
+        }
+
         // 게시글 model
         Optional<PostEntity> post = postService.read(postId);
         post.ifPresent(o -> model.addAttribute("post", o));

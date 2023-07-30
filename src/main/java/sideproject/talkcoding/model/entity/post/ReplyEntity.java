@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,12 +36,17 @@ public class ReplyEntity {
     @NotNull
     private String replyDescription;
 
+    @CreationTimestamp //INSERT 쿼리가 발생할 때, 현재 시간을 값으로 채워서 쿼리를 생성한다.
     @Column
     private LocalDateTime replyRegDate;
 
     @Column
     @NotNull
     private Long replyUserIndex;
+
+    @Column
+    @NotNull
+    private String userNickName;
 
     @Column
     @NotNull
@@ -52,6 +59,7 @@ public class ReplyEntity {
         .replyRegDate(replyRegDate)
         .replyUserIndex(replyUserIndex)
         .replyPostIndex(replyPostIndex)
+        .userNickName(userNickName)
         .build();
 
         return replyDto;

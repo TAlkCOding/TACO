@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="rightContainer">
-            <form method="post">
+            <form action="/find/id" method="post">
               <div class="loginForm">
                 <div class="back">
                   <?xml version="1.0" encoding="UTF-8"?><svg
@@ -71,14 +71,13 @@
                   <p>뒤로가기</p>
                 </div>
                 <div class="loginUp">
-                  <h1 class="id">아이디 찾기</h1>
+                  <h1 class="id" onclick="location.href='/find/id'">아이디 찾기</h1>
                   <div class="updown"></div>
-
-                  <h1 class="pw">비밀번호 찾기</h1>
+                  <h1 class="pw" onclick="location.href='/find/pw'">비밀번호 찾기</h1>
                 </div>
                 <div class="loginDown">
                   <div class="name">
-                    <input class="nameInput" type="text" placeholder="이름" />
+                    <input class="nameInput" type="text" name="userName" placeholder="이름" />
                   </div>
                   <div class="phoneNumber">
                     <?xml version="1.0" encoding="UTF-8"?><svg
@@ -107,6 +106,7 @@
                     ><input
                       class="phoneNumberInput"
                       type="text"
+                      name="userPhoneNumber"
                       placeholder="휴대폰 번호를 -없이 적어주세요."
                     />
                   </div>

@@ -24,15 +24,18 @@ public class ReplyDto {
 
     private Long replyUserIndex;
 
+    private String userNickName;
+
     private Long replyPostIndex;
 
 
-    public ReplyEntity toEntity(Long replyUserIndex, Long replyPostIndex){
+    public ReplyEntity toEntity(Long replyUserIndex, Long replyPostIndex, String userNickName){
         ReplyEntity replyEntity = ReplyEntity.builder()
         .replyDescription(replyDescription)
         .replyRegDate(replyRegDate)
         .replyUserIndex(replyUserIndex)
         .replyPostIndex(replyPostIndex)
+        .userNickName(userNickName)
         .build();
 
         return replyEntity;

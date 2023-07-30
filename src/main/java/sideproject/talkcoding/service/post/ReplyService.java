@@ -9,7 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import sideproject.talkcoding.model.dto.post.ReplyDto;
 import sideproject.talkcoding.model.entity.post.ReplyEntity;
+import sideproject.talkcoding.model.entity.user.UserEntity;
 import sideproject.talkcoding.repository.ReplyRepository;
+import sideproject.talkcoding.repository.UserRepository;
 
 @Service
 public class ReplyService {
@@ -17,10 +19,14 @@ public class ReplyService {
     @Autowired
     private ReplyRepository replyRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     // 댓글 저장
     @Transactional
     public ReplyEntity save(ReplyDto replyDto, Long userIndex, Long postIndex) {
-        ReplyEntity replyEntity = replyDto.toEntity(userIndex, postIndex);
+        Optional<UserEntity> user = userRepository.findById(userIndex);
+        ReplyEntity replyEntity = replyDto.toEntity(userIndex, postIndex, user.get().getUserNickName());
 
         replyRepository.save(replyEntity);
 

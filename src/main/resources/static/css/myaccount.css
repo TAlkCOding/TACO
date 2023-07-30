@@ -57,14 +57,14 @@ a {
 }
 
 .topButton {
-  width: 160px;
+  width: 144px;
   height: 41px;
   display: flex;
   justify-content: space-between;
 }
 
 .writingWord {
-  width: 80px;
+  width: 72px;
   height: 41px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -79,7 +79,7 @@ a {
 }
 
 .profileBox {
-  width: 80px;
+  width: 72px;
   height: 41px;
   display: flex;
   align-items: center; /*세로축*/
@@ -253,11 +253,43 @@ hr {
 .changePassword {
   display: flex;
   align-items: center;
-  width: 139px;
+  width: auto;
   height: 40px;
 }
-.changePassword p {
+.changePassword button {
   color: #5555ff;
+  background-color: white;
+  border: none;
+}
+
+.newpwContainer {
+  display: flex;
+  width: 165px;
+  align-items: center;
+  margin-left: 30px;
+  border: none;
+  background-color: #f4f4f6;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+#inputNewpw {
+  width: 130px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.eye {
+  display: flex;
+  width: 24px;
+  height: 24px;
+}
+
+.eyeClose {
+  display: flex;
+  width: 24px;
+  height: 24px;
 }
 
 .deletePassword {

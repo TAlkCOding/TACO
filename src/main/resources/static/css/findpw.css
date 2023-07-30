@@ -145,11 +145,11 @@ button {
 }
 .pw {
   color: #5555ff;
-}
-.loginUp h1 {
   font-size: 20px;
   font-weight: 900;
+  font-family: "Pretendard-Regular";
 }
+
 .updown {
   border: 1px solid #cdcdcd;
   width: 0.1px;

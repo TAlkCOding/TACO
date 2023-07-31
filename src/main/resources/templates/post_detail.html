@@ -14,35 +14,11 @@
 
   <body>
     <div class="root">
-      <div class="header">
-        <div class="nav">
-          <button type="button" class="button">
-            <img
-              class="logo"
-              alt="logo"
-              src="/img/logo.png"
-              onclick="location.href='/'"
-            />
-          </button>
-          <div class="topButton">
-            <button
-              type="button"
-              id="change"
-              class="signIn"
-              onclick="location.href='/login'"
-            >
-              로그인
-            </button>
-            <button
-              type="button"
-              id="change"
-              class="joinMembership"
-              onclick="location.href='/signup'"
-            >
-              회원가입
-            </button>
-          </div>
-        </div>
+      <div th:if="${alreadyHaveSession == 'true'}">
+        <div th:replace="newHeader.html"></div>
+      </div>
+      <div th:if="${alreadyHaveSession == 'false'}">
+        <div th:replace="existingHeader.html"></div>
       </div>
       <div class="container">
         <input

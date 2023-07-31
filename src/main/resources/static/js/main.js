@@ -1008,86 +1008,45 @@ document.addEventListener("DOMContentLoaded", function () {
   // 자동 슬라이드 재시작
   startInterval();
 });
-
-//로그인시 헤더 변환
-function updateHeader() {
-  var isLoggedIn = sessionStorage.getItem("isLoggedIn");
-
-  if (isLoggedIn === "true") {
-    var newHTML = `
-    <div class="header">
-    <div class="nav">
-      <button type="button" class="button">
-        <img
-          class="logo"
-          alt="logo"
-          src="/img/logo.png"
-          onclick="location.href='/'"
-        />
-      </button>
-      <div class="topButton">
-        <button class="writingWord" onclick="location.href='/post'">
-          글쓰기
-        </button>
-        <div class="profileBox">
-          <div class="picture"></div>
-          <button id="openSelectButton"></button>
-          <div id="mySelect" class="hidden" style="z-index: 2">
-            <button id="selectMyPost" onclick="location.href='/post/my'">
-              <img src="/img/pageEdit.svg" />내 작성글
-            </button>
-            <button id="selectOption" onclick="location.href='/user/edit'">
-              <img src="/img/option.svg" />설정
-            </button>
-            <form action="/logout" method="post">
-              <button type="submit" id="selectLogout">
-                <img src="/img/logOut.svg" />로그아웃
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-      `;
-    $(".header").html(newHTML);
-
-    document
-      .getElementById("openSelectButton")
-      .addEventListener("click", function (event) {
-        var selectBox = document.getElementById("mySelect");
-        selectBox.classList.toggle("hidden");
-        event.stopPropagation();
-      });
-
-    document.body.addEventListener("click", function (event) {
-      var selectBox = document.getElementById("mySelect");
-      var openButton = document.getElementById("openSelectButton");
-
-      if (
-        event.target !== selectBox &&
-        event.target !== openButton &&
-        !selectBox.contains(event.target)
-      ) {
-        selectBox.classList.add("hidden");
-      }
-    });
-
-    // Add event listener to the Logout button
-    document
-      .getElementById("selectLogout")
-      .addEventListener("click", function () {
-        // Remove isLoggedIn from sessionStorage
-        sessionStorage.removeItem("isLoggedIn");
-      });
-  }
-}
 /*
-//헤더 변환 함수 사용
-document.addEventListener("DOMContentLoaded", function () {
-  updateHeader();
+//newheader.html js
+document
+  .getElementById("openSelectButton")
+  .addEventListener("click", function (event) {
+    var selectBox = document.getElementById("mySelect");
+    selectBox.classList.toggle("hidden");
+    event.stopPropagation();
+  });
+
+document.body.addEventListener("click", function (event) {
+  var selectBox = document.getElementById("mySelect");
+  var openButton = document.getElementById("openSelectButton");
+
+  if (
+    event.target !== selectBox &&
+    event.target !== openButton &&
+    !selectBox.contains(event.target)
+  ) {
+    selectBox.classList.add("hidden");
+  }
 });
 */
+// newHeader.html js 기능
+document.body.addEventListener("click", function (event) {
+  var selectBox = document.getElementById("mySelect");
+  var openButton = document.getElementById("openSelectButton");
+
+  if (
+    event.target.id === "openSelectButton" ||
+    event.target === selectBox ||
+    selectBox.contains(event.target)
+  ) {
+    selectBox.classList.toggle("hidden");
+  } else {
+    selectBox.classList.add("hidden");
+  }
+});
+
 $(document).ready(function () {
   var postSidoValue = $("#localParent").val();
   var postGugunValue = $("#localChildOne").val();

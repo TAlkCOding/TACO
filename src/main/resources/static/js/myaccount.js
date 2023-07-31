@@ -74,7 +74,7 @@ $(document).ready(() => {
         },
         error: function (xhr, status, error) {
           alert("에러가 발생했습니다.");
-        }
+        },
       });
       // alert에서 취소 누르면 원상복귀
     }
@@ -90,10 +90,9 @@ $(document).ready(() => {
         type: "DELETE",
         success: function () {
           alert("회원탈퇴가 완료되었습니다.");
-          sessionStorage.removeItem("isLoggedIn");
 
           window.location.href = "/";
-        }
+        },
       });
     }
     // alert에서 취소 누르면 원상복귀

@@ -954,62 +954,59 @@ function categoryChange2(localChildOne) {
 }
 
 /*자동 슬라이드*/
-function move() {
-  var curIndex = 0;
-  let one = document.getElementById("newsCircle1");
-  let two = document.getElementById("newsCircle2");
-  let three = document.getElementById("newsCircle3");
-
-  document.querySelector("#newsCircle2").addEventListener("click", function () {
-    document.querySelector(".newsContainer").style.transform =
-      "translate(-100vw)";
-    return (curIndex = 0);
-  });
-
-  document.querySelector("#newsCircle3").addEventListener("click", function () {
-    document.querySelector(".newsContainer").style.transform =
-      "translate(-200vw)";
-    return (curIndex = 1);
-  });
-
-  document.querySelector("#newsCircle1").addEventListener("click", function () {
-    document.querySelector(".newsContainer").style.transform = "translate(0vw)";
-    return (curIndex = -1);
-  });
-
-  setInterval(function () {
-    document.querySelector(".newsContainer").style.transition = "0.2s";
-    document.querySelector(".newsContainer").style.transform =
-      "translate3d(-" + 100 * (curIndex + 1) + "vw, 0px, 0px)";
-
-    curIndex++;
-
-    if (curIndex === 0) {
-      one.className = "click";
-    } else {
-      one.className = "nonClick";
-    }
-
-    if (curIndex === 1) {
-      two.className = "click";
-    } else {
-      two.className = "nonClick";
-    }
-
-    if (curIndex === 2) {
-      three.className = "click";
-    } else {
-      three.className = "nonClick";
-    }
-
-    if (curIndex === 2) {
-      curIndex = -1;
-    }
-  }, 3000);
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-  move();
+  const newsContainer = document.querySelector(".newsContainer");
+  const rotationButtons = document.querySelectorAll(".rotation button");
+  let curIndex = 0;
+  let intervalId;
+
+  // 슬라이드 위치, 클릭 버튼 업데이트
+  function updateSlide() {
+    newsContainer.style.transform = `translate(-${100 * curIndex}vw)`;
+
+    rotationButtons.forEach((button, index) => {
+      if (index === curIndex) {
+        button.classList.add("click");
+        button.classList.remove("nonClick");
+      } else {
+        button.classList.remove("click");
+        button.classList.add("nonClick");
+      }
+    });
+  }
+
+  // 자동 슬라이드 재시작 3초 인터벌
+  function startInterval() {
+    intervalId = setInterval(function () {
+      curIndex = (curIndex + 1) % 3;
+      updateSlide();
+    }, 3000);
+  }
+
+  // 버튼 클릭 addEventListener
+  rotationButtons[0].addEventListener("click", function () {
+    clearInterval(intervalId);
+    curIndex = 0;
+    updateSlide();
+    startInterval();
+  });
+
+  rotationButtons[1].addEventListener("click", function () {
+    clearInterval(intervalId);
+    curIndex = 1;
+    updateSlide();
+    startInterval();
+  });
+
+  rotationButtons[2].addEventListener("click", function () {
+    clearInterval(intervalId);
+    curIndex = 2;
+    updateSlide();
+    startInterval();
+  });
+
+  // 자동 슬라이드 재시작
+  startInterval();
 });
 
 //로그인시 헤더 변환
@@ -1085,17 +1082,19 @@ function updateHeader() {
       });
   }
 }
-
+/*
 //헤더 변환 함수 사용
 document.addEventListener("DOMContentLoaded", function () {
   updateHeader();
 });
-
-/*지역 selectBox url 변환*/
+*/
 $(document).ready(function () {
+  var postSidoValue = $("#localParent").val();
+  var postGugunValue = $("#localChildOne").val();
+  var postDongValue = $("#localChildTwo").val();
+
   $("#localParent").change(function () {
     var postSido = $(this).val();
-
     updateURL(postSido, null, null);
   });
 
@@ -1126,4 +1125,8 @@ $(document).ready(function () {
 
     window.location.href = url;
   }
+
+  $("#localParent").val(postSidoValue);
+  $("#localChildOne").val(postGugunValue);
+  $("#localChildTwo").val(postDongValue);
 });

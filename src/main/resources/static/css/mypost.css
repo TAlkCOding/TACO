@@ -223,6 +223,10 @@ a {
   justify-content: center;
 }
 
+.studyBox:hover {
+  border-color: #5555ff;
+}
+
 .studyContainer {
   display: block;
   width: 548px;

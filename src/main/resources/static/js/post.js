@@ -1146,6 +1146,7 @@ form.addEventListener("submit", (event) => {
   }
 });
 
+/*
 //태그 제거
 new_note_data = "<table><tr><td>test value</td></tr></table>";
 
@@ -1156,3 +1157,4 @@ $("#textarea_note").val(new_note_data);
 $("#textarea_note").summernote({
   airMode: true,
 });
+*/

@@ -22,8 +22,21 @@ $(document).ready(() => {
   }
 });
 
-//헤더 변환 함수 사용 from main.js
+/*
 $(document).ready(function () {
   var isLoggedIn = sessionStorage.getItem("isLoggedIn");
   updateHeader(isLoggedIn);
+});
+*/
+
+//댓글 빈칸일시 작동X
+$(document).ready(() => {
+  $(".writingButton").click(() => {
+    const commentContent = $("#commentTextarea").val().trim();
+
+    if (commentContent == "") {
+      alert("댓글을 작성해주세요.");
+      return;
+    }
+  });
 });

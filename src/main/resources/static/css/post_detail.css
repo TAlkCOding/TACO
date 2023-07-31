@@ -543,6 +543,11 @@ textarea:focus {
   font-family: "Pretendard-Regular";
 }
 
+.writingButton button:hover {
+  transition: 0.2s;
+  background-color: #4747d6;
+}
+
 .commentsContainer {
   display: block;
   width: 1200px;
@@ -577,6 +582,8 @@ textarea:focus {
 }
 
 .editC {
+  border: none;
+  background-color: white;
   display: flex;
   width: 38.5px;
   height: 20px;
@@ -587,6 +594,8 @@ textarea:focus {
 }
 
 .deleteC {
+  border: none;
+  background-color: white;
   display: flex;
   width: 38.5px;
   height: 20px;
@@ -622,7 +631,7 @@ textarea:focus {
   display: flex;
   font-size: 12px;
   opacity: 0.3;
-  width: 66px;
+  width: auto;
   height: 20px;
   align-items: center;
   justify-content: center;

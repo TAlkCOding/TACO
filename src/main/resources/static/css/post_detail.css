@@ -576,7 +576,7 @@ textarea:focus {
 }
 
 .deleteEditC {
-  display: flex;
+  display: none;
   width: 77px;
   height: 20px;
 }

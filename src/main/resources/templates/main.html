@@ -104,9 +104,11 @@
                   <div class="topBox">
                     <div class="profile">
                       <div class="circleContainer">
-                        <div class="circle">
-                          <div class="commentsCircle">12</div>
-                        </div>
+                        <img
+                          class="circle"
+                          onerror="this.src='/img/default_profile.png'"
+                          th:src="@{/upload/{uploadfile}(uploadfile=${post.storeFileName})}"
+                        />
                       </div>
                       <div class="name" th:text="${post.userNickName}">
                         이름

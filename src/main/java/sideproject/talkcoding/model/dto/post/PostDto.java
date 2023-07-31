@@ -40,6 +40,27 @@ public class PostDto {
 
     private String userNickName;
 
+    private String storeFileName;
+
+    public PostEntity toEntity(Long userIndex, String userNickName, String storeFileName) {
+        PostEntity postEntity = PostEntity.builder()
+        .title(title)
+        .description(description)
+        .postRegDate(postRegDate)
+        .postSido(postSido)
+        .postGugun(postGugun)
+        .postDong(postDong)
+        .postLanguage1(postLanguage1)
+        .postLanguage2(postLanguage2)
+        .postLanguage3(postLanguage3)
+        .userIndex(userIndex)
+        .userNickName(userNickName)
+        .storeFileName(storeFileName)
+        .build();
+
+        return postEntity;
+    }
+
     public PostEntity toEntity(Long userIndex, String userNickName) {
         PostEntity postEntity = PostEntity.builder()
         .title(title)

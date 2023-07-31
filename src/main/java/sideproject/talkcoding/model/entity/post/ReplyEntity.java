@@ -51,6 +51,9 @@ public class ReplyEntity {
     @Column
     @NotNull
     private Long replyPostIndex;
+
+    @Column
+    private String storeFileName;
     
 
     public ReplyDto toDto(){
@@ -60,6 +63,7 @@ public class ReplyEntity {
         .replyUserIndex(replyUserIndex)
         .replyPostIndex(replyPostIndex)
         .userNickName(userNickName)
+        .storeFileName(storeFileName)
         .build();
 
         return replyDto;

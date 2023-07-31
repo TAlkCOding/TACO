@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import sideproject.talkcoding.model.dto.post.ReplyDto;
+import sideproject.talkcoding.model.entity.image.ProfileEntity;
 import sideproject.talkcoding.model.entity.post.ReplyEntity;
 import sideproject.talkcoding.model.entity.user.UserEntity;
+import sideproject.talkcoding.repository.ProfileRepository;
 import sideproject.talkcoding.repository.ReplyRepository;
 import sideproject.talkcoding.repository.UserRepository;
 
@@ -22,15 +24,29 @@ public class ReplyService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ProfileRepository profileRepository;
+
     // 댓글 저장
     @Transactional
     public ReplyEntity save(ReplyDto replyDto, Long userIndex, Long postIndex) {
         Optional<UserEntity> user = userRepository.findById(userIndex);
-        ReplyEntity replyEntity = replyDto.toEntity(userIndex, postIndex, user.get().getUserNickName());
+        Optional<ProfileEntity> userProfile = profileRepository.findById(userIndex);
 
-        replyRepository.save(replyEntity);
+        if(userProfile.isPresent()){
+            ReplyEntity replyEntity = replyDto.toEntity(userIndex, postIndex, user.get().getUserNickName(), userProfile.get().getStoreFileName());
 
-        return replyEntity;
+            replyRepository.save(replyEntity);
+
+            return replyEntity;
+        }
+        else{
+            ReplyEntity replyEntity = replyDto.toEntity(userIndex, postIndex, user.get().getUserNickName());
+
+            replyRepository.save(replyEntity);
+            
+            return replyEntity;
+        }
     }
 
     // 게시글 읽어올 때 해당 게시글 댓글 불러오기

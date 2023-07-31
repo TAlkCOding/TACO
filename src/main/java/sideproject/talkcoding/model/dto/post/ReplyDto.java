@@ -28,6 +28,21 @@ public class ReplyDto {
 
     private Long replyPostIndex;
 
+    private String storeFileName;
+
+
+    public ReplyEntity toEntity(Long replyUserIndex, Long replyPostIndex, String userNickName, String storeFileName){
+        ReplyEntity replyEntity = ReplyEntity.builder()
+        .replyDescription(replyDescription)
+        .replyRegDate(replyRegDate)
+        .replyUserIndex(replyUserIndex)
+        .replyPostIndex(replyPostIndex)
+        .userNickName(userNickName)
+        .storeFileName(storeFileName)
+        .build();
+
+        return replyEntity;
+    }
 
     public ReplyEntity toEntity(Long replyUserIndex, Long replyPostIndex, String userNickName){
         ReplyEntity replyEntity = ReplyEntity.builder()

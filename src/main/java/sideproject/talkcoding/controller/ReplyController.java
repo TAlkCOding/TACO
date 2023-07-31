@@ -28,7 +28,7 @@ public class ReplyController {
     public String save(@PathVariable("postId") Long postIndex,  ReplyDto replyDto, HttpSession session){
         Long userIndex = (Long) session.getAttribute("userIndex");
 
-        ReplyEntity reply = replyService.save(replyDto, userIndex, postIndex);
+        replyService.save(replyDto, userIndex, postIndex);
 
         return "redirect:/";
     }

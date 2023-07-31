@@ -261,7 +261,7 @@ button:focus {
 
 .title {
   display: flex;
-  width: 398px;
+  width: auto;
   height: 52px;
   font-size: 40px;
   font-weight: 600;
@@ -280,6 +280,7 @@ button:focus {
   width: 47px;
   height: 20px;
   justify-content: center;
+  background-color: white;
   align-items: center;
   font-size: 18px;
   font-family: "Pretendard-Regular";
@@ -290,6 +291,7 @@ button:focus {
   width: 47px;
   height: 20px;
   justify-content: center;
+  background-color: white;
   align-items: center;
   font-size: 18px;
   font-family: "Pretendard-Regular";
@@ -333,10 +335,10 @@ button:focus {
   /*이름 들어가는 부분*/
   font-size: 12px;
   display: flex;
-  width: 50px;
+  width: auto;
   height: 20px;
   align-items: center;
-  justify-content: center;
+  margin-left: 15px;
   font-family: "Pretendard-Regular";
 }
 

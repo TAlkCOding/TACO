@@ -24,7 +24,6 @@
               onclick="location.href='/'"
             />
           </button>
-
           <div class="topButton">
             <button class="writingWord" onclick="location.href='/post'">
               글쓰기
@@ -33,7 +32,7 @@
               <img
                 class="picture"
                 onerror="this.src='/img/default_profile.png'"
-                th:src="@{/upload/{uploadfile}(uploadfile=${userProfile})}"
+                th:src="@{/upload/{uploadfile}(uploadfile=${storeFileName})}"
               />
               <button id="openSelectButton"></button>
               <div id="mySelect" class="hidden">

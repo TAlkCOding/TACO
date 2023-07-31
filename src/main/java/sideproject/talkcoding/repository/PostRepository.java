@@ -1,6 +1,7 @@
 package sideproject.talkcoding.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,6 +12,8 @@ import sideproject.talkcoding.model.entity.post.PostEntity;
 
 @Repository
 public interface PostRepository extends JpaRepository<PostEntity, Long>{
+
+    // 프로필 수정 시 자신이 쓴 모든 댓글, 게시글 프로필 바꿀 때 쓸 메서드
 
     // 내 게시글 목록 가져오기
     List<PostEntity> findByUserIndex(Long userIndex);

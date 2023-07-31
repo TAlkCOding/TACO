@@ -41,13 +41,17 @@ public class PostController {
     @GetMapping("/post")
     public String post(HttpSession session, Model model){
         Long userIndex = (Long) session.getAttribute("userIndex");
+
+        // 프로필 가져오기
         if(userIndex != null){
-            log.info(session.getAttribute("userIndex").toString());
+            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
         if(userProfile.isPresent()){
             model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
             }
         }
+        
+        
 
         return "post";
     }
@@ -56,6 +60,15 @@ public class PostController {
     @GetMapping("/post/my")
     public String myPost(HttpSession session, Model model){
         Long userIndex = (Long) session.getAttribute("userIndex");
+
+        // 프로필 가져오기
+        if(userIndex != null){
+            log.info(userIndex.toString());
+            Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+        if(userProfile.isPresent()){
+            model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            }
+        }
 
         List<PostEntity> myPost = postService.readMyPost(userIndex);
         model.addAttribute("mypost", myPost);
@@ -79,13 +92,19 @@ public class PostController {
     public String read(HttpSession session, @PathVariable(name = "postId") Long postId, Model model) {
         Long userIndex = (Long) session.getAttribute("userIndex");
         
-        // 프로필 가져오기
+        // /, post_detial 파일에 사용하는 프로필 가져오기
         if(userIndex != null){
-            log.info(session.getAttribute("userIndex").toString());
+            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
-        if(userProfile.isPresent()){
-            model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            // session이 있을 때 true 반환해 login된 header사용
+            model.addAttribute("alreadyHaveSession", "true");
+            if(userProfile.isPresent()){
+                model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
             }
+        }
+        else if(userIndex == null){
+            // session 없을 때 false반환해 기본 header사용
+            model.addAttribute("alreadyHaveSession", "false");
         }
 
         // 게시글 model
@@ -140,7 +159,17 @@ public class PostController {
 
     // 게시글 수정 페이지 들어가기 -> 게시글 수정 페이지에 수정하려는 게시글 들어가게 하는 페이지 (게시글 작성 페이지에 데이터가 들어가있는 화면)
     @GetMapping("/post/edit/{postId}")
-    public String editPage(@PathVariable("postId") Long postId, Model model){
+    public String editPage(@PathVariable("postId") Long postId, Model model,HttpSession session){
+        Long userIndex = (Long) session.getAttribute("userIndex");
+
+        // 프로필 가져오기
+        if(userIndex != null){
+            log.info(userIndex.toString());
+            Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+        if(userProfile.isPresent()){
+            model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            }
+        }
         Optional<PostEntity> post = postService.read(postId);
         post.ifPresent(o -> model.addAttribute("post", o));
 

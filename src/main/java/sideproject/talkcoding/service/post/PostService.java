@@ -9,9 +9,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import sideproject.talkcoding.model.dto.post.PostDto;
+import sideproject.talkcoding.model.entity.image.ProfileEntity;
 import sideproject.talkcoding.model.entity.post.PostEntity;
 import sideproject.talkcoding.model.entity.user.UserEntity;
 import sideproject.talkcoding.repository.PostRepository;
+import sideproject.talkcoding.repository.ProfileRepository;
 import sideproject.talkcoding.repository.UserRepository;
 
 @Service
@@ -23,13 +25,25 @@ public class PostService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ProfileRepository profileRepository;
+
     // 게시글 저장
     public PostEntity save(PostDto postDto, Long userIndex) {
         Optional<UserEntity> user = userRepository.findById(userIndex);
-        PostEntity postEntity = postDto.toEntity(userIndex, user.get().getUserNickName());
-        PostEntity saved = postRepository.save(postEntity);
+        Optional<ProfileEntity> userProfile = profileRepository.findById(userIndex);
+        if(userProfile.isPresent()){
+            PostEntity postEntity = postDto.toEntity(userIndex, user.get().getUserNickName(), userProfile.get().getStoreFileName());
+            PostEntity saved = postRepository.save(postEntity);
 
-        return saved;
+            return saved;
+        }
+        else{
+            PostEntity postEntity = postDto.toEntity(userIndex, user.get().getUserNickName());
+            PostEntity saved = postRepository.save(postEntity);
+
+            return saved;
+        }
     }
 
     // 게시글 상세

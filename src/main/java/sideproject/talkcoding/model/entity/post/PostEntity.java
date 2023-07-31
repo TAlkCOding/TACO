@@ -74,6 +74,9 @@ public class PostEntity {
     @NotNull
     private String userNickName;
 
+    @Column
+    private String storeFileName;
+
     public PostDto toDto() {
         PostDto postDto = PostDto.builder()
         .title(title)
@@ -87,6 +90,7 @@ public class PostEntity {
         .postLanguage3(postLanguage3)
         .userIndex(userIndex)
         .userNickName(userNickName)
+        .storeFileName(storeFileName)
         .build();
 
         return postDto;

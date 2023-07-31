@@ -41,7 +41,11 @@
                 글쓰기
               </button>
               <div class="profileBox">
-                <div class="picture"></div>
+                <img
+                class="picture"
+                onerror="this.src='/img/default_profile.png'"
+                th:src="@{/upload/{uploadfile}(uploadfile=${userProfile})}"
+                />
                 <button id="openSelectButton"></button>
                 <div id="mySelect" class="hidden">
                   <button id="selectMyPost" onclick="location.href='/post/my'">

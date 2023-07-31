@@ -76,7 +76,11 @@
               <div class="topBox">
                 <div class="profile">
                   <div class="circleContainer">
-                    <div class="circle"></div>
+                    <img
+                      class="circle"
+                      onerror="this.src='/img/default_profile.png'"
+                      th:src="@{/upload/{uploadfile}(uploadfile=${post.storeFileName})}"
+                    />
                   </div>
                   <div class="name" th:text="${post.userNickName}">닉네임</div>
                 </div>
@@ -156,7 +160,11 @@
                   <div class="commentWho">
                     <div class="profile">
                       <div class="circleContainer">
-                        <div class="circle"></div>
+                        <img
+                          class="circle"
+                          onerror="this.src='/img/default_profile.png'"
+                          th:src="@{/upload/{uploadfile}(uploadfile=${reply.storeFileName})}"
+                        />
                       </div>
                       <div class="nameC" th:text="${reply.userNickName}">
                         댓글 닉네임

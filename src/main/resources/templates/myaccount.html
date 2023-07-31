@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html
   lang="en"
-  lang="en"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:th="http://www.thymeleaf.org"
 >
@@ -33,7 +32,11 @@
               글쓰기
             </button>
             <div class="profileBox">
-              <div class="picture"></div>
+              <img
+                class="picture"
+                onerror="this.src='/img/default_profile.png'"
+                th:src="@{/upload/{uploadfile}(uploadfile=${storeFileName})}"
+              />
               <button id="openSelectButton"></button>
               <div id="mySelect" class="hidden">
                 <button id="selectMyPost">
@@ -71,6 +74,7 @@
                   <input
                     id="inputNewpw"
                     type="password"
+                    name="newPassword"
                     placeholder="새로운 비밀번호"
                   />
                   <div class="eye">

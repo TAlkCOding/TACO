@@ -36,13 +36,22 @@ public class PageController {
     public String postList(Model model, @PageableDefault(page = 0,size = 8,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable, HttpSession session){
         // 로그인 세션 환경 설정
         Long userIndex = (Long) session.getAttribute("userIndex");
+       
+        // /, post_detial 파일에 사용하는 프로필 가져오기
         if(userIndex != null){
-            log.info(session.getAttribute("userIndex").toString());
+            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+            // session이 있을 때 true 반환해 login된 header사용
+            model.addAttribute("alreadyHaveSession", "true");
             if(userProfile.isPresent()){
-            model.addAttribute("userProfile", userProfile.get().getStoreFileName());
+                model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
             }
         }
+        else if(userIndex == null){
+            // session 없을 때 false반환해 기본 header사용
+            model.addAttribute("alreadyHaveSession", "false");
+        }
+
 
         Page<PostEntity> readAll = postService.readAll(pageable);
 
@@ -67,8 +76,27 @@ public class PageController {
     // 시/도 select box만 설정했을 경우
     @GetMapping("/address/{postSido}")
     public String searchSido(@PathVariable("postSido") String postSido,
+                                                            HttpSession session,
                                                             @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable,
                                                             Model model){
+
+        Long userIndex = (Long) session.getAttribute("userIndex"); 
+        // /, post_detial 파일에 사용하는 프로필 가져오기
+        if(userIndex != null){
+            log.info(userIndex.toString());
+            Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+            // session이 있을 때 true 반환해 login된 header사용
+            model.addAttribute("alreadyHaveSession", "true");
+            if(userProfile.isPresent()){
+                model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            }
+        }
+        else if(userIndex == null){
+            // session 없을 때 false반환해 기본 header사용
+            model.addAttribute("alreadyHaveSession", "false");
+        }
+
+
         Page<PostEntity> sidoList = postService.findSido(postSido, pageable);
         
         // 페이징 처리
@@ -88,9 +116,27 @@ public class PageController {
     // 시/도, 구/군 select box 설정
     @GetMapping("/address/{postSido}/{postGugun}")
     public String searchGugun(@PathVariable("postSido") String postSido,
+                                                            HttpSession session,
                                                             @PathVariable("postGugun") String postGugun,
                                                             @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable,
-                                                            Model model){    
+                                                            Model model){ 
+                                                                
+        Long userIndex = (Long) session.getAttribute("userIndex"); 
+        // /, post_detial 파일에 사용하는 프로필 가져오기
+        if(userIndex != null){
+            log.info(userIndex.toString());
+            Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+            // session이 있을 때 true 반환해 login된 header사용
+            model.addAttribute("alreadyHaveSession", "true");
+            if(userProfile.isPresent()){
+                model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            }
+        }
+        else if(userIndex == null){
+            // session 없을 때 false반환해 기본 header사용
+            model.addAttribute("alreadyHaveSession", "false");
+        }                                                        
+        
         Page<PostEntity> gugunList = postService.findGugun(postSido, postGugun, pageable);
 
         // 페이징 처리
@@ -110,10 +156,28 @@ public class PageController {
     // 시/도, 구/군, 동 select box 설정
     @GetMapping("/address/{postSido}/{postGugun}/{postDong}")
     public String searchDong(@PathVariable("postSido") String postSido,
+                                                            HttpSession session,
                                                             @PathVariable("postGugun") String postGugun,
                                                             @PathVariable("postDong") String postDong,
                                                             @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable,
-                                                            Model model){    
+                                                            Model model){ 
+                                                                
+        Long userIndex = (Long) session.getAttribute("userIndex"); 
+        // /, post_detial 파일에 사용하는 프로필 가져오기
+        if(userIndex != null){
+            log.info(userIndex.toString());
+            Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+            // session이 있을 때 true 반환해 login된 header사용
+            model.addAttribute("alreadyHaveSession", "true");
+            if(userProfile.isPresent()){
+                model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            }
+        }
+        else if(userIndex == null){
+            // session 없을 때 false반환해 기본 header사용
+            model.addAttribute("alreadyHaveSession", "false");
+        }
+        
         Page<PostEntity> dongList = postService.findDong(postSido, postGugun, postDong, pageable);
 
         // 페이징 처리
@@ -134,9 +198,27 @@ public class PageController {
     // PostMapping 에서의 RequestParam과 다름
     @GetMapping("/search")
     public String search(@RequestParam("keyword") String keyword,
+                         HttpSession session,
                          @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC)
                          Pageable pageable,
                          Model model){
+
+        Long userIndex = (Long) session.getAttribute("userIndex"); 
+        // /, post_detial 파일에 사용하는 프로필 가져오기
+        if(userIndex != null){
+            log.info(userIndex.toString());
+            Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+            // session이 있을 때 true 반환해 login된 header사용
+            model.addAttribute("alreadyHaveSession", "true");
+            if(userProfile.isPresent()){
+                model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            }
+        }
+        else if(userIndex == null){
+            // session 없을 때 false반환해 기본 header사용
+            model.addAttribute("alreadyHaveSession", "false");
+        }
+        
         Page<PostEntity> searchList = postService.search(keyword, pageable);
 
         // 페이징 처리

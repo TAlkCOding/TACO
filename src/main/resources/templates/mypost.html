@@ -29,7 +29,11 @@
               글쓰기
             </button>
             <div class="profileBox">
-              <div class="picture"></div>
+              <img
+                class="picture"
+                onerror="this.src='/img/default_profile.png'"
+                th:src="@{/upload/{uploadfile}(uploadfile=${storeFileName})}"
+              />
               <button id="openSelectButton"></button>
               <div id="mySelect" class="hidden">
                 <button id="selectMyPost" onclick="location.href='/post/my'">
@@ -58,9 +62,11 @@
                 <div class="topBox">
                   <div class="profile">
                     <div class="circleContainer">
-                      <div class="circle">
-                        <div class="commentsCircle">12</div>
-                      </div>
+                      <img
+                      class="circle"
+                      onerror="this.src='/img/default_profile.png'"
+                      th:src="@{/upload/{uploadfile}(uploadfile=${post.storeFileName})}"
+                    />
                     </div>
                     <div class="name" th:text="${post.userNickName}">닉네임</div>
                   </div>

@@ -25,6 +25,7 @@ import sideproject.talkcoding.model.dto.user.UserDto;
 import sideproject.talkcoding.model.entity.image.ProfileEntity;
 import sideproject.talkcoding.model.entity.user.UserEntity;
 import sideproject.talkcoding.service.image.ProfileService;
+import sideproject.talkcoding.service.post.PostService;
 import sideproject.talkcoding.service.user.UserService;
 
 @Slf4j
@@ -36,6 +37,9 @@ public class UserController {
 
     @Autowired
     private ProfileService profileService;
+
+    @Autowired
+    private PostService postService;
 
     // 로그인 페이지 넘어가기
     @GetMapping("/login")
@@ -176,10 +180,14 @@ public class UserController {
     @GetMapping("/user/edit")
     public String UserEdit(HttpSession session, Model model){
         Long userIndex = (Long) session.getAttribute("userIndex");
-
-        Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+        
+        // 프로필 가져오기
+        if(userIndex != null){
+            log.info(userIndex.toString());
+            Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
         if(userProfile.isPresent()){
-            model.addAttribute("userProfile", userProfile.get().getStoreFileName());
+            model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            }
         }
 
         Optional<UserEntity> userInfo = userService.findUserInfo(userIndex);
@@ -208,15 +216,24 @@ public class UserController {
     }
 
     @GetMapping("/user/account")
-    public String userAccount(HttpSession session){
+    public String userAccount(HttpSession session, Model model){
         Long userIndex = (Long) session.getAttribute("userIndex");
+
+        // 프로필 가져오기
+        if(userIndex != null){
+            log.info(userIndex.toString());
+            Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
+        if(userProfile.isPresent()){
+            model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
+            }
+        }
 
         return "myaccount";
     }
 
     // 비밀번호 변경 기능
     @PostMapping("/change/pw")
-    public ResponseEntity<Optional<UserEntity>> changePw(HttpSession session, @RequestParam("userPassword") String userPassword){
+    public ResponseEntity<Optional<UserEntity>> changePw(HttpSession session, @RequestParam("newPassword") String userPassword){
         Long userIndex = (Long) session.getAttribute("userIndex");
         Optional<UserEntity> userInfo = userService.findUserInfo(userIndex);
         userService.changePassword(userInfo, userPassword);
@@ -226,12 +243,12 @@ public class UserController {
 
     // 회원 탈퇴 버튼 기능
     @DeleteMapping("/user/delete")
-    public String deleteUserInfo(HttpSession session){
+    public ResponseEntity<UserEntity> deleteUserInfo(HttpSession session){
         Long userIndex = (Long) session.getAttribute("userIndex");
         userService.deleteUserInfo(userIndex);
         session.invalidate();
         log.info("탈퇴 되었습니다.");
 
-        return "redirect:/";
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 }

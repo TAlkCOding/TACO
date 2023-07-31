@@ -110,7 +110,7 @@
               </div>
               <div class="detailPost">상세 게시글</div>
               <div class="post">
-                <p th:text="${post.description}">내용</p>
+                <p th:utext="${post.description}">내용</p>
               </div>
               <div class="commentWord">3개의 댓글</div>
               <form
@@ -146,9 +146,19 @@
                         댓글 닉네임
                       </div>
                     </div>
-                    <div class="deleteEditC">
-                      <button class="editC">수정</button>
-                      <button class="deleteC">삭제</button>
+                    <div class="deleteEditC" th:style="${reply.replyUserIndex == userIndex ? 'display:flex' : 'display:none'}">
+                      <button
+                       class="editC"
+                       >
+                       수정
+                      </button>
+                      <form
+                        th:action="@{/reply/delete/{replyIndex}(replyIndex=${reply.replyIndex})}"
+                        method="post"
+                      >
+                      <input type="hidden" name="_method" value="delete" />
+                       <button class="deleteC">삭제</button>
+                      </form>
                     </div>
                   </div>
                   <div class="comment" th:text="${reply.replyDescription}">

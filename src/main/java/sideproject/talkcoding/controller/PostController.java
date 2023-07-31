@@ -91,6 +91,7 @@ public class PostController {
     @GetMapping("/post/{postId}")
     public String read(HttpSession session, @PathVariable(name = "postId") Long postId, Model model) {
         Long userIndex = (Long) session.getAttribute("userIndex");
+        model.addAttribute("userIndex", userIndex);
         
         // /, post_detial 파일에 사용하는 프로필 가져오기
         if(userIndex != null){
@@ -137,24 +138,7 @@ public class PostController {
             model.addAttribute("checkIndexForPost", checkedUserIndexForPost);
         }
         
-        Integer checkedUserIndexForReply = 0;
-        if(userIndex != null){
-            for(ReplyEntity reply : replyList){
-                if(userIndex == reply.getReplyUserIndex()){
-                    checkedUserIndexForReply = 1;
-                    model.addAttribute("checkIndexForReply", checkedUserIndexForReply);
-                } else if(userIndex != reply.getReplyUserIndex()){
-                    checkedUserIndexForReply = 2;
-                    model.addAttribute("checkIndexForReply", checkedUserIndexForReply);
-                } else {
-                    model.addAttribute("checkIndexForReply", checkedUserIndexForReply);
-                }
-            }
-        }
-        
-        
         return "post_detail";
-        // return "post_detail";
     }
 
     // 게시글 수정 페이지 들어가기 -> 게시글 수정 페이지에 수정하려는 게시글 들어가게 하는 페이지 (게시글 작성 페이지에 데이터가 들어가있는 화면)

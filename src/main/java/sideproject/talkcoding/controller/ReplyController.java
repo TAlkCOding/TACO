@@ -45,11 +45,11 @@ public class ReplyController {
 
     // 댓글 삭제
     @DeleteMapping("/reply/delete/{replyIndex}")
-    public ResponseEntity<String> delete(@PathVariable("replyIndex") Long replyIndex){
+    public String delete(@PathVariable("replyIndex") Long replyIndex){
         
         replyService.delete(replyIndex);
         
-        return new ResponseEntity<String>("delete successfully", HttpStatus.OK);
+        return "redirect:/";
     }
 
 }

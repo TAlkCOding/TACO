@@ -1,15 +1,15 @@
-document
-  .getElementById("openSelectButton")
-  .addEventListener("click", function () {
-    var selectBox = document.getElementById("mySelect");
-    selectBox.classList.remove("hidden");
-  });
-
+// newHeader.html js 기능
 document.body.addEventListener("click", function (event) {
   var selectBox = document.getElementById("mySelect");
   var openButton = document.getElementById("openSelectButton");
 
-  if (event.target !== selectBox && event.target !== openButton) {
+  if (
+    event.target.id === "openSelectButton" ||
+    event.target === selectBox ||
+    selectBox.contains(event.target)
+  ) {
+    selectBox.classList.toggle("hidden");
+  } else {
     selectBox.classList.add("hidden");
   }
 });

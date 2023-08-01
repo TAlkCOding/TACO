@@ -146,18 +146,17 @@
                         댓글 닉네임
                       </div>
                     </div>
-                    <div class="deleteEditC" th:style="${reply.replyUserIndex == userIndex ? 'display:flex' : 'display:none'}">
-                      <button
-                       class="editC"
-                       >
-                       수정
-                      </button>
+                    <div
+                      class="deleteEditC"
+                      th:style="${reply.replyUserIndex == userIndex ? 'display:flex' : 'display:none'}"
+                    >
+                      <button class="editC">수정</button>
                       <form
                         th:action="@{/reply/delete/{replyIndex}(replyIndex=${reply.replyIndex})}"
                         method="post"
                       >
-                      <input type="hidden" name="_method" value="delete" />
-                       <button class="deleteC">삭제</button>
+                        <input type="hidden" name="_method" value="delete" />
+                        <button class="deleteC">삭제</button>
                       </form>
                     </div>
                   </div>
@@ -179,6 +178,6 @@
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="/js/post_detail.js?ver=1"></script>
+    <script src="/js/post_detail.js?ver=3"></script>
   </body>
 </html>

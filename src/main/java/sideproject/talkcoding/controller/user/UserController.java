@@ -25,7 +25,6 @@ import sideproject.talkcoding.model.dto.user.UserDto;
 import sideproject.talkcoding.model.entity.image.ProfileEntity;
 import sideproject.talkcoding.model.entity.user.UserEntity;
 import sideproject.talkcoding.service.image.ProfileService;
-import sideproject.talkcoding.service.post.PostService;
 import sideproject.talkcoding.service.user.UserService;
 
 @Slf4j
@@ -37,9 +36,6 @@ public class UserController {
 
     @Autowired
     private ProfileService profileService;
-
-    @Autowired
-    private PostService postService;
 
     // 로그인 페이지 넘어가기
     @GetMapping("/login")

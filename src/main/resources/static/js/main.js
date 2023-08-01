@@ -26,26 +26,7 @@ function categoryChange1(localParent) {
     "중구",
     "중랑구",
   ];
-  /*var b = ["광산구", "남구", "동구", "북구", "서구"];
-  var c = [
-    "남구",
-    "공주시",
-    "보령시",
-    "서산시",
-    "아산시",
-    "천안시",
-    "금산군",
-    "논산군",
-    "당진군",
-    "부여군",
-    "서천군",
-    "연기군",
-    "예산군",
-    "청양군",
-    "태안군",
-    "홍성군",
-  ];
-  */
+
   var target = document.getElementById("localChildOne");
   var removeAll = document.getElementById("localChildTwo");
 

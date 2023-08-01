@@ -68,38 +68,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
     saveButton.addEventListener("click", function () {
       const editedComment = textarea.value;
+      var reply_index = $("input[name=reply_index]").val();
 
-      commentText.innerText = editedComment;
-      editDeleteContainer.innerHTML = "";
+      $.ajax({
+        url: "/reply/edit/" + reply_index,
+        type: "POST",
+        data: {
+          replyDescription: editedComment,
+        },
+        success: function (response) {
+          console.log("업데이트에 성공했습니다.");
 
-      const editButton = document.createElement("button");
-      editButton.classList.add("editC");
-      editButton.innerText = "수정";
+          commentText.innerText = editedComment;
+          editDeleteContainer.innerHTML = "";
 
-      const deleteButton = document.createElement("button");
-      deleteButton.classList.add("deleteC");
-      deleteButton.innerText = "삭제";
+          const editButton = document.createElement("button");
+          editButton.classList.add("editC");
+          editButton.innerText = "수정";
 
-      editDeleteContainer.appendChild(editButton);
-      editDeleteContainer.appendChild(deleteButton);
+          const deleteButton = document.createElement("button");
+          deleteButton.classList.add("deleteC");
+          deleteButton.innerText = "삭제";
 
-      //다시 적용
-      editButton.addEventListener("click", handleEditClick);
-      deleteButton.addEventListener("click", handleDeleteClick);
+          editDeleteContainer.appendChild(editButton);
+          editDeleteContainer.appendChild(deleteButton);
+
+          //다시 적용
+          editButton.addEventListener("click", handleEditClick);
+        },
+      });
     });
-  }
-
-  function handleDeleteClick() {
-    /*****삭제 버튼 기능*****/
   }
 
   const editButtons = document.querySelectorAll(".editC");
   editButtons.forEach((button) => {
     button.addEventListener("click", handleEditClick);
-  });
-
-  const deleteButtons = document.querySelectorAll(".deleteC");
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", handleDeleteClick);
   });
 });

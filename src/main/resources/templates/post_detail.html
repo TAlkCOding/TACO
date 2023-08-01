@@ -132,6 +132,11 @@
             </div>
             <div class="commentsContainer">
               <th:block th:each="reply : ${reply}">
+                <input
+                  type="hidden"
+                  name="reply_index"
+                  th:value="${reply.replyIndex}"
+                />
                 <div class="commentBox">
                   <div class="commentWho">
                     <div class="profile">

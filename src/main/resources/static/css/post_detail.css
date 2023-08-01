@@ -575,12 +575,14 @@ textarea:focus {
   height: 32px;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 5px;
 }
 
 .deleteEditC {
   display: none;
   width: 77px;
   height: 20px;
+  justify-content: end;
 }
 
 .editC {
@@ -636,5 +638,28 @@ textarea:focus {
   width: auto;
   height: 20px;
   align-items: center;
+  font-family: "Pretendard-Regular";
+}
+
+.editTextarea {
+  display: flex;
+  width: 792px;
+  height: 52px;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 12px;
+  padding: 1px 5px 1px 5px;
+  border: 1px dashed black;
+  font-family: "Pretendard-Regular";
+}
+
+.saveC {
+  display: flex;
+  width: 38.5px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  background-color: white;
   font-family: "Pretendard-Regular";
 }

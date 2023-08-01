@@ -89,10 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function handleDeleteClick() {
-    /*****삭제 버튼 기능*****/
-  }
-
   const editButtons = document.querySelectorAll(".editC");
   editButtons.forEach((button) => {
     button.addEventListener("click", handleEditClick);
@@ -103,3 +99,5 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", handleDeleteClick);
   });
 });
+
+

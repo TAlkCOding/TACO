@@ -55,8 +55,6 @@ function login() {
     dataType: "json",
     success: function (response) {
       alert("로그인 되었습니다.");
-      sessionStorage.setItem("isLoggedIn", "true"); //main에서 header 바꾸기
-
       window.location.replace("/"); // Redirect to the main page
     },
     error: function () {

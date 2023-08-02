@@ -27,10 +27,11 @@ function categoryChange1(localParent) {
     "중랑구",
   ];
 
+  console.log(localParent);
   var target = document.getElementById("localChildOne");
   var removeAll = document.getElementById("localChildTwo");
 
-  if (localParent.value == "서울특별시") var localChildOne = 서울특별시;
+  if (localParent== "서울특별시") var localChildOne = 서울특별시;
   else if (localParent.value == "b") var localChildOne = b;
   else if (localParent.value == "c") var localChildOne = c;
 
@@ -46,6 +47,7 @@ function categoryChange1(localParent) {
 }
 
 function categoryChange2(localChildOne) {
+  console.log(localParent.value);
   if (localParent.value == "서울특별시") {
     var 강남구 = [
       "율현동",
@@ -237,18 +239,30 @@ function categoryChange2(localChildOne) {
       "독산제3동",
     ];
     var 노원구 = [
-      "독산동",
-      "독산제4동",
-      "독산제2동",
-      "시흥동",
-      "시흥제3동",
-      "시흥제5동",
-      "독산제1동",
-      "시흥제1동",
-      "시흥제4동",
-      "시흥제2동",
-      "가산동",
-      "독산제3동",
+      "상계동",
+      "중계본동",
+      "상계2동",
+      "상계6.7동",
+      "중계2.3동",
+      "중계1동",
+      "공릉1동",
+      "상계5동",
+      "상계1동",
+      "상계8동",
+      "중계동",
+      "공릉동",
+      "월계3동",
+      "중계4동",
+      "상계10동",
+      "하계2동",
+      "하계1동",
+      "하계동",
+      "공릉2동",
+      "상계3.4동",
+      "월계1동",
+      "상계9동",
+      "월계2동",
+      "월계동",
     ];
     var 도봉구 = [
       "방학제3동",
@@ -898,31 +912,31 @@ function categoryChange2(localChildOne) {
   }*/
   var target = document.getElementById("localChildTwo");
 
-  if (localChildOne.value == "강남구") var localChildTwo = 강남구;
-  else if (localChildOne.value == "강동구") var localChildTwo = 강동구;
-  else if (localChildOne.value == "강북구") var localChildTwo = 강북구;
-  else if (localChildOne.value == "강서구") var localChildTwo = 강서구;
-  else if (localChildOne.value == "관악구") var localChildTwo = 관악구;
-  else if (localChildOne.value == "광진구") var localChildTwo = 광진구;
-  else if (localChildOne.value == "구로구") var localChildTwo = 구로구;
-  else if (localChildOne.value == "금천구") var localChildTwo = 금천구;
-  else if (localChildOne.value == "노원구") var localChildTwo = 노원구;
-  else if (localChildOne.value == "도봉구") var localChildTwo = 도봉구;
-  else if (localChildOne.value == "동대문구") var localChildTwo = 동대문구;
-  else if (localChildOne.value == "동작구") var localChildTwo = 동작구;
-  else if (localChildOne.value == "마포구") var localChildTwo = 마포구;
-  else if (localChildOne.value == "서대문구") var localChildTwo = 서대문구;
-  else if (localChildOne.value == "서초구") var localChildTwo = 서초구;
-  else if (localChildOne.value == "성동구") var localChildTwo = 성동구;
-  else if (localChildOne.value == "성북구") var localChildTwo = 성북구;
-  else if (localChildOne.value == "송파구") var localChildTwo = 송파구;
-  else if (localChildOne.value == "양천구") var localChildTwo = 양천구;
-  else if (localChildOne.value == "영등포구") var localChildTwo = 영등포구;
-  else if (localChildOne.value == "용산구") var localChildTwo = 용산구;
-  else if (localChildOne.value == "은평구") var localChildTwo = 은평구;
-  else if (localChildOne.value == "종로구") var localChildTwo = 종로구;
-  else if (localChildOne.value == "중구") var localChildTwo = 중구;
-  else if (localChildOne.value == "중랑구") var localChildTwo = 중랑구;
+  if (localChildOne == "강남구") var localChildTwo = 강남구;
+  else if (localChildOne == "강동구") var localChildTwo = 강동구;
+  else if (localChildOne == "강북구") var localChildTwo = 강북구;
+  else if (localChildOne == "강서구") var localChildTwo = 강서구;
+  else if (localChildOne == "관악구") var localChildTwo = 관악구;
+  else if (localChildOne == "광진구") var localChildTwo = 광진구;
+  else if (localChildOne == "구로구") var localChildTwo = 구로구;
+  else if (localChildOne == "금천구") var localChildTwo = 금천구;
+  else if (localChildOne == "노원구") var localChildTwo = 노원구;
+  else if (localChildOne == "도봉구") var localChildTwo = 도봉구;
+  else if (localChildOne == "동대문구") var localChildTwo = 동대문구;
+  else if (localChildOne == "동작구") var localChildTwo = 동작구;
+  else if (localChildOne == "마포구") var localChildTwo = 마포구;
+  else if (localChildOne == "서대문구") var localChildTwo = 서대문구;
+  else if (localChildOne == "서초구") var localChildTwo = 서초구;
+  else if (localChildOne == "성동구") var localChildTwo = 성동구;
+  else if (localChildOne == "성북구") var localChildTwo = 성북구;
+  else if (localChildOne == "송파구") var localChildTwo = 송파구;
+  else if (localChildOne == "양천구") var localChildTwo = 양천구;
+  else if (localChildOne == "영등포구") var localChildTwo = 영등포구;
+  else if (localChildOne == "용산구") var localChildTwo = 용산구;
+  else if (localChildOne == "은평구") var localChildTwo = 은평구;
+  else if (localChildOne == "종로구") var localChildTwo = 종로구;
+  else if (localChildOne == "중구") var localChildTwo = 중구;
+  else if (localChildOne == "중랑구") var localChildTwo = 중랑구;
 
   target.options.length = 1;
 
@@ -1028,6 +1042,31 @@ document.body.addEventListener("click", function (event) {
   }
 });
 
+// $(document).ready(function() {
+//   var postSido = sessionStorage.getItem("postSido");
+//   var postGugun = sessionStorage.getItem("postGugun");
+//   var postDong = sessionStorage.getItem("postDong");
+
+//   if(postSido){
+//     $('#localParent').val(postSido).prop("selected",true);
+//     var ps = $('#localParent').val();
+//     ps = postSido;
+//   }
+
+//   if(postGugun){
+//     $('#localChileOne').val(postGugun).prop("selected",true);
+//     $('#localParent').val(postSido).prop("selected",true);
+//     var ps = $('#localParent').val();
+//     ps = postSido;
+//     var pg = $('#localChileOne').val();
+//     pg = postGugun;
+//   }
+
+//   if(postDong){
+//     $('#localParent').val(postDong).prop("selected",true);
+//   }
+// })
+
 $(document).ready(function () {
   var postSidoValue = $("#localParent").val();
   var postGugunValue = $("#localChildOne").val();
@@ -1035,21 +1074,44 @@ $(document).ready(function () {
 
   $("#localParent").change(function () {
     var postSido = $(this).val();
+    sessionStorage.setItem("postSido", postSido);
     updateURL(postSido, null, null);
   });
 
-  $("#localChildOne").change(function () {
-    var postSido = $("#localParent").val();
-    var postGugun = $(this).val();
-    updateURL(postSido, postGugun, null);
-  });
+  if(sessionStorage.getItem("postSido") || sessionStorage.getItem("postGugun") == null){
+    console.log("시가 설정됨");
+    console.log($("#localParent").val());
 
-  $("#localChildTwo").change(function () {
-    var postSido = $("#localParent").val();
-    var postGugun = $("#localChildOne").val();
-    var postDong = $(this).val();
-    updateURL(postSido, postGugun, postDong);
-  });
+    var localParent = $("#localParent").val();
+    console.log(localParent);
+    categoryChange1(localParent); // 구군 select box 생성
+
+    $("#localChildOne").change(function () {
+      var postSido = $("#localParent").val();
+      var postGugun = $(this).val();
+      sessionStorage.setItem("postGugun", postGugun);
+      updateURL(postSido, postGugun, null);
+    });
+  }
+
+  if(sessionStorage.getItem("postGugun")){
+    var localParent = $("#localParent").val();
+    var postGugun = sessionStorage.getItem("postGugun");
+    var localChileOne = $("#localChildOne").val();
+    localChileOne = postGugun;
+    console.log(localChileOne);
+    
+    categoryChange2(localChileOne);
+    console.log("categoryChange2  실행되긴 함");
+
+    $("#localChildTwo").change(function () {
+      var postSido = $("#localParent").val();
+      var postGugun = $("#localChildOne").val();
+      var postDong = $(this).val();
+      sessionStorage.setItem("postDong", postDong);
+      updateURL(postSido, postGugun, postDong);
+    });
+  }
 
   function updateURL(postSido, postGugun, postDong) {
     var url = "/address";

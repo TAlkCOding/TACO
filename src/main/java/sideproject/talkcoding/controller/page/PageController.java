@@ -81,6 +81,8 @@ public class PageController {
                                                             Model model){
 
         Long userIndex = (Long) session.getAttribute("userIndex"); 
+        model.addAttribute("postSido", postSido);
+
         // /, post_detial 파일에 사용하는 프로필 가져오기
         if(userIndex != null){
             log.info(userIndex.toString());
@@ -122,6 +124,9 @@ public class PageController {
                                                             Model model){ 
                                                                 
         Long userIndex = (Long) session.getAttribute("userIndex"); 
+        model.addAttribute("postSido", postSido);
+        model.addAttribute("postGugun", postGugun);
+
         // /, post_detial 파일에 사용하는 프로필 가져오기
         if(userIndex != null){
             log.info(userIndex.toString());
@@ -162,7 +167,10 @@ public class PageController {
                                                             @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable,
                                                             Model model){ 
                                                                 
-        Long userIndex = (Long) session.getAttribute("userIndex"); 
+        Long userIndex = (Long) session.getAttribute("userIndex");
+        model.addAttribute("postSido", postSido);
+        model.addAttribute("postGugun", postGugun);
+        model.addAttribute("postDong", postDong);
         // /, post_detial 파일에 사용하는 프로필 가져오기
         if(userIndex != null){
             log.info(userIndex.toString());

@@ -115,6 +115,8 @@ public class PostController {
 
         // 댓글 model
         List<ReplyEntity> replyList = replyService.read(postId);
+        int replyCount = replyList.size();
+        model.addAttribute("replyCount", replyCount);
         model.addAttribute("reply", replyList);
         
         

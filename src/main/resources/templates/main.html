@@ -7,10 +7,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <link href="/css/main.css?ver=4" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TACO</title>
   </head>
 
   <body>
@@ -160,15 +160,15 @@
                       <div class="languageWord">언어</div>
                     </div>
                     <div class="languageBox">
-                      <div class="ent">&#35;</div>
+                      <div class="ent" th:if="${post.postLanguage1 != ''}">&#35;</div>
                       <div class="language" th:text="${post.postLanguage1}">
                         사용언어
                       </div>
-                      <div class="ent">&#35;</div>
+                      <div class="ent" th:if="${post.postLanguage2 != ''}">&#35;</div>
                       <div class="language" th:text="${post.postLanguage2}">
                         사용언어
                       </div>
-                      <div class="ent">&#35;</div>
+                      <div class="ent" th:if="${post.postLanguage3 != ''}">&#35;</div>
                       <div class="language" th:text="${post.postLanguage3}">
                         사용언어
                       </div>
@@ -219,7 +219,7 @@
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="/js/main.js?ver=5"></script>
+    <script src="/js/main.js"></script>
     <script>
       var postSido = sessionStorage.getItem("postSido");
       var postGugun = sessionStorage.getItem("postGugun");

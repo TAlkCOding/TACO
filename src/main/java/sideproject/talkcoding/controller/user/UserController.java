@@ -204,7 +204,7 @@ public class UserController {
         userService.changeUserInfo(userIndex, user);
 
         // 프로필 수정
-        if(originFileName != null){
+        if(!originFileName.isEmpty()){
             profileService.saveProfile(originFileName, userIndex);
         }
 

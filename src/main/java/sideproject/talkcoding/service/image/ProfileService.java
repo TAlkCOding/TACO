@@ -50,7 +50,7 @@ public class ProfileService {
 
             replyRepository.save(reply);
         }
-        return null;
+        return storeFile;
     }
 
     public Optional<ProfileEntity> findProfileEntity(Long userIndex){

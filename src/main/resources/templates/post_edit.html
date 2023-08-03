@@ -16,8 +16,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/post_edit.css?ver=1" />
+    <title>TACO</title>
+    <link rel="stylesheet" href="/css/post_edit.css" />
     <script src="/js/summernote/summernote-lite.js"></script>
     <script src="/js/summernote/lang/summernote-ko-KR.js"></script>
     <link rel="stylesheet" href="/css/summernote/summernote-lite.css" />
@@ -32,7 +32,7 @@
               class="logo"
               alt="logo"
               src="/img/logo.png"
-              onclick="location.href='/'"
+              onclick="location.href='/', sessionStorage.clear()"
             />
           </button>
 
@@ -154,7 +154,7 @@
             </div>
             <div class="bottomContainer">
               <div class="bottomButton">
-                <div class="deleteButton">취소</div>
+                <div class="deleteButton" onclick="history.back()">취소</div>
                 <input type="submit" class="storeButton" value="저장하기" />
               </div>
             </div>
@@ -162,6 +162,6 @@
         </form>
       </div>
     </div>
-    <script src="/js/post_edit.js?ver=1"></script>
+    <script src="/js/post_edit.js"></script>
   </body>
 </html>

@@ -1,12 +1,17 @@
 package sideproject.talkcoding.service.user;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sideproject.talkcoding.model.dto.user.UserDto;
+import sideproject.talkcoding.model.entity.post.PostEntity;
+import sideproject.talkcoding.model.entity.post.ReplyEntity;
 import sideproject.talkcoding.model.entity.user.UserEntity;
+import sideproject.talkcoding.repository.PostRepository;
+import sideproject.talkcoding.repository.ReplyRepository;
 import sideproject.talkcoding.repository.UserRepository;
 
 @Service
@@ -14,6 +19,12 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PostRepository postRepository;
+
+    @Autowired
+    private ReplyRepository replyRepository;
 
     public Optional<UserEntity> findByUserEntity(Long userIndex){
         Optional<UserEntity> user = userRepository.findById(userIndex);
@@ -109,6 +120,21 @@ public class UserService {
     // 회원정보 수정
 	public Optional<UserEntity> changeUserInfo(Long userIndex, UserEntity userInfo) {
         Optional<UserEntity> user = userRepository.findById(userIndex);
+
+        List<PostEntity> userPost = postRepository.findByUserIndex(userIndex);
+        List<ReplyEntity> userReply = replyRepository.findByReplyUserIndex(userIndex);
+
+        for(PostEntity post : userPost){
+            post.setUserNickName(userInfo.getUserNickName());
+
+            postRepository.save(post);
+        }
+
+        for(ReplyEntity reply : userReply){
+            reply.setUserNickName(userInfo.getUserNickName());
+
+            replyRepository.save(reply);
+        }
         
         return user.map(p -> {
             user.get().setUserName(userInfo.getUserName());

@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TACO</title>
     <link rel="stylesheet" href="/css/mypost.css" />
   </head>
 
@@ -21,7 +21,7 @@
               class="logo"
               alt="logo"
               src="/img/logo.png"
-              onclick="location.href='/'"
+              onclick="location.href='/', sessionStorage.clear()"
             />
           </button>
           <div class="topButton">
@@ -84,15 +84,15 @@
                     <div class="languageWord">언어</div>
                   </div>
                   <div class="languageBox">
-                    <div class="ent">&#35;</div>
+                    <div class="ent" th:if="${post.postLanguage1 != ''}">&#35;</div>
                       <div class="language" th:text="${post.postLanguage1}">
                         사용언어
                       </div>
-                      <div class="ent">&#35;</div>
+                      <div class="ent" th:if="${post.postLanguage2 != ''}">&#35;</div>
                       <div class="language" th:text="${post.postLanguage2}">
                         사용언어
                       </div>
-                      <div class="ent">&#35;</div>
+                      <div class="ent" th:if="${post.postLanguage3 != ''}">&#35;</div>
                       <div class="language" th:text="${post.postLanguage3}">
                         사용언어
                       </div>

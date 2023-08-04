@@ -44,7 +44,6 @@ public class PostController {
 
         // 프로필 가져오기
         if(userIndex != null){
-            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
         if(userProfile.isPresent()){
             model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
@@ -63,7 +62,6 @@ public class PostController {
 
         // 프로필 가져오기
         if(userIndex != null){
-            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
         if(userProfile.isPresent()){
             model.addAttribute("storeFileName", userProfile.get().getStoreFileName());

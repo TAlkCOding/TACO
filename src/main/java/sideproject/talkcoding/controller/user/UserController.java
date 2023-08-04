@@ -63,7 +63,6 @@ public class UserController {
         }
         else if(userIndex != null){
         session.setAttribute("userIndex", userIndex);
-        log.info(session.getAttribute("userIndex").toString());
         }
         return new ResponseEntity<>(userIndex.toString(), HttpStatus.OK);
         // return "redirect:/";
@@ -179,7 +178,6 @@ public class UserController {
         
         // 프로필 가져오기
         if(userIndex != null){
-            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
         if(userProfile.isPresent()){
             model.addAttribute("storeFileName", userProfile.get().getStoreFileName());
@@ -217,7 +215,6 @@ public class UserController {
 
         // 프로필 가져오기
         if(userIndex != null){
-            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
         if(userProfile.isPresent()){
             model.addAttribute("storeFileName", userProfile.get().getStoreFileName());

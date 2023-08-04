@@ -22,13 +22,6 @@ $(document).ready(() => {
   }
 });
 
-/*
-$(document).ready(function () {
-  var isLoggedIn = sessionStorage.getItem("isLoggedIn");
-  updateHeader(isLoggedIn);
-});
-*/
-
 //댓글 빈칸일시 작동X
 $(document).ready(() => {
   $(".writingButton").click(() => {

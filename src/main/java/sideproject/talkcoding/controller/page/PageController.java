@@ -31,7 +31,7 @@ public class PageController {
     
     // 메인페이지 게시글 리스트
     @GetMapping("/")
-    public String postList(Model model, @PageableDefault(page = 0,size = 8,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable, HttpSession session){
+    public String postList(Model model, @PageableDefault(page = 0,size = 20,sort = "postIndex",direction = Sort.Direction.DESC) Pageable pageable, HttpSession session){
         // 로그인 세션 환경 설정
         Long userIndex = (Long) session.getAttribute("userIndex");
        

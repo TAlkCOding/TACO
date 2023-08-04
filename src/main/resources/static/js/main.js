@@ -906,10 +906,7 @@ function categoryChange2(localChildOne) {
       "묵제1동",
     ];
   }
-  /*else if (localParent.value == "c") {
-    var 남구 = ["빅토리아", "엠버", "루나", "크리스탈"];
-    var 공주시 = ["LE", "하니", "정화", "혜린", "솔지"];
-  }*/
+
   var target = document.getElementById("localChildTwo");
 
   if (localChildOne == "강남구") var localChildTwo = 강남구;
@@ -1003,29 +1000,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 자동 슬라이드 재시작
   startInterval();
 });
-/*
-//newheader.html js
-document
-  .getElementById("openSelectButton")
-  .addEventListener("click", function (event) {
-    var selectBox = document.getElementById("mySelect");
-    selectBox.classList.toggle("hidden");
-    event.stopPropagation();
-  });
 
-document.body.addEventListener("click", function (event) {
-  var selectBox = document.getElementById("mySelect");
-  var openButton = document.getElementById("openSelectButton");
-
-  if (
-    event.target !== selectBox &&
-    event.target !== openButton &&
-    !selectBox.contains(event.target)
-  ) {
-    selectBox.classList.add("hidden");
-  }
-});
-*/
 // newHeader.html js 기능
 document.body.addEventListener("click", function (event) {
   var selectBox = document.getElementById("mySelect");
@@ -1041,31 +1016,6 @@ document.body.addEventListener("click", function (event) {
     selectBox.classList.add("hidden");
   }
 });
-
-// $(document).ready(function() {
-//   var postSido = sessionStorage.getItem("postSido");
-//   var postGugun = sessionStorage.getItem("postGugun");
-//   var postDong = sessionStorage.getItem("postDong");
-
-//   if(postSido){
-//     $('#localParent').val(postSido).prop("selected",true);
-//     var ps = $('#localParent').val();
-//     ps = postSido;
-//   }
-
-//   if(postGugun){
-//     $('#localChileOne').val(postGugun).prop("selected",true);
-//     $('#localParent').val(postSido).prop("selected",true);
-//     var ps = $('#localParent').val();
-//     ps = postSido;
-//     var pg = $('#localChileOne').val();
-//     pg = postGugun;
-//   }
-
-//   if(postDong){
-//     $('#localParent').val(postDong).prop("selected",true);
-//   }
-// })
 
 $(document).ready(function () {
   var postSidoValue = $("#localParent").val();

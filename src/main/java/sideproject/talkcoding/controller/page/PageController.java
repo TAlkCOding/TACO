@@ -15,14 +15,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import lombok.extern.slf4j.Slf4j;
 import sideproject.talkcoding.model.entity.image.ProfileEntity;
 import sideproject.talkcoding.model.entity.post.PostEntity;
 import sideproject.talkcoding.service.image.ProfileService;
 import sideproject.talkcoding.service.post.PostService;
 
 @Controller
-@Slf4j
 public class PageController {
 
     @Autowired
@@ -39,7 +37,6 @@ public class PageController {
        
         // /, post_detial 파일에 사용하는 프로필 가져오기
         if(userIndex != null){
-            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
             // session이 있을 때 true 반환해 login된 header사용
             model.addAttribute("alreadyHaveSession", "true");
@@ -85,7 +82,6 @@ public class PageController {
 
         // /, post_detial 파일에 사용하는 프로필 가져오기
         if(userIndex != null){
-            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
             // session이 있을 때 true 반환해 login된 header사용
             model.addAttribute("alreadyHaveSession", "true");
@@ -129,7 +125,6 @@ public class PageController {
 
         // /, post_detial 파일에 사용하는 프로필 가져오기
         if(userIndex != null){
-            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
             // session이 있을 때 true 반환해 login된 header사용
             model.addAttribute("alreadyHaveSession", "true");
@@ -173,7 +168,6 @@ public class PageController {
         model.addAttribute("postDong", postDong);
         // /, post_detial 파일에 사용하는 프로필 가져오기
         if(userIndex != null){
-            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
             // session이 있을 때 true 반환해 login된 header사용
             model.addAttribute("alreadyHaveSession", "true");
@@ -214,7 +208,6 @@ public class PageController {
         Long userIndex = (Long) session.getAttribute("userIndex"); 
         // /, post_detial 파일에 사용하는 프로필 가져오기
         if(userIndex != null){
-            log.info(userIndex.toString());
             Optional<ProfileEntity> userProfile = profileService.findProfileEntity(userIndex);
             // session이 있을 때 true 반환해 login된 header사용
             model.addAttribute("alreadyHaveSession", "true");

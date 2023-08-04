@@ -192,7 +192,7 @@ button:focus {
 }
 
 .signIn {
-  width: 72px;
+  width: 80px;
   height: 41px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -207,7 +207,7 @@ button:focus {
 }
 
 .joinMembership {
-  width: 72px;
+  width: 80px;
   height: 41px;
   background-color: #5555ff;
   border-radius: 8px;

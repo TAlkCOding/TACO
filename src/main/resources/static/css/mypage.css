@@ -63,14 +63,14 @@ a {
 }
 
 .topButton {
-  width: 144px;
+  width: 160px;
   height: 41px;
   display: flex;
   justify-content: space-between;
 }
 
 .writingWord {
-  width: 72px;
+  width: 80px;
   height: 41px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -85,7 +85,7 @@ a {
 }
 
 .profileBox {
-  width: 72px;
+  width: 80px;
   height: 41px;
   display: flex;
   align-items: center; /*세로축*/

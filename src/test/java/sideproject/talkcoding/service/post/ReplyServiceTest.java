@@ -10,12 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import lombok.extern.slf4j.Slf4j;
 import sideproject.talkcoding.model.dto.post.ReplyDto;
 import sideproject.talkcoding.model.entity.post.ReplyEntity;
 
 @SpringBootTest
-@Slf4j
 public class ReplyServiceTest {
     
     @Autowired
@@ -34,8 +32,7 @@ public class ReplyServiceTest {
 
         //when
         ReplyEntity expected = replyService.save(reply, userIndex, postIndex);
-        log.info(expected.getReplyIndex().toString());
-
+        
         //then
         assertThat(expected.getReplyDescription()).isEqualTo(reply.getReplyDescription());
         assertThat(expected.getReplyPostIndex()).isEqualTo(postIndex);

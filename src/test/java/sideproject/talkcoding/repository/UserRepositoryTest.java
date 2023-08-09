@@ -12,11 +12,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import lombok.extern.slf4j.Slf4j;
 import sideproject.talkcoding.model.entity.user.UserEntity;
 
 @SpringBootTest
-@Slf4j
 public class UserRepositoryTest {
 
     @Autowired
@@ -54,10 +52,8 @@ public class UserRepositoryTest {
 
         if(dupId.isEmpty()){
             userRepository.save(user2);
-            log.info("create Id!!");
         }
         else{
-            log.info("duplicate ID!!");
         }
         //then
 
@@ -93,12 +89,7 @@ public class UserRepositoryTest {
 
         if(dupId.isEmpty()){
             userRepository.save(user2);
-            log.info("create Id!!");
         }
-        else{
-            log.info("duplicate NickName!!");
-        }
-
         //then
         Assertions.assertThat(userRepository.findById(2L)).isEmpty();
     }
@@ -132,7 +123,6 @@ public class UserRepositoryTest {
         Optional<UserEntity> dupUserNickName = userRepository.findByUserNickName(user2NickName);
 
         if(dupUserId.isEmpty() && dupUserNickName.isEmpty()){
-            log.info("signup clear!");
             userRepository.save(user2);
         }
 
